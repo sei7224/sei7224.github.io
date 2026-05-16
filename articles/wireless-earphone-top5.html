@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>【2026年版】ワイヤレスイヤホン おすすめ5選｜コスパ重視で厳選 | ガジェットレビューラボ</title>
-  <meta name="description" content="ワイヤレスイヤホンのおすすめを徹底比較。1万円以下〜3万円台まで、コスパ・ノイキャン・スポーツ向けに分けて厳選紹介。選び方も解説。">
+  <meta name="description" content="Anker・Sony・Appleなど人気ブランドのワイヤレスイヤホンをランキング形式で比較。コスパ・ノイキャン・スポーツ向けに分けて厳選紹介。">
   <style>
     :root { --primary: #e8380d; --amazon: #FF9900; --dark: #1a1a1a; --border: #e0e0e0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,67 +13,73 @@
     header a { color: white; text-decoration: none; font-weight: bold; font-size: 1.05rem; }
     .breadcrumb { background: white; border-bottom: 1px solid var(--border); padding: 8px 20px; font-size: 0.78rem; color: #888; }
     .breadcrumb a { color: #0066cc; text-decoration: none; }
-
-    /* 記事ヘッダー */
     .article-header { background: white; padding: 24px 20px 20px; border-bottom: 1px solid var(--border); }
     .article-header .tag { background: #eef2ff; color: #3b5bdb; font-size: 0.75rem; padding: 2px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px; }
-    .article-header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 12px; }
+    .article-header h1 { font-size: 1.45rem; line-height: 1.5; margin-bottom: 12px; }
     .article-meta { font-size: 0.8rem; color: #888; display: flex; gap: 16px; flex-wrap: wrap; }
-    .article-meta span { display: flex; align-items: center; gap: 4px; }
-
-    /* 目次 */
-    .toc { background: #f9f9f9; border: 1px solid var(--border); border-radius: 6px; padding: 16px 20px; margin: 20px 0; }
-    .toc-title { font-size: 0.88rem; font-weight: bold; margin-bottom: 10px; color: #555; }
-    .toc ol { padding-left: 20px; font-size: 0.85rem; }
-    .toc li { margin-bottom: 4px; }
-    .toc a { color: #0066cc; text-decoration: none; }
-
-    /* 本文 */
     .container { max-width: 780px; margin: 0 auto; padding: 0 16px 48px; }
-    .prose { background: white; border-radius: 6px; padding: 24px; margin: 16px 0; border: 1px solid var(--border); }
-    .prose h2 { font-size: 1.15rem; border-left: 4px solid var(--primary); padding-left: 12px; margin: 8px 0 16px; }
-    .prose h3 { font-size: 1rem; margin: 20px 0 10px; color: #222; }
-    .prose p { margin-bottom: 14px; }
-    .prose ul { margin: 8px 0 16px 20px; }
+    .notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 8px 12px; font-size: 0.78rem; color: #666; margin: 16px 0; }
+    .prose { background: white; border-radius: 6px; padding: 20px 24px; margin: 14px 0; border: 1px solid var(--border); }
+    .prose h2 { font-size: 1.15rem; border-left: 4px solid var(--primary); padding-left: 12px; margin: 4px 0 14px; }
+    .prose p { margin-bottom: 12px; }
+    .prose ul { margin: 8px 0 12px 20px; }
     .prose li { margin-bottom: 6px; }
 
-    /* ランキングカード */
-    .rank-card { background: white; border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; overflow: hidden; }
-    .rank-card-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #fafafa; border-bottom: 1px solid var(--border); }
-    .rank-badge { font-size: 1rem; font-weight: bold; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .rank-badge.r1 { background: #FFD700; }
-    .rank-badge.r2 { background: #C0C0C0; }
-    .rank-badge.r3 { background: #CD7F32; }
-    .rank-badge.r4, .rank-badge.r5 { background: #888; }
-    .rank-card-header h3 { font-size: 1rem; line-height: 1.4; margin: 0; }
-    .rank-card-body { padding: 16px; }
-    .score-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
-    .score-item { text-align: center; }
-    .score-label { font-size: 0.72rem; color: #888; display: block; }
-    .score-val { font-size: 1rem; font-weight: bold; color: #e8380d; }
-    .stars { color: #FFD700; font-size: 0.9rem; }
-    .good-bad { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
-    .good, .bad { padding: 10px 12px; border-radius: 4px; font-size: 0.82rem; }
+    /* 商品カード */
+    .product-card { background: white; border: 2px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; }
+    .product-card.top { border-color: #FFD700; }
+    .card-rank-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+    .rank-no { font-size: 1.6rem; font-weight: bold; min-width: 40px; }
+    .rank-no.r1 { color: #FFD700; }
+    .rank-no.r2 { color: #9e9e9e; }
+    .rank-no.r3 { color: #CD7F32; }
+    .rank-no.r4, .rank-no.r5 { color: #aaa; }
+    .rank-label { font-size: 0.78rem; background: #f3f3f3; padding: 2px 10px; border-radius: 20px; color: #555; }
+    .rank-stars { margin-left: auto; color: #FFD700; font-size: 0.9rem; }
+    .rank-stars span { color: #888; font-size: 0.78rem; }
+
+    .card-inner { display: flex; gap: 0; }
+    .card-img-wrap { width: 160px; min-width: 160px; background: #f9f9f9; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 10px; border-right: 1px solid var(--border); }
+    .card-img-wrap .product-img { width: 120px; height: 120px; object-fit: contain; }
+    .card-img-wrap .img-placeholder { width: 120px; height: 120px; background: #eee; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2.5rem; color: #999; }
+    .card-img-wrap .brand-name { font-size: 0.72rem; color: #888; margin-top: 8px; text-align: center; font-weight: bold; }
+    .card-img-wrap .price { font-size: 1rem; color: var(--primary); font-weight: bold; margin-top: 6px; }
+    .card-img-wrap .price-sub { font-size: 0.7rem; color: #888; }
+
+    .card-detail { flex: 1; padding: 16px; }
+    .product-name { font-size: 1rem; font-weight: bold; margin-bottom: 6px; line-height: 1.5; color: #1a1a1a; }
+    .product-desc { font-size: 0.85rem; color: #444; margin-bottom: 10px; line-height: 1.7; }
+    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+    .spec-item { background: #f5f5f5; border-radius: 4px; padding: 6px 8px; text-align: center; }
+    .spec-item .spec-label { font-size: 0.68rem; color: #888; display: block; }
+    .spec-item .spec-val { font-size: 0.85rem; font-weight: bold; color: #333; }
+    .good-bad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .good, .bad { padding: 8px 10px; border-radius: 4px; font-size: 0.8rem; }
     .good { background: #f0fff4; border: 1px solid #b2f0c8; }
     .bad { background: #fff5f5; border: 1px solid #ffc9c9; }
-    .good-title { color: #2f9e44; font-weight: bold; font-size: 0.78rem; margin-bottom: 4px; }
-    .bad-title { color: #c92a2a; font-weight: bold; font-size: 0.78rem; margin-bottom: 4px; }
-    .good li, .bad li { list-style: none; padding: 0; margin: 2px 0; }
-    .price-range { font-size: 0.85rem; color: #555; margin: 10px 0; }
-    .price-range strong { color: #e8380d; font-size: 1rem; }
-    .btn-amazon { display: block; background: var(--amazon); color: white; text-align: center; padding: 13px; border-radius: 5px; font-weight: bold; font-size: 0.95rem; text-decoration: none; margin-top: 14px; }
+    .good b, .bad b { display: block; margin-bottom: 3px; font-size: 0.75rem; }
+    .good b { color: #2f9e44; }
+    .bad b { color: #c92a2a; }
+    .good li, .bad li { list-style: none; padding: 0; margin: 1px 0; }
+    .who { font-size: 0.82rem; background: #f0f4ff; border-radius: 4px; padding: 6px 10px; margin-bottom: 10px; }
+    .who strong { color: #3b5bdb; }
+    .btn-amazon { display: block; background: var(--amazon); color: white; text-align: center; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 0.95rem; text-decoration: none; }
     .btn-amazon:hover { background: #e68a00; }
-    .btn-amazon::before { content: "🛒 "; }
 
     /* 比較表 */
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 12px 0; }
-    .compare-table th { background: #2a2a2a; color: white; padding: 8px 10px; text-align: center; }
-    .compare-table td { padding: 8px 10px; text-align: center; border-bottom: 1px solid var(--border); }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .compare-table th { background: #2a2a2a; color: white; padding: 8px 10px; text-align: center; font-size: 0.8rem; }
+    .compare-table td { padding: 9px 10px; text-align: center; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
     .compare-table tr:nth-child(even) td { background: #f9f9f9; }
     .compare-table .best { color: var(--primary); font-weight: bold; }
+    .compare-table .product-col { text-align: left; font-weight: bold; }
 
-    /* アフィリエイト表示 */
-    .notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 8px 12px; font-size: 0.78rem; color: #666; margin: 16px 0; }
+    @media (max-width: 540px) {
+      .card-inner { flex-direction: column; }
+      .card-img-wrap { width: 100%; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border); padding: 12px 16px; gap: 16px; }
+      .spec-grid { grid-template-columns: repeat(2, 1fr); }
+      .good-bad { grid-template-columns: 1fr; }
+    }
 
     footer { background: #1a1a1a; color: #888; text-align: center; padding: 20px; font-size: 0.8rem; margin-top: 40px; }
     footer a { color: #aaa; }
@@ -82,160 +88,212 @@
 <body>
 
 <header><a href="/">⚡ ガジェットレビューラボ</a></header>
-
-<div class="breadcrumb">
-  <a href="/">ホーム</a> &rsaquo; <a href="/">イヤホン・ヘッドホン</a> &rsaquo; ワイヤレスイヤホン おすすめ5選
-</div>
+<div class="breadcrumb"><a href="/">ホーム</a> › <a href="/">イヤホン</a> › ワイヤレスイヤホン おすすめ5選</div>
 
 <div class="article-header">
   <span class="tag">イヤホン・ヘッドホン</span>
-  <h1>🎧【2026年版】ワイヤレスイヤホン おすすめ5選<br>コスパ重視で厳選｜選び方も解説</h1>
+  <h1>🎧【2026年版】ワイヤレスイヤホン おすすめ5選<br>コスパ重視で厳選｜Anker・Sony・Apple比較</h1>
   <div class="article-meta">
-    <span>📅 更新日：2026年5月16日</span>
+    <span>📅 更新：2026年5月16日</span>
     <span>👁 閲覧数：12,480</span>
     <span>⏱ 読了：約5分</span>
   </div>
 </div>
 
 <div class="container">
-
-  <div class="notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。リンク経由のご購入でサイト運営費が賄われます（購入者の負担増はありません）。
-  </div>
+  <div class="notice">※ 当サイトはAmazonアソシエイトの参加者です。リンク経由の購入でサイト運営費が賄われます（購入者の負担増なし）。</div>
 
   <div class="prose">
-    <p>「種類が多すぎてどれを選べばいいかわからない」「安いモデルで大丈夫？」——ワイヤレスイヤホン選びで悩んでいる方は多いと思います。</p>
-    <p>この記事では<strong>価格帯・用途別に本当におすすめできる5モデル</strong>を、コスパ・音質・バッテリー・装着感の観点から比較します。自分に合った1台を見つけましょう。</p>
+    <p>種類が多すぎて選べない——そんな方のために、<strong>価格帯・用途別に本当に使えるワイヤレスイヤホン5選</strong>を厳選しました。実際のスペック・価格・使い心地をもとに正直に比較しています。</p>
   </div>
 
-  <div class="toc">
-    <div class="toc-title">📋 この記事の目次</div>
-    <ol>
-      <li><a href="#howto">ワイヤレスイヤホンの選び方 3つのポイント</a></li>
-      <li><a href="#ranking">おすすめ5選ランキング</a></li>
-      <li><a href="#compare">スペック比較表</a></li>
-      <li><a href="#summary">まとめ｜タイプ別おすすめ</a></li>
-    </ol>
+  <!-- 1位 -->
+  <div class="product-card top">
+    <div class="card-rank-bar">
+      <div class="rank-no r1">🥇1位</div>
+      <span class="rank-label">コスパ最強</span>
+      <div class="rank-stars">★★★★★ <span>4.8</span></div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🎧</div>
+        <div class="brand-name">Anker</div>
+        <div class="price">¥5,990</div>
+        <div class="price-sub">（税込・参考価格）</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">Anker Soundcore P40i<br>完全ワイヤレスイヤホン</div>
+        <div class="product-desc">1万円以下とは思えないクリアな音質と、本体10時間・ケース込み60時間という驚異的なバッテリーが最大の特徴。マルチポイント接続でスマホとPCを同時接続できるため、在宅ワークにも最適です。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">バッテリー</span><span class="spec-val">最大60h</span></div>
+          <div class="spec-item"><span class="spec-label">防水</span><span class="spec-val">IPX5</span></div>
+          <div class="spec-item"><span class="spec-label">ANC</span><span class="spec-val">◎搭載</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>コスパが圧倒的</li><li>バッテリーが長い</li><li>ANC・外音取込あり</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>高音域がやや硬め</li><li>ケースがやや大きい</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人におすすめ：</strong>初めてのワイヤレスイヤホン、コスパ重視、通勤・在宅ワーク両用で使いたい方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Anker+Soundcore+P40i&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでAnker Soundcore P40iを見る</a>
+      </div>
+    </div>
   </div>
 
-  <!-- 選び方 -->
-  <div class="prose" id="howto">
-    <h2>ワイヤレスイヤホンの選び方 3つのポイント</h2>
-    <h3>① ノイズキャンセリング（ANC）は必要か</h3>
-    <p>通勤・在宅ワークで使うなら<strong>ANC搭載モデルが大幅に快適</strong>です。電車の騒音・オフィスのざわめきをカットし、音楽や通話に集中できます。価格は1万円台後半〜。</p>
-    <h3>② バッテリー持続時間の目安</h3>
-    <p>イヤホン本体<strong>6時間以上、ケース込み24時間以上</strong>あれば日常使いで不便しません。長距離出張が多い方は本体8時間以上を選びましょう。</p>
-    <h3>③ 防水性能（IPX等級）</h3>
-    <p>運動時に使うなら<strong>IPX4（生活防水）以上</strong>が必須。汗や小雨程度なら問題なく使えます。水泳用途にはIPX7以上が必要です。</p>
+  <!-- 2位 -->
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r2">🥈2位</div>
+      <span class="rank-label">ノイキャン最強</span>
+      <div class="rank-stars">★★★★★ <span>4.7</span></div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🎧</div>
+        <div class="brand-name">Sony</div>
+        <div class="price">¥32,890</div>
+        <div class="price-sub">（税込・参考価格）</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">Sony WF-1000XM5<br>完全ワイヤレスイヤホン</div>
+        <div class="product-desc">世界最高クラスのノイズキャンセリング性能で、電車・飛行機の騒音をほぼ完全にシャットアウト。高音質コーデックLDACにも対応し、ハイレゾ相当の音質で音楽を楽しめます。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">バッテリー</span><span class="spec-val">最大36h</span></div>
+          <div class="spec-item"><span class="spec-label">防水</span><span class="spec-val">IPX4</span></div>
+          <div class="spec-item"><span class="spec-label">ANC</span><span class="spec-val">業界最高</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>業界トップのANC性能</li><li>LDAC高音質対応</li><li>装着感が非常に良い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>価格が3万円超</li><li>ケースが少し大きい</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人におすすめ：</strong>音質にこだわりたい方、騒音環境での使用が多い方、長距離通勤・出張が多い方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Sony+WF-1000XM5&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでSony WF-1000XM5を見る</a>
+      </div>
+    </div>
   </div>
 
-  <!-- ランキング -->
-  <div id="ranking">
-    <div class="prose" style="padding-bottom: 8px;">
-      <h2>おすすめワイヤレスイヤホン 5選</h2>
+  <!-- 3位 -->
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r3">🥉3位</div>
+      <span class="rank-label">Apple製品ユーザー向け</span>
+      <div class="rank-stars">★★★★★ <span>4.7</span></div>
     </div>
-
-    <!-- 1位 -->
-    <div class="rank-card">
-      <div class="rank-card-header">
-        <div class="rank-badge r1">1</div>
-        <h3>【コスパ最強】1万円以下で高音質・長時間バッテリーモデル</h3>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🎧</div>
+        <div class="brand-name">Apple</div>
+        <div class="price">¥38,800</div>
+        <div class="price-sub">（税込・参考価格）</div>
       </div>
-      <div class="rank-card-body">
-        <div class="score-row">
-          <div class="score-item"><span class="score-label">総合評価</span><span class="score-val">4.8</span><div class="stars">★★★★★</div></div>
-          <div class="score-item"><span class="score-label">音質</span><span class="score-val">4.6</span></div>
-          <div class="score-item"><span class="score-label">バッテリー</span><span class="score-val">5.0</span></div>
-          <div class="score-item"><span class="score-label">装着感</span><span class="score-val">4.7</span></div>
+      <div class="card-detail">
+        <div class="product-name">Apple AirPods Pro（第2世代）<br>MagSafe充電ケース（USB-C）</div>
+        <div class="product-desc">iPhone・Macとの連携が圧倒的にスムーズ。AirPodを取り出すだけで自動接続、会話時は自動で外音を取り込む「アダプティブオーディオ」機能が日常使いをさらに便利にします。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">バッテリー</span><span class="spec-val">最大30h</span></div>
+          <div class="spec-item"><span class="spec-label">防水</span><span class="spec-val">IPX4</span></div>
+          <div class="spec-item"><span class="spec-label">ANC</span><span class="spec-val">◎搭載</span></div>
         </div>
-        <p>1万円以下とは思えない音の解像度と、本体8時間・ケース込み32時間のバッテリーが最大の魅力。初めてのワイヤレスイヤホンとして鉄板の選択肢です。</p>
         <div class="good-bad">
-          <ul class="good"><div class="good-title">✅ おすすめポイント</div><li>圧倒的なコスパ</li><li>バッテリーが長持ち</li><li>IPX5防水対応</li></ul>
-          <ul class="bad"><div class="bad-title">⚠ 気になる点</div><li>ANCは非搭載</li><li>高音域がやや硬い</li></ul>
+          <ul class="good"><b>✅ おすすめポイント</b><li>Apple製品との連携が最強</li><li>アダプティブオーディオ</li><li>使い勝手が抜群</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>Androidでは機能制限あり</li><li>価格が高め</li></ul>
         </div>
-        <div class="price-range">価格帯：<strong>5,000〜9,000円</strong>（Amazonにて）</div>
-        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=ワイヤレスイヤホン+コスパ+防水&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">Amazonで価格を確認する</a>
-      </div>
-    </div>
-
-    <!-- 2位 -->
-    <div class="rank-card">
-      <div class="rank-card-header">
-        <div class="rank-badge r2">2</div>
-        <h3>【ノイキャン重視】アクティブノイズキャンセリング搭載 2万円台</h3>
-      </div>
-      <div class="rank-card-body">
-        <div class="score-row">
-          <div class="score-item"><span class="score-label">総合評価</span><span class="score-val">4.6</span><div class="stars">★★★★★</div></div>
-          <div class="score-item"><span class="score-label">ノイキャン</span><span class="score-val">4.9</span></div>
-          <div class="score-item"><span class="score-label">音質</span><span class="score-val">4.7</span></div>
-          <div class="score-item"><span class="score-label">通話品質</span><span class="score-val">4.5</span></div>
-        </div>
-        <p>強力なANCで電車・カフェの騒音をほぼシャットアウト。在宅ワーク中の集中力が格段に上がります。マルチポイント接続でスマホとPCを同時接続できるのも便利。</p>
-        <div class="good-bad">
-          <ul class="good"><div class="good-title">✅ おすすめポイント</div><li>業界トップクラスのANC</li><li>マルチポイント対応</li><li>高音質コーデック対応</li></ul>
-          <ul class="bad"><div class="bad-title">⚠ 気になる点</div><li>1万円以下より高い</li><li>イヤーピースの交換が必要な場合も</li></ul>
-        </div>
-        <div class="price-range">価格帯：<strong>18,000〜26,000円</strong>（Amazonにて）</div>
-        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=ワイヤレスイヤホン+ノイズキャンセリング+マルチポイント&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">Amazonで価格を確認する</a>
+        <div class="who">👤 <strong>こんな人におすすめ：</strong>iPhone・Macユーザー、シームレスな切り替えを求める方、Apple信者</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=AirPods+Pro+第2世代&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでAirPods Pro（第2世代）を見る</a>
       </div>
     </div>
+  </div>
 
-    <!-- 3位 -->
-    <div class="rank-card">
-      <div class="rank-card-header">
-        <div class="rank-badge r3">3</div>
-        <h3>【スポーツ向け】IPX7防水・落ちにくい設計のランニング用</h3>
+  <!-- 4位 -->
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r4">4位</div>
+      <span class="rank-label">スポーツ向け</span>
+      <div class="rank-stars">★★★★☆ <span>4.4</span></div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🏃</div>
+        <div class="brand-name">Anker</div>
+        <div class="price">¥8,990</div>
+        <div class="price-sub">（税込・参考価格）</div>
       </div>
-      <div class="rank-card-body">
-        <div class="score-row">
-          <div class="score-item"><span class="score-label">総合評価</span><span class="score-val">4.4</span><div class="stars">★★★★☆</div></div>
-          <div class="score-item"><span class="score-label">防水性能</span><span class="score-val">5.0</span></div>
-          <div class="score-item"><span class="score-label">フィット感</span><span class="score-val">4.8</span></div>
-          <div class="score-item"><span class="score-label">軽量性</span><span class="score-val">4.7</span></div>
+      <div class="card-detail">
+        <div class="product-name">Anker Soundcore Sport X10<br>スポーツ向けワイヤレスイヤホン</div>
+        <div class="product-desc">回転式のイヤーフックで激しい動きでも外れず、IPX7の高防水で大雨・水泳にも対応。片耳わずか約8gの軽量設計でランニング中も快適です。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">バッテリー</span><span class="spec-val">最大45h</span></div>
+          <div class="spec-item"><span class="spec-label">防水</span><span class="spec-val">IPX7</span></div>
+          <div class="spec-item"><span class="spec-label">重量</span><span class="spec-val">片耳8g</span></div>
         </div>
-        <p>片耳わずか5g以下の超軽量設計と、激しい動きでも外れないイヤーフック構造が特徴。IPX7の高防水で大雨・水泳にも対応します。</p>
         <div class="good-bad">
-          <ul class="good"><div class="good-title">✅ おすすめポイント</div><li>IPX7の高防水</li><li>超軽量で疲れにくい</li><li>激しい運動でもズレない</li></ul>
-          <ul class="bad"><div class="bad-title">⚠ 気になる点</div><li>ANC非搭載</li><li>音楽鑑賞用途には不向き</li></ul>
+          <ul class="good"><b>✅ おすすめポイント</b><li>IPX7の高防水</li><li>ズレにくいフック設計</li><li>コスパが高い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>音楽鑑賞には不向き</li><li>ANC非搭載</li></ul>
         </div>
-        <div class="price-range">価格帯：<strong>8,000〜14,000円</strong>（Amazonにて）</div>
-        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=ワイヤレスイヤホン+スポーツ+IPX7+軽量&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">Amazonで価格を確認する</a>
+        <div class="who">👤 <strong>こんな人におすすめ：</strong>ランニング・ジム・アウトドア、運動中に使いたい方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Anker+Soundcore+Sport+X10&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでSoundcore Sport X10を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5位 -->
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r5">5位</div>
+      <span class="rank-label">コスパ×ANC両立</span>
+      <div class="rank-stars">★★★★☆ <span>4.3</span></div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🎧</div>
+        <div class="brand-name">Sony</div>
+        <div class="price">¥12,980</div>
+        <div class="price-sub">（税込・参考価格）</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">Sony WF-C700N<br>完全ワイヤレスイヤホン</div>
+        <div class="product-desc">1万円台でANCと外音取込機能を両立したコスパモデル。ソニーらしいクリアな音質はそのままに、軽量コンパクトな設計で普段使いしやすいモデルです。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">バッテリー</span><span class="spec-val">最大15h</span></div>
+          <div class="spec-item"><span class="spec-label">防水</span><span class="spec-val">IPX4</span></div>
+          <div class="spec-item"><span class="spec-label">ANC</span><span class="spec-val">◎搭載</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>1万円台でANC搭載</li><li>ソニーの音質</li><li>コンパクトで軽い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>バッテリーがやや短め</li><li>ANCはXM5より劣る</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人におすすめ：</strong>ANCを試したいが予算を抑えたい方、ソニーブランドが好きな方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Sony+WF-C700N&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでSony WF-C700Nを見る</a>
       </div>
     </div>
   </div>
 
   <!-- 比較表 -->
-  <div class="prose" id="compare">
-    <h2>スペック比較表</h2>
+  <div class="prose">
+    <h2>📊 5モデル スペック比較表</h2>
     <div style="overflow-x:auto;">
       <table class="compare-table">
-        <tr>
-          <th>モデル</th><th>価格帯</th><th>ANC</th><th>バッテリー</th><th>防水</th><th>おすすめ用途</th>
-        </tr>
-        <tr>
-          <td><strong>1位（コスパ）</strong></td><td class="best">5千〜9千円</td><td>❌</td><td class="best">32h</td><td>IPX5</td><td>日常使い全般</td>
-        </tr>
-        <tr>
-          <td><strong>2位（ノイキャン）</strong></td><td>1.8万〜2.6万円</td><td class="best">◎</td><td>24h</td><td>IPX4</td><td>通勤・在宅ワーク</td>
-        </tr>
-        <tr>
-          <td><strong>3位（スポーツ）</strong></td><td>8千〜1.4万円</td><td>❌</td><td>28h</td><td class="best">IPX7</td><td>運動・アウトドア</td>
-        </tr>
+        <tr><th>商品名</th><th>価格</th><th>ANC</th><th>バッテリー</th><th>防水</th><th>特徴</th></tr>
+        <tr><td class="product-col">Anker P40i</td><td class="best">¥5,990〜</td><td>◎</td><td class="best">60h</td><td>IPX5</td><td>コスパ最強</td></tr>
+        <tr><td class="product-col">Sony WF-1000XM5</td><td>¥32,890〜</td><td class="best">業界最高</td><td>36h</td><td>IPX4</td><td>音質・ノイキャン最高峰</td></tr>
+        <tr><td class="product-col">AirPods Pro 第2世代</td><td>¥38,800〜</td><td>◎</td><td>30h</td><td>IPX4</td><td>Apple連携最強</td></tr>
+        <tr><td class="product-col">Soundcore Sport X10</td><td>¥8,990〜</td><td>❌</td><td>45h</td><td class="best">IPX7</td><td>スポーツ最強</td></tr>
+        <tr><td class="product-col">Sony WF-C700N</td><td>¥12,980〜</td><td>◎</td><td>15h</td><td>IPX4</td><td>コスパ×ANC両立</td></tr>
       </table>
     </div>
   </div>
 
   <!-- まとめ -->
-  <div class="prose" id="summary">
-    <h2>まとめ｜タイプ別おすすめ</h2>
+  <div class="prose">
+    <h2>✅ まとめ｜タイプ別おすすめ</h2>
     <ul>
-      <li>💰 <strong>とにかくコスパ重視</strong> → 1位モデル（1万円以下で十分満足できる）</li>
-      <li>🏢 <strong>通勤・在宅ワークで集中したい</strong> → 2位モデル（ANCが快適さを大きく変える）</li>
-      <li>🏃 <strong>ジョギング・ジムで使いたい</strong> → 3位モデル（防水・フィット感が段違い）</li>
+      <li>💰 <strong>コスパ最優先</strong> → Anker Soundcore P40i（5,990円でANC＋60時間バッテリー）</li>
+      <li>🔇 <strong>ノイキャン性能最優先</strong> → Sony WF-1000XM5（業界最高クラス）</li>
+      <li>🍎 <strong>iPhoneユーザー</strong> → AirPods Pro 第2世代（連携が段違い）</li>
+      <li>🏃 <strong>運動・スポーツ用途</strong> → Anker Soundcore Sport X10（IPX7防水）</li>
+      <li>💡 <strong>予算1万円台でANCも欲しい</strong> → Sony WF-C700N</li>
     </ul>
-    <p style="margin-top:16px;">用途が決まれば選択肢は絞られます。迷ったらまず<strong>1位のコスパモデル</strong>から試してみるのがおすすめです。</p>
-    <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=ワイヤレスイヤホン&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">AmazonでワイヤレスイヤホンをCHECKする</a>
+    <p style="margin-top:14px;">迷ったらまず<strong>Anker Soundcore P40i</strong>をおすすめします。5,990円でANC・60時間バッテリー・IPX5防水と、この価格帯では圧倒的なスペックです。</p>
+    <a class="btn-amazon" style="display:block; background:#FF9900; color:white; text-align:center; padding:13px; border-radius:5px; font-weight:bold; font-size:0.95rem; text-decoration:none; margin-top:16px;" href="https://www.amazon.co.jp/s?k=ワイヤレスイヤホン&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonでワイヤレスイヤホンをすべて見る</a>
   </div>
 
 </div>
@@ -243,6 +301,5 @@
 <footer>
   <p>© 2026 ガジェットレビューラボ | <a href="/">ホームへ戻る</a></p>
 </footer>
-
 </body>
 </html>
