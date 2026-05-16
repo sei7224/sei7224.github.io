@@ -3,102 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ガジェットレビューラボ | 家電・ガジェット おすすめ比較</title>
-  <meta name="description" content="家電・ガジェットのおすすめ商品をわかりやすく紹介。比較・レビュー記事で失敗しない買い物をサポートします。">
+  <title>ガジェットレビューラボ | 家電・ガジェット おすすめ比較2026</title>
+  <meta name="description" content="家電・ガジェットの本当に使えるおすすめ商品をランキング形式で紹介。比較・レビュー記事で失敗しない買い物をサポートします。">
   <style>
+    :root {
+      --primary: #e8380d;
+      --primary-dark: #c22d0a;
+      --dark: #1a1a1a;
+      --gray: #f5f5f5;
+      --text: #333;
+      --border: #e0e0e0;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f8f9fa; }
-    header { background: #1a1a2e; color: white; padding: 16px 24px; }
-    header h1 { font-size: 1.4rem; }
-    header p { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
-    nav { background: #16213e; padding: 10px 24px; display: flex; gap: 20px; }
-    nav a { color: #eee; text-decoration: none; font-size: 0.9rem; }
-    nav a:hover { color: #4fc3f7; }
-    .hero { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; padding: 48px 24px; text-align: center; }
-    .hero h2 { font-size: 1.8rem; margin-bottom: 12px; }
-    .hero p { font-size: 1rem; color: #ccc; }
-    .container { max-width: 900px; margin: 0 auto; padding: 32px 16px; }
-    .section-title { font-size: 1.3rem; font-weight: bold; border-left: 4px solid #0f3460; padding-left: 12px; margin-bottom: 24px; }
-    .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-    .article-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
-    .article-card:hover { transform: translateY(-4px); }
-    .article-card .thumb { background: #e8f4f8; height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-    .article-card .content { padding: 16px; }
-    .article-card .tag { font-size: 0.75rem; color: white; background: #0f3460; border-radius: 4px; padding: 2px 8px; display: inline-block; margin-bottom: 8px; }
-    .article-card h3 { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
-    .article-card p { font-size: 0.85rem; color: #666; line-height: 1.6; }
-    .article-card a { text-decoration: none; color: inherit; }
-    .article-card .read-more { display: block; margin-top: 12px; text-align: right; font-size: 0.85rem; color: #0f3460; font-weight: bold; }
-    .affiliate-notice { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 12px 16px; margin: 32px 0; font-size: 0.82rem; color: #555; line-height: 1.7; }
-    footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 24px; font-size: 0.85rem; margin-top: 48px; }
-    footer a { color: #ccc; }
+    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: var(--text); background: #fff; font-size: 15px; }
+
+    /* ヘッダー */
+    header { background: var(--dark); color: white; padding: 0 20px; display: flex; align-items: center; height: 56px; gap: 12px; }
+    header .logo { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+    header .logo span { color: var(--primary); }
+    nav { background: #2a2a2a; overflow-x: auto; white-space: nowrap; }
+    nav a { display: inline-block; color: #ccc; text-decoration: none; padding: 10px 16px; font-size: 0.85rem; }
+    nav a:hover { color: white; background: #3a3a3a; }
+
+    /* ヒーロー */
+    .hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+    .hero h1 { font-size: 1.7rem; margin-bottom: 8px; line-height: 1.4; }
+    .hero h1 em { color: #FFD700; font-style: normal; }
+    .hero p { color: #bbb; font-size: 0.9rem; }
+
+    /* メインレイアウト */
+    .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+
+    /* セクションタイトル */
+    .section-head { display: flex; align-items: center; gap: 10px; margin: 32px 0 16px; }
+    .section-head h2 { font-size: 1.15rem; font-weight: bold; }
+    .section-head .badge { background: var(--primary); color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 3px; }
+
+    /* 記事カード */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white; transition: box-shadow 0.2s; text-decoration: none; color: inherit; display: block; }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .card-img { background: #f0f0f0; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; }
+    .card-rank { position: absolute; top: 8px; left: 8px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: bold; padding: 2px 8px; border-radius: 3px; }
+    .card-body { padding: 14px; }
+    .card-tag { font-size: 0.72rem; color: #666; border: 1px solid #ddd; border-radius: 3px; padding: 1px 6px; display: inline-block; margin-bottom: 6px; }
+    .card-title { font-size: 0.95rem; font-weight: bold; line-height: 1.5; margin-bottom: 8px; }
+    .card-stars { color: #FFD700; font-size: 0.85rem; margin-bottom: 4px; }
+    .card-stars span { color: #666; font-size: 0.8rem; margin-left: 4px; }
+    .card-desc { font-size: 0.82rem; color: #666; line-height: 1.6; margin-bottom: 10px; }
+    .card-cta { display: block; background: var(--primary); color: white; text-align: center; padding: 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+
+    /* ランキングリスト */
+    .rank-list { display: flex; flex-direction: column; gap: 12px; }
+    .rank-item { border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: inherit; transition: box-shadow 0.2s; }
+    .rank-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .rank-num { font-size: 1.8rem; font-weight: bold; color: #ccc; min-width: 36px; text-align: center; }
+    .rank-num.gold { color: #FFD700; }
+    .rank-num.silver { color: #C0C0C0; }
+    .rank-num.bronze { color: #CD7F32; }
+    .rank-emoji { font-size: 2.2rem; min-width: 50px; text-align: center; }
+    .rank-info { flex: 1; }
+    .rank-tag { font-size: 0.72rem; color: #666; border: 1px solid #ddd; border-radius: 3px; padding: 1px 6px; display: inline-block; margin-bottom: 4px; }
+    .rank-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 4px; line-height: 1.4; }
+    .rank-stars { color: #FFD700; font-size: 0.82rem; }
+    .rank-stars span { color: #666; font-size: 0.78rem; }
+    .rank-desc { font-size: 0.82rem; color: #666; margin-top: 4px; }
+    .rank-btn { background: #FF9900; color: white; border: none; border-radius: 4px; padding: 8px 16px; font-size: 0.82rem; font-weight: bold; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-block; }
+
+    /* 信頼バッジ */
+    .trust-bar { background: #f9f9f9; border: 1px solid #eee; border-radius: 8px; padding: 16px; display: flex; gap: 24px; flex-wrap: wrap; margin: 24px 0; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #555; }
+    .trust-item .icon { font-size: 1.1rem; }
+
+    /* アフィリエイト表示 */
+    .affiliate-notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 10px 14px; font-size: 0.78rem; color: #666; margin: 20px 0; line-height: 1.7; }
+
+    footer { background: #1a1a1a; color: #888; text-align: center; padding: 24px; font-size: 0.82rem; margin-top: 48px; }
+    footer a { color: #aaa; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>⚡ ガジェットレビューラボ</h1>
-  <p>家電・ガジェットのおすすめ商品を徹底比較</p>
+  <a class="logo" href="/"><span>⚡</span>ガジェットレビューラボ</a>
 </header>
-
 <nav>
   <a href="/">ホーム</a>
-  <a href="#earphone">イヤホン</a>
-  <a href="#vacuum">掃除機</a>
-  <a href="#pc">PC周辺機器</a>
-  <a href="#smart">スマート家電</a>
+  <a href="#">イヤホン・ヘッドホン</a>
+  <a href="#">掃除機・ロボット掃除機</a>
+  <a href="#">PC周辺機器</a>
+  <a href="#">スマート家電</a>
+  <a href="#">スマホアクセサリ</a>
 </nav>
 
 <div class="hero">
-  <h2>失敗しない家電・ガジェット選び</h2>
-  <p>最新のおすすめ商品をわかりやすく比較・紹介します</p>
+  <h1>家電・ガジェット選びで<em>失敗しない</em>ために</h1>
+  <p>実際の使用感・コスパ・口コミをもとに本当におすすめできる商品だけを厳選紹介</p>
 </div>
 
 <div class="container">
 
-  <div class="affiliate-notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。紹介リンクを経由してご購入いただくと、サイト運営者に紹介料が支払われます。商品価格や情報はAmazonの表示をご確認ください。
+  <div class="trust-bar">
+    <div class="trust-item"><span class="icon">✅</span> 忖度なしの正直レビュー</div>
+    <div class="trust-item"><span class="icon">🔄</span> 最新情報に随時更新</div>
+    <div class="trust-item"><span class="icon">💰</span> コスパ重視で厳選</div>
+    <div class="trust-item"><span class="icon">📊</span> スペック比較あり</div>
   </div>
 
-  <h2 class="section-title">新着記事</h2>
-  <div class="article-grid" id="article-list">
+  <div class="affiliate-notice">
+    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。記事内のリンクから購入いただくと、サイト運営の手数料が発生します（購入者の負担増なし）。
+  </div>
 
-    <div class="article-card">
-      <div class="thumb">🎧</div>
-      <div class="content">
-        <span class="tag">イヤホン</span>
-        <h3><a href="articles/wireless-earphone-top5.html">【2026年版】ワイヤレスイヤホン おすすめ5選｜コスパ重視で厳選</a></h3>
-        <p>1万円以下から3万円台まで、用途別に最適なモデルを紹介します。</p>
-        <a class="read-more" href="articles/wireless-earphone-top5.html">続きを読む →</a>
+  <!-- 人気記事ランキング -->
+  <div class="section-head">
+    <h2>🏆 人気記事ランキング</h2>
+    <span class="badge">2026年5月更新</span>
+  </div>
+
+  <div class="rank-list">
+    <a class="rank-item" href="articles/wireless-earphone-top5.html">
+      <div class="rank-num gold">1</div>
+      <div class="rank-emoji">🎧</div>
+      <div class="rank-info">
+        <span class="rank-tag">イヤホン</span>
+        <div class="rank-title">【2026年版】ワイヤレスイヤホン おすすめ5選｜コスパ重視で厳選</div>
+        <div class="rank-stars">★★★★★ <span>（閲覧数 12,480）</span></div>
+        <div class="rank-desc">1万円以下から3万円台まで、用途別に最適なモデルを比較。失敗しない選び方も解説。</div>
       </div>
-    </div>
+      <a class="rank-btn" href="articles/wireless-earphone-top5.html">記事を見る</a>
+    </a>
 
-    <div class="article-card">
-      <div class="thumb">🧹</div>
-      <div class="content">
-        <span class="tag">掃除機</span>
-        <h3><a href="articles/cordless-vacuum-compare.html">コードレス掃除機 人気モデル比較｜一人暮らし〜ファミリーまで</a></h3>
-        <p>吸引力・バッテリー・軽さの3軸で徹底比較。失敗しない選び方を解説。</p>
-        <a class="read-more" href="articles/cordless-vacuum-compare.html">続きを読む →</a>
+    <a class="rank-item" href="articles/cordless-vacuum-compare.html">
+      <div class="rank-num silver">2</div>
+      <div class="rank-emoji">🧹</div>
+      <div class="rank-info">
+        <span class="rank-tag">掃除機</span>
+        <div class="rank-title">コードレス掃除機 人気モデル比較｜一人暮らし〜ファミリーまで</div>
+        <div class="rank-stars">★★★★☆ <span>（閲覧数 9,201）</span></div>
+        <div class="rank-desc">吸引力・バッテリー・軽さの3軸で徹底比較。住まいの広さ別におすすめモデルを紹介。</div>
       </div>
-    </div>
+      <a class="rank-btn" href="articles/cordless-vacuum-compare.html">記事を見る</a>
+    </a>
 
-    <div class="article-card">
-      <div class="thumb">💻</div>
-      <div class="content">
-        <span class="tag">PC周辺機器</span>
-        <h3><a href="articles/web-camera-top5.html">在宅ワーク向けWebカメラ おすすめ5選｜画質・価格帯別</a></h3>
-        <p>テレワーク・オンライン会議に最適なWebカメラを予算別に紹介。</p>
-        <a class="read-more" href="articles/web-camera-top5.html">続きを読む →</a>
+    <a class="rank-item" href="articles/web-camera-top5.html">
+      <div class="rank-num bronze">3</div>
+      <div class="rank-emoji">💻</div>
+      <div class="rank-info">
+        <span class="rank-tag">PC周辺機器</span>
+        <div class="rank-title">在宅ワーク向けWebカメラ おすすめ5選｜画質・価格帯別</div>
+        <div class="rank-stars">★★★★☆ <span>（閲覧数 7,854）</span></div>
+        <div class="rank-desc">テレワーク・オンライン会議の印象をワンランクアップ。予算別に最適なモデルを厳選。</div>
       </div>
-    </div>
+      <a class="rank-btn" href="articles/web-camera-top5.html">記事を見る</a>
+    </a>
+  </div>
 
+  <!-- カテゴリ別おすすめ -->
+  <div class="section-head" style="margin-top:40px;">
+    <h2>📂 カテゴリ別おすすめ記事</h2>
+  </div>
+
+  <div class="card-grid">
+    <a class="card" href="articles/wireless-earphone-top5.html">
+      <div class="card-img">🎧<span class="card-rank">人気No.1</span></div>
+      <div class="card-body">
+        <span class="card-tag">イヤホン</span>
+        <div class="card-title">ワイヤレスイヤホン おすすめ5選【2026年版】</div>
+        <div class="card-stars">★★★★★ <span>4.8 / 5.0</span></div>
+        <div class="card-desc">コスパ・ノイキャン・スポーツ向けの3タイプを徹底比較</div>
+        <span class="card-cta">おすすめを見る →</span>
+      </div>
+    </a>
+
+    <a class="card" href="articles/cordless-vacuum-compare.html">
+      <div class="card-img">🧹</div>
+      <div class="card-body">
+        <span class="card-tag">掃除機</span>
+        <div class="card-title">コードレス掃除機 比較【住まい別おすすめ】</div>
+        <div class="card-stars">★★★★☆ <span>4.5 / 5.0</span></div>
+        <div class="card-desc">軽量〜パワーモデルまで、一人暮らし・ファミリー別に紹介</div>
+        <span class="card-cta">おすすめを見る →</span>
+      </div>
+    </a>
+
+    <a class="card" href="articles/web-camera-top5.html">
+      <div class="card-img">💻</div>
+      <div class="card-body">
+        <span class="card-tag">PC周辺機器</span>
+        <div class="card-title">Webカメラ おすすめ5選【テレワーク向け】</div>
+        <div class="card-stars">★★★★☆ <span>4.4 / 5.0</span></div>
+        <div class="card-desc">5,000円以下〜4Kモデルまで予算別に最適な1台を紹介</div>
+        <span class="card-cta">おすすめを見る →</span>
+      </div>
+    </a>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 ガジェットレビューラボ | <a href="#">プライバシーポリシー</a> | <a href="#">お問い合わせ</a></p>
+  <p>© 2026 ガジェットレビューラボ &nbsp;|&nbsp; <a href="#">プライバシーポリシー</a> &nbsp;|&nbsp; <a href="#">お問い合わせ</a></p>
+  <p style="margin-top:8px; font-size:0.75rem;">当サイトはAmazonアソシエイト・プログラムの参加者です。</p>
 </footer>
 
 </body>
