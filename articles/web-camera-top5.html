@@ -3,111 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>在宅ワーク向けWebカメラ おすすめ5選｜画質・価格帯別 | ガジェットレビューラボ</title>
-  <meta name="description" content="テレワーク・オンライン会議に最適なWebカメラを徹底比較。画質・価格帯別におすすめモデルを紹介します。">
+  <title>在宅ワーク向けWebカメラ おすすめ5選｜Logicool・Anker比較【2026年版】 | ガジェットレビューラボ</title>
+  <meta name="description" content="テレワーク向けWebカメラをLogicool・Ankerで徹底比較。5,000円以下〜4Kモデルまで予算別に最適な1台を紹介。">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f8f9fa; }
-    header { background: #1a1a2e; color: white; padding: 16px 24px; }
-    header a { color: white; text-decoration: none; font-size: 1.1rem; font-weight: bold; }
-    .breadcrumb { background: #eee; padding: 8px 24px; font-size: 0.82rem; color: #666; }
-    .breadcrumb a { color: #0f3460; text-decoration: none; }
-    .container { max-width: 800px; margin: 0 auto; padding: 32px 16px; }
-    .tag { font-size: 0.75rem; color: white; background: #0f3460; border-radius: 4px; padding: 3px 10px; display: inline-block; margin-bottom: 12px; }
-    h1 { font-size: 1.6rem; line-height: 1.5; margin-bottom: 12px; }
-    .meta { font-size: 0.82rem; color: #888; margin-bottom: 24px; }
-    .article-body { background: white; border-radius: 8px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); line-height: 1.9; }
-    .article-body h2 { font-size: 1.25rem; border-left: 4px solid #0f3460; padding-left: 12px; margin: 32px 0 16px; }
-    .article-body h3 { font-size: 1.05rem; margin: 24px 0 10px; color: #1a1a2e; background: #f0f4ff; padding: 8px 12px; border-radius: 4px; }
-    .article-body p { margin-bottom: 16px; }
-    .article-body ul { margin: 12px 0 20px 24px; }
-    .article-body li { margin-bottom: 8px; }
-    .amazon-btn { display: block; background: #FF9900; color: white; text-align: center; padding: 14px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1rem; margin: 16px 0; }
-    .amazon-btn:hover { background: #e68a00; }
-    .product-card { border: 2px solid #e8f0fe; border-radius: 8px; padding: 20px; margin: 24px 0; background: #fafcff; }
-    .rank { font-size: 1.1rem; font-weight: bold; color: #FF9900; margin-bottom: 8px; }
-    .affiliate-notice { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 12px 16px; margin: 24px 0; font-size: 0.82rem; color: #555; line-height: 1.7; }
-    footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 24px; font-size: 0.85rem; margin-top: 48px; }
-    footer a { color: #ccc; }
+    :root{--primary:#e8380d;--amazon:#FF9900;--dark:#1a1a1a;--border:#e0e0e0}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Hiragino Sans','Meiryo',sans-serif;color:#333;background:#f7f7f7;font-size:15px;line-height:1.8}
+    header{background:var(--dark);color:white;padding:0 20px;height:52px;display:flex;align-items:center}
+    header a{color:white;text-decoration:none;font-weight:bold}
+    .breadcrumb{background:white;border-bottom:1px solid var(--border);padding:8px 20px;font-size:.78rem;color:#888}
+    .breadcrumb a{color:#0066cc;text-decoration:none}
+    .article-header{background:white;padding:24px 20px 20px;border-bottom:1px solid var(--border)}
+    .tag{background:#eef2ff;color:#3b5bdb;font-size:.75rem;padding:2px 10px;border-radius:3px;display:inline-block;margin-bottom:10px}
+    h1{font-size:1.45rem;line-height:1.5;margin-bottom:12px}
+    .meta{font-size:.8rem;color:#888}
+    .container{max-width:780px;margin:0 auto;padding:0 16px 48px}
+    .notice{background:#fffbf0;border-left:3px solid #FFD700;padding:8px 12px;font-size:.78rem;color:#666;margin:16px 0}
+    .prose{background:white;border-radius:6px;padding:20px 24px;margin:14px 0;border:1px solid var(--border)}
+    .prose h2{font-size:1.1rem;border-left:4px solid var(--primary);padding-left:12px;margin:4px 0 14px}
+    .prose p{margin-bottom:12px}
+    .prose ul{margin:8px 0 12px 20px}
+    .prose li{margin-bottom:6px}
+    .product-card{background:white;border:2px solid var(--border);border-radius:10px;margin:16px 0;overflow:hidden}
+    .product-card.top{border-color:#FFD700}
+    .card-rank-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;background:#fafafa;border-bottom:1px solid var(--border)}
+    .rank-no{font-size:1.4rem;font-weight:bold;min-width:40px}
+    .rank-no.r1{color:#FFD700}.rank-no.r2{color:#9e9e9e}.rank-no.r3{color:#CD7F32}
+    .rank-label{font-size:.78rem;background:#f3f3f3;padding:2px 10px;border-radius:20px;color:#555}
+    .rank-stars{margin-left:auto;color:#FFD700;font-size:.9rem}
+    .card-inner{display:flex}
+    .card-img-wrap{width:150px;min-width:150px;background:#f9f9f9;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px;border-right:1px solid var(--border)}
+    .img-placeholder{width:110px;height:110px;background:#eee;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+    .brand-name{font-size:.72rem;color:#888;margin-top:8px;font-weight:bold}
+    .price{font-size:1rem;color:var(--primary);font-weight:bold;margin-top:6px}
+    .price-sub{font-size:.7rem;color:#888}
+    .card-detail{flex:1;padding:16px}
+    .product-name{font-size:1rem;font-weight:bold;margin-bottom:6px;line-height:1.5}
+    .product-desc{font-size:.85rem;color:#444;margin-bottom:10px;line-height:1.7}
+    .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+    .spec-item{background:#f5f5f5;border-radius:4px;padding:6px 8px;text-align:center}
+    .spec-label{font-size:.68rem;color:#888;display:block}
+    .spec-val{font-size:.85rem;font-weight:bold}
+    .good-bad{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+    .good{background:#f0fff4;border:1px solid #b2f0c8;padding:8px 10px;border-radius:4px;font-size:.8rem}
+    .bad{background:#fff5f5;border:1px solid #ffc9c9;padding:8px 10px;border-radius:4px;font-size:.8rem}
+    .good b{color:#2f9e44;display:block;margin-bottom:3px;font-size:.75rem}
+    .bad b{color:#c92a2a;display:block;margin-bottom:3px;font-size:.75rem}
+    .good li,.bad li{list-style:none;margin:1px 0}
+    .who{font-size:.82rem;background:#f0f4ff;border-radius:4px;padding:6px 10px;margin-bottom:10px}
+    .who strong{color:#3b5bdb}
+    .btn-amazon{display:block;background:var(--amazon);color:white;text-align:center;padding:12px;border-radius:5px;font-weight:bold;font-size:.95rem;text-decoration:none}
+    .compare-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    .compare-table th{background:#2a2a2a;color:white;padding:8px 10px;text-align:center;font-size:.8rem}
+    .compare-table td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--border)}
+    .compare-table tr:nth-child(even) td{background:#f9f9f9}
+    .best{color:var(--primary);font-weight:bold}
+    @media(max-width:540px){.card-inner{flex-direction:column}.card-img-wrap{width:100%;border-right:none;border-bottom:1px solid var(--border);flex-direction:row;gap:16px}.spec-grid{grid-template-columns:repeat(2,1fr)}.good-bad{grid-template-columns:1fr}}
+    footer{background:#1a1a1a;color:#888;text-align:center;padding:20px;font-size:.8rem;margin-top:40px;line-height:2}
+    footer a{color:#aaa;margin:0 6px}
   </style>
 </head>
 <body>
-
-<header>
-  <a href="/">⚡ ガジェットレビューラボ</a>
-</header>
-
-<div class="breadcrumb">
-  <a href="/">ホーム</a> &gt; PC周辺機器 &gt; Webカメラ おすすめ5選
-</div>
-
-<div class="container">
+<header><a href="/">⚡ ガジェットレビューラボ</a></header>
+<div class="breadcrumb"><a href="/">ホーム</a> › <a href="/">PC周辺機器</a> › Webカメラ おすすめ5選</div>
+<div class="article-header">
   <span class="tag">PC周辺機器</span>
-  <h1>💻 在宅ワーク向けWebカメラ おすすめ5選｜画質・価格帯別</h1>
-  <p class="meta">更新日：2026年5月16日</p>
+  <h1>💻 在宅ワーク向けWebカメラ おすすめ5選【2026年版】<br>Logicool・Anker・Microsoft 予算別に厳選</h1>
+  <p class="meta">📅 更新：2026年5月16日 &nbsp;⏱ 読了：約5分</p>
+</div>
+<div class="container">
+  <div class="notice">※ 当サイトはAmazonアソシエイトの参加者です。</div>
+  <div class="prose"><p>「テレワークで映像が暗い・ぼやける」「オンライン会議で第一印象を良くしたい」——Webカメラ1つで会議の印象は大きく変わります。この記事では<strong>予算別に本当に使えるWebカメラ5選</strong>を正直比較します。</p></div>
 
-  <div class="affiliate-notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。リンク経由でご購入いただくと紹介料が発生します。
+  <div class="product-card top">
+    <div class="card-rank-bar"><div class="rank-no r1">🥇1位</div><span class="rank-label">コスパ最強</span><div class="rank-stars">★★★★★ 4.7</div></div>
+    <div class="card-inner">
+      <div class="card-img-wrap"><div class="img-placeholder">📷</div><div class="brand-name">Logicool</div><div class="price">¥7,980〜</div><div class="price-sub">参考価格</div></div>
+      <div class="card-detail">
+        <div class="product-name">Logicool C920n HD Pro<br>ウェブカメラ</div>
+        <div class="product-desc">世界シェアNo.1のWebカメラブランドLogicoolの定番モデル。Full HD 1080p対応で自動光補正機能つき。暗い部屋でも明るくクリアに映ります。Zoom・Teams・Meetすべてに対応。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">解像度</span><span class="spec-val">1080p</span></div>
+          <div class="spec-item"><span class="spec-label">フレームレート</span><span class="spec-val">30fps</span></div>
+          <div class="spec-item"><span class="spec-label">マイク</span><span class="spec-val">内蔵◎</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>自動光補正で暗くても映る</li><li>設置が簡単</li><li>コスパが高い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>オートフォーカスなし</li><li>4Kには非対応</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>初めてWebカメラを買う方・週数回の会議程度の利用</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Logicool+C920n&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでLogicool C920nを見る</a>
+      </div>
+    </div>
   </div>
 
-  <div class="article-body">
-    <p>「テレワークの映像が暗い・ぼやける」「オンライン会議で見た目を良くしたい」——在宅ワークが普及した今、Webカメラは仕事の印象を左右する重要なアイテムです。この記事では画質・価格帯別に本当に使えるモデルだけを厳選しました。</p>
+  <div class="product-card">
+    <div class="card-rank-bar"><div class="rank-no r2">🥈2位</div><span class="rank-label">オートフォーカス重視</span><div class="rank-stars">★★★★★ 4.6</div></div>
+    <div class="card-inner">
+      <div class="card-img-wrap"><div class="img-placeholder">📷</div><div class="brand-name">Logicool</div><div class="price">¥14,800〜</div><div class="price-sub">参考価格</div></div>
+      <div class="card-detail">
+        <div class="product-name">Logicool BRIO 500<br>ウェブカメラ</div>
+        <div class="product-desc">RightLight 4技術で逆光でも顔が明るく映り、AIによる自動フレーミングで動いても常にフレーム内に収まります。Show Modeで手元を映す角度に切り替えできるのが便利。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">解像度</span><span class="spec-val">1080p</span></div>
+          <div class="spec-item"><span class="spec-label">フレームレート</span><span class="spec-val">60fps</span></div>
+          <div class="spec-item"><span class="spec-label">AI機能</span><span class="spec-val">◎搭載</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>AI自動フレーミング</li><li>Show Mode対応</li><li>逆光に強い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>1万円台と少し高め</li><li>4K非対応</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>毎日会議がある方・オンライン商談が多い方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Logicool+BRIO+500&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでLogicool BRIO 500を見る</a>
+      </div>
+    </div>
+  </div>
 
-    <h2>Webカメラの選び方 3つのポイント</h2>
+  <div class="product-card">
+    <div class="card-rank-bar"><div class="rank-no r3">🥉3位</div><span class="rank-label">コスパ×高画質</span><div class="rank-stars">★★★★☆ 4.4</div></div>
+    <div class="card-inner">
+      <div class="card-img-wrap"><div class="img-placeholder">📷</div><div class="brand-name">Anker</div><div class="price">¥5,990〜</div><div class="price-sub">参考価格</div></div>
+      <div class="card-detail">
+        <div class="product-name">Anker PowerConf C200<br>2K Webカメラ</div>
+        <div class="product-desc">5,990円で2K解像度（2560×1440）を実現したコスパモデル。AIノイズリダクションマイク内蔵で、周囲の雑音を抑えてクリアな音声で通話できます。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">解像度</span><span class="spec-val">2K</span></div>
+          <div class="spec-item"><span class="spec-label">フレームレート</span><span class="spec-val">30fps</span></div>
+          <div class="spec-item"><span class="spec-label">AIマイク</span><span class="spec-val">◎搭載</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>6千円で2K解像度</li><li>AIノイズキャンセルマイク</li><li>コンパクト設計</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>オートフォーカスなし</li><li>光補正はLogicoolより弱め</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>予算を抑えつつ画質も欲しい方・Ankerブランドが好きな方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Anker+PowerConf+C200&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでAnker C200を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h2>📊 スペック比較表</h2>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <tr><th>商品名</th><th>価格</th><th>解像度</th><th>オートフォーカス</th><th>おすすめ用途</th></tr>
+        <tr><td>Logicool C920n</td><td class="best">¥7,980〜</td><td>1080p</td><td>❌</td><td>日常のオンライン会議</td></tr>
+        <tr><td>Logicool BRIO 500</td><td>¥14,800〜</td><td>1080p/60fps</td><td class="best">◎AI搭載</td><td>毎日の会議・商談</td></tr>
+        <tr><td>Anker C200</td><td class="best">¥5,990〜</td><td class="best">2K</td><td>❌</td><td>コスパ重視</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h2>✅ まとめ</h2>
     <ul>
-      <li><strong>解像度</strong>：最低でもFull HD（1080p）を選ぶ。4Kは配信・高品質会議向け</li>
-      <li><strong>マイク内蔵かどうか</strong>：別途マイクが不要な内蔵マイク付きが便利</li>
-      <li><strong>オートフォーカス・低光量補正</strong>：暗い部屋でも綺麗に映る機能があると便利</li>
+      <li>💰 <strong>コスパ最優先</strong> → Anker C200（6千円で2K解像度）</li>
+      <li>📹 <strong>会議で好印象を与えたい</strong> → Logicool C920n（定番・安心）</li>
+      <li>🤖 <strong>AI機能・毎日ヘビーに使う</strong> → Logicool BRIO 500</li>
     </ul>
-
-    <h2>おすすめWebカメラ TOP5</h2>
-
-    <div class="product-card">
-      <div class="rank">第1位 ｜ コスパ最強</div>
-      <h3>【5,000円以下】Full HD対応 エントリーモデル</h3>
-      <p>5,000円以下でFull HD対応。シンプルなUSB接続でドライバー不要、挿すだけで使える手軽さが魅力。在宅ワーク初心者に最適なモデルです。</p>
-      <ul>
-        <li>向いている人：初めてWebカメラを買う方</li>
-        <li>解像度：1080p（Full HD）</li>
-        <li>接続：USB-A（ドライバー不要）</li>
-      </ul>
-      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=Webカメラ+1080p+テレワーク&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>
-    </div>
-
-    <div class="product-card">
-      <div class="rank">第2位 ｜ 中級者向け定番</div>
-      <h3>【1万円台】オートフォーカス＋低光量補正搭載</h3>
-      <p>動いても常にピントが合うオートフォーカスと、暗い部屋でも明るく映る低光量補正が搭載。毎日のオンライン会議をワンランク上の印象にできます。</p>
-      <ul>
-        <li>向いている人：毎日会議がある方・見た目を良くしたい方</li>
-        <li>解像度：1080p / 60fps</li>
-        <li>特徴：オートフォーカス・HDR対応</li>
-      </ul>
-      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=Webカメラ+オートフォーカス+在宅ワーク&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>
-    </div>
-
-    <div class="product-card">
-      <div class="rank">第3位 ｜ 配信・高品質会議向け</div>
-      <h3>【2〜3万円台】4K対応 プロ仕様モデル</h3>
-      <p>YouTube配信やポッドキャスト、高品質なビジネス会議に対応する4Kモデル。細部まで鮮明に映り、プロフェッショナルな印象を与えます。</p>
-      <ul>
-        <li>向いている人：配信者・経営者・重要なオンライン商談がある方</li>
-        <li>解像度：4K Ultra HD</li>
-        <li>特徴：広角レンズ・高品質マイク内蔵</li>
-      </ul>
-      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=Webカメラ+4K+配信&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>
-    </div>
-
-    <h2>まとめ</h2>
-    <p>Webカメラ選びは用途と予算で決まります。普段のテレワーク用なら1万円以下のFull HDモデルで十分。毎日会議がある方はオートフォーカス付きの中級モデルを、配信・重要商談には4Kモデルを検討してみてください。</p>
-
-    <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=Webカメラ+在宅ワーク&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでWebカメラをもっと見る</a>
+    <a style="display:block;background:#FF9900;color:white;text-align:center;padding:12px;border-radius:5px;font-weight:bold;text-decoration:none;margin-top:14px;" href="https://www.amazon.co.jp/s?k=Webカメラ+テレワーク&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでWebカメラをすべて見る</a>
   </div>
 </div>
-
-<footer>
-  <p>© 2026 ガジェットレビューラボ | <a href="/">ホームへ戻る</a></p>
-</footer>
-
+<footer><p><a href="/">ホーム</a><a href="/about.html">運営者情報</a><a href="/privacy.html">プライバシーポリシー</a><a href="/contact.html">お問い合わせ</a></p><p>© 2026 ガジェットレビューラボ</p></footer>
 </body>
 </html>

@@ -3,99 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>コードレス掃除機 人気モデル比較｜一人暮らし〜ファミリーまで | ガジェットレビューラボ</title>
-  <meta name="description" content="コードレス掃除機の人気モデルを徹底比較。吸引力・バッテリー・軽さの3軸で一人暮らしからファミリー向けまで紹介。">
+  <title>コードレス掃除機 おすすめ比較｜Dyson・マキタ・パナソニック【2026年版】 | ガジェットレビューラボ</title>
+  <meta name="description" content="コードレス掃除機の人気モデルをDyson・マキタ・パナソニックで徹底比較。一人暮らし〜ファミリー向けに最適な1台を紹介。">
   <style>
+    :root { --primary: #e8380d; --amazon: #FF9900; --dark: #1a1a1a; --border: #e0e0e0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f8f9fa; }
-    header { background: #1a1a2e; color: white; padding: 16px 24px; }
-    header a { color: white; text-decoration: none; font-size: 1.1rem; font-weight: bold; }
-    .breadcrumb { background: #eee; padding: 8px 24px; font-size: 0.82rem; color: #666; }
-    .breadcrumb a { color: #0f3460; text-decoration: none; }
-    .container { max-width: 800px; margin: 0 auto; padding: 32px 16px; }
-    .tag { font-size: 0.75rem; color: white; background: #0f3460; border-radius: 4px; padding: 3px 10px; display: inline-block; margin-bottom: 12px; }
-    h1 { font-size: 1.6rem; line-height: 1.5; margin-bottom: 12px; }
-    .meta { font-size: 0.82rem; color: #888; margin-bottom: 24px; }
-    .article-body { background: white; border-radius: 8px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); line-height: 1.9; }
-    .article-body h2 { font-size: 1.25rem; border-left: 4px solid #0f3460; padding-left: 12px; margin: 32px 0 16px; }
-    .article-body h3 { font-size: 1.05rem; margin: 24px 0 10px; color: #1a1a2e; background: #f0f4ff; padding: 8px 12px; border-radius: 4px; }
-    .article-body p { margin-bottom: 16px; }
-    .article-body ul { margin: 12px 0 20px 24px; }
-    .article-body li { margin-bottom: 8px; }
-    .amazon-btn { display: block; background: #FF9900; color: white; text-align: center; padding: 14px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1rem; margin: 16px 0; }
-    .amazon-btn:hover { background: #e68a00; }
-    .product-card { border: 2px solid #e8f0fe; border-radius: 8px; padding: 20px; margin: 24px 0; background: #fafcff; }
-    .rank { font-size: 1.1rem; font-weight: bold; color: #FF9900; margin-bottom: 8px; }
-    .affiliate-notice { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 12px 16px; margin: 24px 0; font-size: 0.82rem; color: #555; line-height: 1.7; }
-    footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 24px; font-size: 0.85rem; margin-top: 48px; }
-    footer a { color: #ccc; }
+    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f7f7f7; font-size: 15px; line-height: 1.8; }
+    header { background: var(--dark); color: white; padding: 0 20px; height: 52px; display: flex; align-items: center; }
+    header a { color: white; text-decoration: none; font-weight: bold; }
+    .breadcrumb { background: white; border-bottom: 1px solid var(--border); padding: 8px 20px; font-size: 0.78rem; color: #888; }
+    .breadcrumb a { color: #0066cc; text-decoration: none; }
+    .article-header { background: white; padding: 24px 20px 20px; border-bottom: 1px solid var(--border); }
+    .tag { background: #eef2ff; color: #3b5bdb; font-size: 0.75rem; padding: 2px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px; }
+    h1 { font-size: 1.45rem; line-height: 1.5; margin-bottom: 12px; }
+    .meta { font-size: 0.8rem; color: #888; }
+    .container { max-width: 780px; margin: 0 auto; padding: 0 16px 48px; }
+    .notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 8px 12px; font-size: 0.78rem; color: #666; margin: 16px 0; }
+    .prose { background: white; border-radius: 6px; padding: 20px 24px; margin: 14px 0; border: 1px solid var(--border); }
+    .prose h2 { font-size: 1.1rem; border-left: 4px solid var(--primary); padding-left: 12px; margin: 4px 0 14px; }
+    .prose p { margin-bottom: 12px; }
+    .prose ul { margin: 8px 0 12px 20px; }
+    .prose li { margin-bottom: 6px; }
+    .product-card { background: white; border: 2px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; }
+    .product-card.top { border-color: #FFD700; }
+    .card-rank-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: #fafafa; border-bottom: 1px solid var(--border); }
+    .rank-no { font-size: 1.4rem; font-weight: bold; min-width: 40px; }
+    .rank-no.r1 { color: #FFD700; }
+    .rank-no.r2 { color: #9e9e9e; }
+    .rank-no.r3 { color: #CD7F32; }
+    .rank-label { font-size: 0.78rem; background: #f3f3f3; padding: 2px 10px; border-radius: 20px; color: #555; }
+    .rank-stars { margin-left: auto; color: #FFD700; font-size: 0.9rem; }
+    .card-inner { display: flex; }
+    .card-img-wrap { width: 150px; min-width: 150px; background: #f9f9f9; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 10px; border-right: 1px solid var(--border); }
+    .img-placeholder { width: 110px; height: 110px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .brand-name { font-size: 0.72rem; color: #888; margin-top: 8px; font-weight: bold; }
+    .price { font-size: 1rem; color: var(--primary); font-weight: bold; margin-top: 6px; }
+    .price-sub { font-size: 0.7rem; color: #888; }
+    .card-detail { flex: 1; padding: 16px; }
+    .product-name { font-size: 1rem; font-weight: bold; margin-bottom: 6px; line-height: 1.5; }
+    .product-desc { font-size: 0.85rem; color: #444; margin-bottom: 10px; line-height: 1.7; }
+    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+    .spec-item { background: #f5f5f5; border-radius: 4px; padding: 6px 8px; text-align: center; }
+    .spec-label { font-size: 0.68rem; color: #888; display: block; }
+    .spec-val { font-size: 0.85rem; font-weight: bold; }
+    .good-bad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .good { background: #f0fff4; border: 1px solid #b2f0c8; padding: 8px 10px; border-radius: 4px; font-size: 0.8rem; }
+    .bad { background: #fff5f5; border: 1px solid #ffc9c9; padding: 8px 10px; border-radius: 4px; font-size: 0.8rem; }
+    .good b { color: #2f9e44; display: block; margin-bottom: 3px; font-size: 0.75rem; }
+    .bad b { color: #c92a2a; display: block; margin-bottom: 3px; font-size: 0.75rem; }
+    .good li, .bad li { list-style: none; margin: 1px 0; }
+    .who { font-size: 0.82rem; background: #f0f4ff; border-radius: 4px; padding: 6px 10px; margin-bottom: 10px; }
+    .who strong { color: #3b5bdb; }
+    .btn-amazon { display: block; background: var(--amazon); color: white; text-align: center; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 0.95rem; text-decoration: none; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .compare-table th { background: #2a2a2a; color: white; padding: 8px 10px; text-align: center; font-size: 0.8rem; }
+    .compare-table td { padding: 9px 10px; text-align: center; border-bottom: 1px solid var(--border); }
+    .compare-table tr:nth-child(even) td { background: #f9f9f9; }
+    .best { color: var(--primary); font-weight: bold; }
+    @media(max-width:540px){ .card-inner{flex-direction:column} .card-img-wrap{width:100%;border-right:none;border-bottom:1px solid var(--border);flex-direction:row;gap:16px;} .spec-grid{grid-template-columns:repeat(2,1fr)} .good-bad{grid-template-columns:1fr} }
+    footer { background: #1a1a1a; color: #888; text-align: center; padding: 20px; font-size: 0.8rem; margin-top: 40px; line-height: 2; }
+    footer a { color: #aaa; margin: 0 6px; }
   </style>
 </head>
 <body>
-
-<header>
-  <a href="/">⚡ ガジェットレビューラボ</a>
-</header>
-
-<div class="breadcrumb">
-  <a href="/">ホーム</a> &gt; 掃除機 &gt; コードレス掃除機 比較
-</div>
-
-<div class="container">
+<header><a href="/">⚡ ガジェットレビューラボ</a></header>
+<div class="breadcrumb"><a href="/">ホーム</a> › <a href="/">掃除機</a> › コードレス掃除機 おすすめ比較</div>
+<div class="article-header">
   <span class="tag">掃除機</span>
-  <h1>🧹 コードレス掃除機 人気モデル比較｜一人暮らし〜ファミリーまで</h1>
-  <p class="meta">更新日：2026年5月16日</p>
-
-  <div class="affiliate-notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。リンク経由でご購入いただくと紹介料が発生します。
+  <h1>🧹 コードレス掃除機 おすすめ比較【2026年版】<br>Dyson・マキタ・パナソニック 住まい別に厳選</h1>
+  <p class="meta">📅 更新：2026年5月16日 &nbsp;⏱ 読了：約5分</p>
+</div>
+<div class="container">
+  <div class="notice">※ 当サイトはAmazonアソシエイトの参加者です。リンク経由の購入でサイト運営費が賄われます。</div>
+  <div class="prose">
+    <p>「コードレス掃除機を買いたいけどDysonは高すぎる」「マキタって本当にいいの？」——この記事では<strong>Dyson・マキタ・パナソニックの人気モデルを住まいの広さ・用途別に正直比較</strong>します。</p>
   </div>
 
-  <div class="article-body">
-    <p>「コードレス掃除機を買いたいけど、吸引力が心配」「軽くて使いやすいモデルはどれ？」——コードレス掃除機は種類が豊富で選ぶのが難しいですよね。この記事では、吸引力・バッテリー・軽さの3軸で人気モデルを徹底比較します。</p>
+  <div class="product-card top">
+    <div class="card-rank-bar">
+      <div class="rank-no r1">🥇1位</div>
+      <span class="rank-label">軽量・コスパ最強</span>
+      <div class="rank-stars">★★★★★ 4.7</div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🧹</div>
+        <div class="brand-name">マキタ</div>
+        <div class="price">¥18,000〜</div>
+        <div class="price-sub">参考価格</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">マキタ CL107FDSHW<br>充電式クリーナー 10.8V</div>
+        <div class="product-desc">重量わずか1.1kgの超軽量設計で、片手でラクラク掃除できるモデル。シンプルな構造でメンテナンスが楽で故障しにくいと評判。プロの清掃業者も愛用するほどの信頼性があります。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">重量</span><span class="spec-val">1.1kg</span></div>
+          <div class="spec-item"><span class="spec-label">運転時間</span><span class="spec-val">最大30分</span></div>
+          <div class="spec-item"><span class="spec-label">充電時間</span><span class="spec-val">約22分</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>圧倒的な軽さ</li><li>壊れにくい</li><li>コスパが高い</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>吸引力はDysonより劣る</li><li>スタンドは別売り</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>一人暮らし・1LDK・毎日サッと掃除したい方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=マキタ+CL107FDSHW&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでマキタCL107FDSHWを見る</a>
+      </div>
+    </div>
+  </div>
 
-    <h2>コードレス掃除機の選び方 3つのポイント</h2>
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r2">🥈2位</div>
+      <span class="rank-label">吸引力最強</span>
+      <div class="rank-stars">★★★★★ 4.6</div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🧹</div>
+        <div class="brand-name">Dyson</div>
+        <div class="price">¥52,800〜</div>
+        <div class="price-sub">参考価格</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">Dyson V12 Detect Slim<br>コードレスクリーナー</div>
+        <div class="product-desc">レーザーでホコリを可視化する「レーザースリムフラフィクリーナーヘッド」搭載。見えないゴミも逃さず吸引します。LCDスクリーンでバッテリー残量や吸い込んだゴミの量をリアルタイム表示。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">重量</span><span class="spec-val">2.2kg</span></div>
+          <div class="spec-item"><span class="spec-label">運転時間</span><span class="spec-val">最大60分</span></div>
+          <div class="spec-item"><span class="spec-label">吸引力</span><span class="spec-val">150AW</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>業界トップの吸引力</li><li>レーザーでゴミ可視化</li><li>LCD残量表示</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>価格が高い</li><li>重量がやや重い</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>2LDK以上・カーペット・ペット飼育・吸引力を妥協したくない方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=Dyson+V12+Detect+Slim&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 AmazonでDyson V12 Detect Slimを見る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="card-rank-bar">
+      <div class="rank-no r3">🥉3位</div>
+      <span class="rank-label">日本メーカー安心モデル</span>
+      <div class="rank-stars">★★★★☆ 4.4</div>
+    </div>
+    <div class="card-inner">
+      <div class="card-img-wrap">
+        <div class="img-placeholder">🧹</div>
+        <div class="brand-name">パナソニック</div>
+        <div class="price">¥29,800〜</div>
+        <div class="price-sub">参考価格</div>
+      </div>
+      <div class="card-detail">
+        <div class="product-name">パナソニック MC-SBU840K<br>コードレススティック掃除機</div>
+        <div class="product-desc">日本メーカーならではの細やかな設計で、ゴミのたまり具合がひと目でわかる「まるごとサイクロン」を採用。アフターサービスが充実しており、長く使いたい方に安心のモデルです。</div>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="spec-label">重量</span><span class="spec-val">1.8kg</span></div>
+          <div class="spec-item"><span class="spec-label">運転時間</span><span class="spec-val">最大40分</span></div>
+          <div class="spec-item"><span class="spec-label">充電時間</span><span class="spec-val">約3時間</span></div>
+        </div>
+        <div class="good-bad">
+          <ul class="good"><b>✅ おすすめポイント</b><li>日本語サポートが充実</li><li>使いやすい設計</li><li>価格帯が手頃</li></ul>
+          <ul class="bad"><b>⚠ 気になる点</b><li>Dysonより吸引力が劣る</li><li>充電時間がやや長い</li></ul>
+        </div>
+        <div class="who">👤 <strong>こんな人に：</strong>サポートを重視する方・日本メーカーが安心な方</div>
+        <a class="btn-amazon" href="https://www.amazon.co.jp/s?k=パナソニック+コードレス掃除機+MC-SBU&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonでパナソニック掃除機を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h2>📊 スペック比較表</h2>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <tr><th>商品名</th><th>価格</th><th>重量</th><th>運転時間</th><th>特徴</th></tr>
+        <tr><td>マキタ CL107FDSHW</td><td class="best">¥18,000〜</td><td class="best">1.1kg</td><td>30分</td><td>超軽量・壊れにくい</td></tr>
+        <tr><td>Dyson V12 Detect Slim</td><td>¥52,800〜</td><td>2.2kg</td><td class="best">60分</td><td>吸引力最強・レーザー</td></tr>
+        <tr><td>パナソニック MC-SBU840K</td><td>¥29,800〜</td><td>1.8kg</td><td>40分</td><td>日本製・安心サポート</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h2>✅ まとめ</h2>
     <ul>
-      <li><strong>吸引力</strong>：フローリングだけならスタンダードタイプで十分。カーペット・ペットの毛があるなら強力タイプを選ぶ</li>
-      <li><strong>バッテリー持続時間</strong>：1LDK以下なら20分以上、2LDK以上なら40分以上が目安</li>
-      <li><strong>重量</strong>：毎日使うなら2kg以下が理想。高齢者・女性には1.5kg以下を推奨</li>
+      <li>🏠 <strong>一人暮らし・軽さ重視</strong> → マキタ CL107FDSHW（1.1kgで最軽量）</li>
+      <li>💪 <strong>吸引力・ペット・カーペット</strong> → Dyson V12 Detect Slim</li>
+      <li>🇯🇵 <strong>日本メーカーで安心したい</strong> → パナソニック MC-SBU840K</li>
     </ul>
-
-    <h2>住まい別おすすめモデル</h2>
-
-    <div class="product-card">
-      <div class="rank">一人暮らし・1LDK向け</div>
-      <h3>【軽量モデル】コンパクトで扱いやすいスティック型</h3>
-      <p>重量1.5kg以下の軽量設計で、毎日のサッと掃除に最適。充電時間も短く、狭い部屋でも取り回しがしやすいモデルです。</p>
-      <ul>
-        <li>向いている人：一人暮らし・マメに掃除したい方</li>
-        <li>重量：約1.5kg</li>
-        <li>バッテリー：約25分</li>
-      </ul>
-      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=コードレス掃除機+軽量+一人暮らし&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>
-    </div>
-
-    <div class="product-card">
-      <div class="rank">2LDK〜ファミリー向け</div>
-      <h3>【パワーモデル】強吸引力でカーペットもしっかり掃除</h3>
-      <p>広い部屋やカーペット、ペットの毛もしっかり吸い取るパワーモデル。バッテリー持続60分で広い家も1回の充電で掃除できます。</p>
-      <ul>
-        <li>向いている人：ファミリー・ペット飼育・カーペットあり</li>
-        <li>重量：約2.5kg</li>
-        <li>バッテリー：約60分</li>
-      </ul>
-      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=コードレス掃除機+強力+ファミリー&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>
-    </div>
-
-    <h2>まとめ</h2>
-    <p>コードレス掃除機は住まいの広さと床材によって最適なモデルが変わります。一人暮らしなら軽量・コンパクト重視、ファミリーなら吸引力・バッテリー持続時間重視で選びましょう。</p>
-
-    <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=コードレス掃除機&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonでコードレス掃除機をもっと見る</a>
+    <a style="display:block;background:#FF9900;color:white;text-align:center;padding:12px;border-radius:5px;font-weight:bold;text-decoration:none;margin-top:14px;" href="https://www.amazon.co.jp/s?k=コードレス掃除機&tag=YOUR_TRACKING_ID" target="_blank" rel="nofollow noopener">🛒 Amazonでコードレス掃除機をすべて見る</a>
   </div>
 </div>
-
 <footer>
-  <p>© 2026 ガジェットレビューラボ | <a href="/">ホームへ戻る</a></p>
+  <p><a href="/">ホーム</a><a href="/about.html">運営者情報</a><a href="/privacy.html">プライバシーポリシー</a><a href="/contact.html">お問い合わせ</a></p>
+  <p>© 2026 ガジェットレビューラボ</p>
 </footer>
-
 </body>
 </html>
