@@ -234,6 +234,44 @@ img { max-width: 100%; height: auto; display: block; }
 .chip { display: inline-block; background: #eef7f8; color: var(--accent-dark); font-size: 0.78rem; padding: 4px 12px; margin: 2px; letter-spacing: 0.5px; }
 
 /* ============================================================
+   Plan Cards (カード型比較・3枚並べ)
+   100万PV級ブログの主力ビジュアル
+   ============================================================ */
+.plan-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+.plan-card { background: #fff; border: 1px solid var(--border); padding: 28px 22px 24px; position: relative; transition: all .2s; display: flex; flex-direction: column; }
+.plan-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.10); transform: translateY(-2px); }
+.plan-card.recommended { border: 2px solid var(--accent); padding-top: 36px; }
+.plan-card.recommended::before { content: "1位 おすすめ"; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 5px 22px; font-size: 11px; font-weight: bold; letter-spacing: 1px; }
+.plan-card .plan-rank { font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-bottom: 6px; font-weight: bold; }
+.plan-card .plan-rank.gold { color: #b8860b; }
+.plan-card .plan-rank.silver { color: #6c8d92; }
+.plan-card .plan-rank.bronze { color: #8a6a3a; }
+.plan-card .plan-name { font-size: 18px; font-weight: bold; color: var(--heading); margin-bottom: 4px; line-height: 1.4; }
+.plan-card .plan-tagline { font-size: 12px; color: var(--muted); margin-bottom: 14px; min-height: 18px; }
+.plan-card .plan-stars { color: #FFB300; font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+.plan-card .plan-stars .score { color: var(--heading); font-weight: bold; margin-left: 4px; }
+.plan-card .plan-price { font-size: 14px; color: #555; margin-bottom: 16px; padding: 12px; background: #fafafa; text-align: center; }
+.plan-card .plan-price .num { font-size: 28px; font-weight: bold; color: var(--urgent); display: block; line-height: 1.2; }
+.plan-card .plan-price .num.free { color: var(--accent); }
+.plan-card .plan-price .label { font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+.plan-card ul.plan-features { list-style: none; margin: 0 0 16px; padding: 0; flex: 1; }
+.plan-card ul.plan-features li { padding: 6px 0; font-size: 13px; line-height: 1.6; border-bottom: 1px dotted var(--border); display: flex; align-items: flex-start; gap: 6px; }
+.plan-card ul.plan-features li::before { content: "✓"; color: var(--accent); font-weight: bold; flex-shrink: 0; }
+.plan-card ul.plan-features li.no::before { content: "×"; color: #c92a2a; }
+.plan-card .plan-cta { display: block; background: var(--amazon); color: #fff; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; text-decoration: none; transition: background .15s; letter-spacing: 0.5px; }
+.plan-card .plan-cta:hover { background: var(--amazon-dark); color: #fff; }
+.plan-card.recommended .plan-cta { background: var(--accent); }
+.plan-card.recommended .plan-cta:hover { background: var(--accent-dark); }
+
+/* ============================================================
+   Block Row (ブロック型・横一列の大数字比較)
+   ============================================================ */
+.block-row { display: flex; align-items: center; padding: 18px 22px; background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); margin-bottom: 10px; gap: 16px; }
+.block-row .block-name { font-size: 15px; font-weight: bold; color: var(--heading); flex: 0 0 36%; }
+.block-row .block-value { font-size: 24px; font-weight: bold; color: var(--urgent); flex: 1; text-align: right; }
+.block-row .block-value .small { font-size: 14px; color: var(--muted); font-weight: normal; margin-left: 4px; }
+
+/* ============================================================
    Sidebar (記事ページ用)
    ============================================================ */
 .sidebar { font-size: 14px; }
@@ -306,4 +344,12 @@ img { max-width: 100%; height: auto; display: block; }
   .spec-table td:first-child { width: 110px; font-size: 0.82rem; }
   .footerbox { grid-template-columns: 1fr; }
   .summary-box, .cta-box, .score-box { padding: 18px 18px; }
+  .plan-cards { grid-template-columns: 1fr; }
+  .block-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .block-row .block-value { text-align: left; font-size: 22px; }
+}
+
+@media (min-width: 541px) and (max-width: 900px) {
+  .plan-cards { grid-template-columns: 1fr; gap: 14px; }
+  .plan-card.recommended { padding-top: 36px; }
 }
