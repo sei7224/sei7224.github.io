@@ -4,234 +4,475 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ガジェットレビューラボ | 家電・ガジェット おすすめ比較2026</title>
-  <meta name="description" content="家電・ガジェットの本当に使えるおすすめ商品をランキング形式で紹介。比較・レビュー記事で失敗しない買い物をサポートします。">
+  <meta name="description" content="家電・ガジェットのおすすめ商品をランキング形式で紹介。Anker・Sony・Dysonなど人気ブランドを正直比較。失敗しない買い物をサポートします。">
   <style>
-    :root { --primary: #e8380d; --amazon: #FF9900; --dark: #1a1a1a; --border: #e0e0e0; }
+    :root {
+      --red: #e8380d;
+      --amazon: #FF9900;
+      --dark: #222;
+      --gray: #f5f5f5;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --sub: #666;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #fff; font-size: 15px; }
-    header { background: var(--dark); color: white; padding: 0 20px; display: flex; align-items: center; height: 56px; gap: 12px; }
-    header .logo { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; display: flex; align-items: center; gap: 6px; }
-    header .logo span { color: var(--primary); }
-    nav { background: #2a2a2a; overflow-x: auto; white-space: nowrap; }
-    nav a { display: inline-block; color: #ccc; text-decoration: none; padding: 10px 16px; font-size: 0.85rem; }
-    nav a:hover { color: white; background: #3a3a3a; }
-    .hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
-    .hero h1 { font-size: 1.7rem; margin-bottom: 8px; line-height: 1.4; }
-    .hero h1 em { color: #FFD700; font-style: normal; }
-    .hero p { color: #bbb; font-size: 0.9rem; }
-    .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
-    .section-head { display: flex; align-items: center; gap: 10px; margin: 32px 0 16px; }
-    .section-head h2 { font-size: 1.15rem; font-weight: bold; }
-    .section-head .badge { background: var(--primary); color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 3px; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white; transition: box-shadow 0.2s; text-decoration: none; color: inherit; display: block; }
-    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .card-img { background: #f0f0f0; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; }
-    .card-rank { position: absolute; top: 8px; left: 8px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: bold; padding: 2px 8px; border-radius: 3px; }
-    .card-body { padding: 14px; }
-    .card-tag { font-size: 0.72rem; color: #666; border: 1px solid #ddd; border-radius: 3px; padding: 1px 6px; display: inline-block; margin-bottom: 6px; }
-    .card-title { font-size: 0.95rem; font-weight: bold; line-height: 1.5; margin-bottom: 8px; }
-    .card-stars { color: #FFD700; font-size: 0.85rem; margin-bottom: 4px; }
-    .card-desc { font-size: 0.82rem; color: #666; line-height: 1.6; margin-bottom: 10px; }
-    .card-cta { display: block; background: var(--primary); color: white; text-align: center; padding: 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
-    .rank-list { display: flex; flex-direction: column; gap: 12px; }
-    .rank-item { border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: inherit; transition: box-shadow 0.2s; background: white; }
-    .rank-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
-    .rank-num { font-size: 1.8rem; font-weight: bold; color: #ccc; min-width: 36px; text-align: center; }
-    .rank-num.gold { color: #FFD700; }
-    .rank-num.silver { color: #C0C0C0; }
-    .rank-num.bronze { color: #CD7F32; }
-    .rank-emoji { font-size: 2.2rem; min-width: 50px; text-align: center; }
-    .rank-info { flex: 1; }
-    .rank-tag { font-size: 0.72rem; color: #666; border: 1px solid #ddd; border-radius: 3px; padding: 1px 6px; display: inline-block; margin-bottom: 4px; }
-    .rank-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 4px; line-height: 1.4; }
-    .rank-desc { font-size: 0.82rem; color: #666; margin-top: 4px; }
-    .rank-btn { background: #FF9900; color: white; border: none; border-radius: 4px; padding: 8px 16px; font-size: 0.82rem; font-weight: bold; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-block; }
-    .trust-bar { background: #f9f9f9; border: 1px solid #eee; border-radius: 8px; padding: 16px; display: flex; gap: 24px; flex-wrap: wrap; margin: 24px 0; }
-    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #555; }
-    .affiliate-notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 10px 14px; font-size: 0.78rem; color: #666; margin: 20px 0; }
-    footer { background: #1a1a1a; color: #888; text-align: center; padding: 28px 20px; font-size: 0.82rem; margin-top: 48px; line-height: 2; }
-    footer a { color: #aaa; margin: 0 8px; }
+    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: var(--text); background: #fff; font-size: 15px; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    /* ===ヘッダー=== */
+    .site-header {
+      background: #fff;
+      border-bottom: 3px solid var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 900; color: var(--dark); }
+    .logo .logo-icon { color: var(--red); font-size: 1.4rem; }
+    .logo .logo-sub { font-size: .72rem; color: var(--sub); font-weight: normal; display: block; margin-top: -4px; }
+    .header-nav { display: flex; gap: 0; }
+    .header-nav a { font-size: .82rem; color: var(--sub); padding: 8px 12px; border-radius: 4px; }
+    .header-nav a:hover { background: var(--gray); color: var(--text); }
+
+    /* ===カテゴリナビ=== */
+    .cat-nav { background: var(--dark); overflow-x: auto; white-space: nowrap; }
+    .cat-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; }
+    .cat-nav a { display: inline-flex; align-items: center; gap: 5px; color: #ccc; font-size: .82rem; padding: 10px 14px; border-right: 1px solid #333; }
+    .cat-nav a:hover { background: #333; color: #fff; }
+    .cat-nav a span { font-size: 1rem; }
+
+    /* ===ヒーロー=== */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 48px 16px;
+      text-align: center;
+      color: white;
+    }
+    .hero-badge { display: inline-block; background: var(--red); color: white; font-size: .75rem; font-weight: bold; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; }
+    .hero h1 { font-size: 1.9rem; line-height: 1.4; margin-bottom: 12px; }
+    .hero h1 strong { color: #FFD700; }
+    .hero p { color: #aac; font-size: .92rem; margin-bottom: 24px; }
+    .hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 1.6rem; font-weight: 900; color: #FFD700; display: block; }
+    .hero-stat .label { font-size: .72rem; color: #aac; }
+
+    /* ===共通コンテナ=== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    /* ===信頼バー=== */
+    .trust-bar { background: #fff8f0; border-top: 1px solid #ffe4cc; border-bottom: 1px solid #ffe4cc; padding: 12px 16px; }
+    .trust-bar-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: #555; }
+    .trust-item .icon { font-size: 1.1rem; }
+
+    /* ===セクションヘッダー=== */
+    .section { padding: 40px 0 0; }
+    .section-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+    .section-title { font-size: 1.25rem; font-weight: 900; border-left: 4px solid var(--red); padding-left: 12px; }
+    .section-badge { font-size: .72rem; background: var(--red); color: white; padding: 2px 10px; border-radius: 20px; }
+    .section-more { margin-left: auto; font-size: .82rem; color: var(--red); font-weight: bold; }
+
+    /* ===ランキングカード=== */
+    .rank-cards { display: flex; flex-direction: column; gap: 12px; }
+    .rank-card {
+      display: flex;
+      align-items: stretch;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .rank-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .rank-card.rank-1 { border-color: #FFD700; border-width: 2px; }
+    .rank-card.rank-2 { border-color: #C0C0C0; border-width: 2px; }
+    .rank-card.rank-3 { border-color: #CD7F32; border-width: 2px; }
+    .rank-num-col {
+      width: 60px;
+      min-width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      background: var(--gray);
+    }
+    .rank-card.rank-1 .rank-num-col { background: #fffbe6; color: #cc8800; }
+    .rank-card.rank-2 .rank-num-col { background: #f5f5f5; color: #888; }
+    .rank-card.rank-3 .rank-num-col { background: #fdf5ee; color: #a05a2c; }
+    .rank-card-thumb {
+      width: 110px;
+      min-width: 110px;
+      background: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-right: 1px solid var(--border);
+    }
+    .rank-card-body { flex: 1; padding: 14px 16px; }
+    .rank-card-tag { font-size: .7rem; background: #eef; color: #449; padding: 1px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; }
+    .rank-card-title { font-size: 1rem; font-weight: bold; line-height: 1.5; margin-bottom: 5px; color: var(--text); }
+    .rank-card-desc { font-size: .82rem; color: var(--sub); line-height: 1.6; }
+    .rank-card-meta { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+    .stars { color: #FFD700; font-size: .85rem; }
+    .rank-card-cta { display: flex; align-items: center; padding: 14px; }
+    .btn-article { background: var(--red); color: white; font-size: .82rem; font-weight: bold; padding: 10px 16px; border-radius: 6px; white-space: nowrap; display: inline-block; }
+    .btn-article:hover { background: #c22d0a; }
+
+    /* ===グリッドカード（カテゴリ別）=== */
+    .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .grid-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .15s;
+      display: block;
+    }
+    .grid-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .grid-card-thumb {
+      height: 130px;
+      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .grid-card-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--red);
+      color: white;
+      font-size: .68rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .grid-card-body { padding: 14px; }
+    .grid-card-tag { font-size: .7rem; color: var(--sub); border: 1px solid #ddd; border-radius: 3px; padding: 1px 6px; display: inline-block; margin-bottom: 6px; }
+    .grid-card-title { font-size: .92rem; font-weight: bold; line-height: 1.5; margin-bottom: 6px; }
+    .grid-card-brands { font-size: .78rem; color: var(--sub); margin-bottom: 10px; }
+    .grid-card-cta { display: block; background: var(--amazon); color: white; text-align: center; padding: 8px; border-radius: 5px; font-size: .82rem; font-weight: bold; }
+
+    /* ===アフィリエイト表示=== */
+    .affiliate-notice {
+      background: #fffbf0;
+      border: 1px solid #ffe4a0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: .78rem;
+      color: #666;
+      margin: 28px 0 0;
+      line-height: 1.7;
+    }
+
+    /* ===人気キーワード=== */
+    .keywords { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 0; }
+    .keyword { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: .82rem; color: var(--sub); transition: all .2s; }
+    .keyword:hover { background: var(--red); color: white; border-color: var(--red); }
+
+    /* ===フッター=== */
+    .site-footer { background: #1a1a1a; color: #999; margin-top: 60px; padding: 40px 16px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo { font-size: 1.1rem; font-weight: bold; color: #eee; margin-bottom: 16px; }
+    .footer-desc { font-size: .82rem; line-height: 1.8; margin-bottom: 20px; color: #777; max-width: 500px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 20px; }
+    .footer-links a { font-size: .82rem; color: #888; }
+    .footer-links a:hover { color: #eee; }
+    .footer-copy { font-size: .78rem; color: #555; padding-top: 20px; border-top: 1px solid #333; }
+
+    /* ===レスポンシブ=== */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.4rem; }
+      .hero-stats { gap: 20px; }
+      .rank-card-thumb { width: 70px; min-width: 70px; font-size: 2rem; }
+      .rank-card-cta { display: none; }
+      .rank-card-title { font-size: .9rem; }
+      .header-nav { display: none; }
+      .grid-cards { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="/"><span>⚡</span>ガジェットレビューラボ</a>
+<!-- ヘッダー -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">⚡</span>
+      <span>
+        ガジェットレビューラボ
+        <span class="logo-sub">家電・ガジェット おすすめ比較</span>
+      </span>
+    </a>
+    <nav class="header-nav">
+      <a href="/about.html">運営者情報</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
 </header>
-<nav>
-  <a href="/">ホーム</a>
-  <a href="#">イヤホン・ヘッドホン</a>
-  <a href="#">掃除機</a>
-  <a href="#">PC周辺機器</a>
-  <a href="#">スマート家電</a>
-  <a href="/about.html">運営者情報</a>
-  <a href="/contact.html">お問い合わせ</a>
+
+<!-- カテゴリナビ -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#earphone"><span>🎧</span>イヤホン</a>
+    <a href="#vacuum"><span>🧹</span>掃除機</a>
+    <a href="#pc"><span>💻</span>PC周辺機器</a>
+    <a href="#smart"><span>🔊</span>スマート家電</a>
+    <a href="#battery"><span>🔋</span>バッテリー</a>
+    <a href="#health"><span>🦷</span>健康家電</a>
+  </div>
 </nav>
 
-<div class="hero">
-  <h1>家電・ガジェット選びで<em>失敗しない</em>ために</h1>
-  <p>実際のスペック・コスパ・使い心地をもとに本当におすすめできる商品だけを厳選紹介</p>
+<!-- ヒーロー -->
+<section class="hero">
+  <span class="hero-badge">2026年5月 最新更新</span>
+  <h1>家電・ガジェット選びで<br><strong>後悔しないために</strong></h1>
+  <p>実際のスペック・価格・使い心地をもとに<br>本当におすすめできる商品だけを正直に比較・紹介</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">11</span>
+      <span class="label">比較記事</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">30+</span>
+      <span class="label">比較商品数</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">忖度</span>
+      <span class="label">なし</span>
+    </div>
+  </div>
+</section>
+
+<!-- 信頼バー -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="icon">✅</span>実スペック・価格を正直比較</div>
+    <div class="trust-item"><span class="icon">🔄</span>最新情報に随時更新</div>
+    <div class="trust-item"><span class="icon">📊</span>スペック比較表あり</div>
+    <div class="trust-item"><span class="icon">📱</span>スマホ対応</div>
+  </div>
 </div>
 
 <div class="container">
 
-  <div class="trust-bar">
-    <div class="trust-item">✅ 忖度なしの正直レビュー</div>
-    <div class="trust-item">🔄 最新情報に随時更新</div>
-    <div class="trust-item">💰 コスパ重視で厳選</div>
-    <div class="trust-item">📊 スペック比較あり</div>
-  </div>
-
   <div class="affiliate-notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。記事内リンクから購入いただくとサイト運営の紹介料が発生しますが、購入者の負担は増えません。
+    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。記事内リンクから購入いただくとサイト運営の紹介料が発生しますが、読者の方の購入金額が増えることはありません。
   </div>
 
-  <div class="section-head">
-    <h2>🏆 人気記事ランキング</h2>
-    <span class="badge">2026年5月更新</span>
-  </div>
+  <!-- 人気ランキング -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">🏆 人気記事ランキング</h2>
+      <span class="section-badge">2026年5月</span>
+    </div>
 
-  <div class="rank-list">
-    <a class="rank-item" href="articles/wireless-earphone-top5.html">
-      <div class="rank-num gold">1</div>
-      <div class="rank-emoji">🎧</div>
-      <div class="rank-info">
-        <span class="rank-tag">イヤホン</span>
-        <div class="rank-title">【2026年版】ワイヤレスイヤホン おすすめ5選｜Anker・Sony・Apple比較</div>
-        <div class="rank-desc">Anker P40i・Sony WF-1000XM5・AirPods Proなど人気モデルをコスパ・ノイキャン・スポーツ向けに比較。</div>
-      </div>
-      <a class="rank-btn" href="articles/wireless-earphone-top5.html">記事を見る</a>
-    </a>
+    <div class="rank-cards">
 
-    <a class="rank-item" href="articles/cordless-vacuum-compare.html">
-      <div class="rank-num silver">2</div>
-      <div class="rank-emoji">🧹</div>
-      <div class="rank-info">
-        <span class="rank-tag">掃除機</span>
-        <div class="rank-title">コードレス掃除機 おすすめ比較｜Dyson・マキタ・パナソニック</div>
-        <div class="rank-desc">吸引力・バッテリー・軽さの3軸で人気モデルを徹底比較。住まいの広さ別に最適な1台を紹介。</div>
-      </div>
-      <a class="rank-btn" href="articles/cordless-vacuum-compare.html">記事を見る</a>
-    </a>
+      <a class="rank-card rank-1" href="articles/wireless-earphone-top5.html">
+        <div class="rank-num-col">1</div>
+        <div class="rank-card-thumb">🎧</div>
+        <div class="rank-card-body">
+          <span class="rank-card-tag">イヤホン</span>
+          <div class="rank-card-title">【2026年版】ワイヤレスイヤホン おすすめ5選｜Anker・Sony・Apple比較</div>
+          <div class="rank-card-desc">Anker P40i・Sony WF-1000XM5・AirPods Proをコスパ・ノイキャン・スポーツ用途別に比較。</div>
+          <div class="rank-card-meta">
+            <span class="stars">★★★★★</span>
+            <span style="font-size:.78rem;color:#888;">比較商品数：5モデル</span>
+          </div>
+        </div>
+        <div class="rank-card-cta"><span class="btn-article">記事を見る →</span></div>
+      </a>
 
-    <a class="rank-item" href="articles/web-camera-top5.html">
-      <div class="rank-num bronze">3</div>
-      <div class="rank-emoji">💻</div>
-      <div class="rank-info">
-        <span class="rank-tag">PC周辺機器</span>
-        <div class="rank-title">在宅ワーク向けWebカメラ おすすめ5選｜Logicool・Anker比較</div>
-        <div class="rank-desc">テレワーク・オンライン会議向けにFull HD〜4Kモデルまで予算別に厳選紹介。</div>
-      </div>
-      <a class="rank-btn" href="articles/web-camera-top5.html">記事を見る</a>
-    </a>
+      <a class="rank-card rank-2" href="articles/cordless-vacuum-compare.html">
+        <div class="rank-num-col">2</div>
+        <div class="rank-card-thumb">🧹</div>
+        <div class="rank-card-body">
+          <span class="rank-card-tag">掃除機</span>
+          <div class="rank-card-title">コードレス掃除機 比較【2026年版】Dyson・マキタ・パナソニック</div>
+          <div class="rank-card-desc">吸引力・軽さ・価格の3軸で住まい別に最適な1台を厳選。一人暮らしからファミリーまで対応。</div>
+          <div class="rank-card-meta">
+            <span class="stars">★★★★★</span>
+            <span style="font-size:.78rem;color:#888;">比較商品数：3モデル</span>
+          </div>
+        </div>
+        <div class="rank-card-cta"><span class="btn-article">記事を見る →</span></div>
+      </a>
 
-    <a class="rank-item" href="articles/robot-vacuum-2026.html">
-      <div class="rank-num" style="color:#aaa;">4</div>
-      <div class="rank-emoji">🤖</div>
-      <div class="rank-info">
-        <span class="rank-tag">掃除機</span>
-        <div class="rank-title">ロボット掃除機 おすすめ比較【2026年版】｜iRobot・Ecovacs・Anker</div>
-        <div class="rank-desc">自動ゴミ収集・水拭き対応モデルまで価格帯別に徹底比較。</div>
-      </div>
-      <a class="rank-btn" href="articles/robot-vacuum-2026.html">記事を見る</a>
-    </a>
+      <a class="rank-card rank-3" href="articles/robot-vacuum-2026.html">
+        <div class="rank-num-col">3</div>
+        <div class="rank-card-thumb">🤖</div>
+        <div class="rank-card-body">
+          <span class="rank-card-tag">掃除機</span>
+          <div class="rank-card-title">ロボット掃除機 おすすめ比較【2026年版】iRobot・Ecovacs・Anker</div>
+          <div class="rank-card-desc">自動ゴミ収集・水拭き対応モデルまで価格帯別に比較。完全放置で部屋をきれいにする1台を紹介。</div>
+          <div class="rank-card-meta">
+            <span class="stars">★★★★★</span>
+            <span style="font-size:.78rem;color:#888;">比較商品数：3モデル</span>
+          </div>
+        </div>
+        <div class="rank-card-cta"><span class="btn-article">記事を見る →</span></div>
+      </a>
 
-    <a class="rank-item" href="articles/mobile-battery-top10.html">
-      <div class="rank-num" style="color:#aaa;">5</div>
-      <div class="rank-emoji">🔋</div>
-      <div class="rank-info">
-        <span class="rank-tag">スマホアクセサリ</span>
-        <div class="rank-title">モバイルバッテリー おすすめ10選｜容量・軽さ別【Anker・CIO比較】</div>
-        <div class="rank-desc">5000mAhの軽量モデルから20000mAhの大容量まで用途別に厳選。</div>
-      </div>
-      <a class="rank-btn" href="articles/mobile-battery-top10.html">記事を見る</a>
-    </a>
-  </div>
+      <a class="rank-card" href="articles/noise-canceling-headphone.html">
+        <div class="rank-num-col" style="color:#aaa;">4</div>
+        <div class="rank-card-thumb">🎵</div>
+        <div class="rank-card-body">
+          <span class="rank-card-tag">ヘッドホン</span>
+          <div class="rank-card-title">ノイズキャンセリングヘッドホン おすすめ5選｜Sony・Bose比較</div>
+          <div class="rank-card-desc">Sony WH-1000XM5・Bose QC45・Anker Q45を性能・価格・装着感で比較。</div>
+          <div class="rank-card-meta">
+            <span class="stars">★★★★★</span>
+            <span style="font-size:.78rem;color:#888;">比較商品数：3モデル</span>
+          </div>
+        </div>
+        <div class="rank-card-cta"><span class="btn-article">記事を見る →</span></div>
+      </a>
 
-  <div class="section-head" style="margin-top:40px;">
-    <h2>📂 カテゴリ別おすすめ記事</h2>
-  </div>
+      <a class="rank-card" href="articles/mobile-battery-top10.html">
+        <div class="rank-num-col" style="color:#aaa;">5</div>
+        <div class="rank-card-thumb">🔋</div>
+        <div class="rank-card-body">
+          <span class="rank-card-tag">スマホアクセサリ</span>
+          <div class="rank-card-title">モバイルバッテリー おすすめ10選｜CIO・Anker 容量・軽さ別比較</div>
+          <div class="rank-card-desc">CIO SMARTCOBY Pro SLIM・Anker PowerCoreシリーズを用途・容量別に厳選。</div>
+          <div class="rank-card-meta">
+            <span class="stars">★★★★★</span>
+            <span style="font-size:.78rem;color:#888;">比較商品数：3モデル</span>
+          </div>
+        </div>
+        <div class="rank-card-cta"><span class="btn-article">記事を見る →</span></div>
+      </a>
 
-  <div class="card-grid">
-    <a class="card" href="articles/noise-canceling-headphone.html">
-      <div class="card-img">🎵</div>
-      <div class="card-body">
-        <span class="card-tag">ヘッドホン</span>
-        <div class="card-title">ノイズキャンセリングヘッドホン おすすめ5選</div>
-        <div class="card-stars">★★★★★</div>
-        <div class="card-desc">Sony WH-1000XM5・Bose QC45など人気モデルを比較</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
+    </div>
+  </section>
 
-    <a class="card" href="articles/smart-speaker-compare.html">
-      <div class="card-img">🔊</div>
-      <div class="card-body">
-        <span class="card-tag">スマート家電</span>
-        <div class="card-title">スマートスピーカー比較｜Amazon Echo vs Google Nest</div>
-        <div class="card-stars">★★★★☆</div>
-        <div class="card-desc">用途・予算別に最適なスマートスピーカーを紹介</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
+  <!-- カテゴリ別記事 -->
+  <section class="section" style="padding-bottom: 40px;">
+    <div class="section-header">
+      <h2 class="section-title">📂 カテゴリ別おすすめ記事</h2>
+    </div>
 
-    <a class="card" href="articles/mechanical-keyboard-top5.html">
-      <div class="card-img">⌨️</div>
-      <div class="card-body">
-        <span class="card-tag">PC周辺機器</span>
-        <div class="card-title">メカニカルキーボード おすすめ5選【在宅ワーク向け】</div>
-        <div class="card-stars">★★★★☆</div>
-        <div class="card-desc">Keychron・HHKB・Logicoolを打鍵感・価格で比較</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
+    <div class="grid-cards">
 
-    <a class="card" href="articles/electric-toothbrush-top5.html">
-      <div class="card-img">🦷</div>
-      <div class="card-body">
-        <span class="card-tag">健康家電</span>
-        <div class="card-title">電動歯ブラシ おすすめ5選｜Oral-B・フィリップス比較</div>
-        <div class="card-stars">★★★★☆</div>
-        <div class="card-desc">コスパ重視から本格ケアまで予算別に厳選紹介</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
+      <a class="grid-card" href="articles/web-camera-top5.html">
+        <div class="grid-card-thumb">💻<span class="grid-card-label">在宅ワーク向け</span></div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">PC周辺機器</span>
+          <div class="grid-card-title">Webカメラ おすすめ5選</div>
+          <div class="grid-card-brands">Logicool / Anker / Microsoft</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
 
-    <a class="card" href="articles/4k-monitor-compare.html">
-      <div class="card-img">🖥️</div>
-      <div class="card-body">
-        <span class="card-tag">PC周辺機器</span>
-        <div class="card-title">4Kモニター おすすめ比較【27〜32インチ】</div>
-        <div class="card-stars">★★★★☆</div>
-        <div class="card-desc">LG・Dell・BenQを解像度・価格で徹底比較</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
+      <a class="grid-card" href="articles/mechanical-keyboard-top5.html">
+        <div class="grid-card-thumb">⌨️</div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">PC周辺機器</span>
+          <div class="grid-card-title">メカニカルキーボード おすすめ5選</div>
+          <div class="grid-card-brands">Keychron / HHKB / Logicool</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
 
-    <a class="card" href="articles/air-purifier-compare.html">
-      <div class="card-img">💨</div>
-      <div class="card-body">
-        <span class="card-tag">空調・環境家電</span>
-        <div class="card-title">空気清浄機 おすすめ比較｜6畳〜20畳対応モデル</div>
-        <div class="card-stars">★★★★☆</div>
-        <div class="card-desc">ダイキン・シャープ・パナソニックを性能・価格で比較</div>
-        <span class="card-cta">おすすめを見る →</span>
-      </div>
-    </a>
-  </div>
+      <a class="grid-card" href="articles/4k-monitor-compare.html">
+        <div class="grid-card-thumb">🖥️</div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">PC周辺機器</span>
+          <div class="grid-card-title">4Kモニター おすすめ比較</div>
+          <div class="grid-card-brands">LG / Dell / BenQ</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
+
+      <a class="grid-card" href="articles/smart-speaker-compare.html">
+        <div class="grid-card-thumb">🔊<span class="grid-card-label">3ブランド比較</span></div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">スマート家電</span>
+          <div class="grid-card-title">スマートスピーカー比較</div>
+          <div class="grid-card-brands">Amazon Echo / Google Nest / HomePod</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
+
+      <a class="grid-card" href="articles/electric-toothbrush-top5.html">
+        <div class="grid-card-thumb">🦷</div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">健康家電</span>
+          <div class="grid-card-title">電動歯ブラシ おすすめ5選</div>
+          <div class="grid-card-brands">Oral-B / フィリップス / パナソニック</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
+
+      <a class="grid-card" href="articles/air-purifier-compare.html">
+        <div class="grid-card-thumb">💨</div>
+        <div class="grid-card-body">
+          <span class="grid-card-tag">空調・環境家電</span>
+          <div class="grid-card-title">空気清浄機 おすすめ比較</div>
+          <div class="grid-card-brands">ダイキン / シャープ / パナソニック</div>
+          <span class="grid-card-cta">おすすめを見る →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 人気キーワード -->
+  <section class="section" style="padding-bottom:40px;">
+    <div class="section-header">
+      <h2 class="section-title">🔍 人気の検索キーワード</h2>
+    </div>
+    <div class="keywords">
+      <a class="keyword" href="articles/wireless-earphone-top5.html">ワイヤレスイヤホン</a>
+      <a class="keyword" href="articles/wireless-earphone-top5.html">Anker Soundcore P40i</a>
+      <a class="keyword" href="articles/wireless-earphone-top5.html">Sony WF-1000XM5</a>
+      <a class="keyword" href="articles/wireless-earphone-top5.html">AirPods Pro 比較</a>
+      <a class="keyword" href="articles/cordless-vacuum-compare.html">コードレス掃除機</a>
+      <a class="keyword" href="articles/cordless-vacuum-compare.html">Dyson V12</a>
+      <a class="keyword" href="articles/cordless-vacuum-compare.html">マキタ 掃除機</a>
+      <a class="keyword" href="articles/robot-vacuum-2026.html">ロボット掃除機</a>
+      <a class="keyword" href="articles/noise-canceling-headphone.html">ノイズキャンセリング</a>
+      <a class="keyword" href="articles/mobile-battery-top10.html">モバイルバッテリー 軽量</a>
+      <a class="keyword" href="articles/web-camera-top5.html">Webカメラ テレワーク</a>
+      <a class="keyword" href="articles/mechanical-keyboard-top5.html">メカニカルキーボード</a>
+      <a class="keyword" href="articles/4k-monitor-compare.html">4Kモニター MacBook</a>
+      <a class="keyword" href="articles/smart-speaker-compare.html">スマートスピーカー</a>
+      <a class="keyword" href="articles/electric-toothbrush-top5.html">電動歯ブラシ コスパ</a>
+    </div>
+  </section>
 
 </div>
 
-<footer>
-  <p>
-    <a href="/">ホーム</a>
-    <a href="/about.html">運営者情報</a>
-    <a href="/privacy.html">プライバシーポリシー</a>
-    <a href="/contact.html">お問い合わせ</a>
-  </p>
-  <p style="margin-top:8px;">© 2026 ガジェットレビューラボ</p>
-  <p style="font-size:0.75rem; margin-top:4px;">当サイトはAmazonアソシエイト・プログラムの参加者です。</p>
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">⚡ ガジェットレビューラボ</div>
+    <p class="footer-desc">「買って後悔しない家電・ガジェット選び」をテーマに、実際のスペックと使い心地を正直にレビュー。忖度なしで本当におすすめできる商品だけを紹介しています。</p>
+    <div class="footer-links">
+      <a href="/">ホーム</a>
+      <a href="/about.html">運営者情報</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 ガジェットレビューラボ　|　当サイトはAmazonアソシエイト・プログラムの参加者です。</p>
+  </div>
 </footer>
 
 </body>
