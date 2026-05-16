@@ -11,7 +11,7 @@ import random
 from datetime import datetime
 from pathlib import Path
 
-TRACKING_ID = os.environ.get("AMAZON_TRACKING_ID", "YOUR_TRACKING_ID")
+TRACKING_ID = os.environ.get("AMAZON_TRACKING_ID", "sei722406-22")
 
 # 記事テーマ一覧（毎日1つずつ消費）
 ARTICLE_TOPICS = [
