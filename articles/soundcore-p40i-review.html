@@ -5,100 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anker Soundcore P40i レビュー｜60時間バッテリー×ANCをコスパ検証【2026年】 | ガジェットレビューラボ</title>
   <meta name="description" content="Anker Soundcore P40iの実機レビュー。最大60時間バッテリー、ウルトラノイズキャンセリング2.0、マルチポイント接続の実力を徹底検証。1万円以下で買えるのか？口コミ・評判も紹介。">
-  <style>
-    :root { --primary: #e8380d; --amazon: #FF9900; --dark: #1a1a1a; --border: #e0e0e0; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f7f7f7; font-size: 15px; line-height: 1.8; }
-    header { background: var(--dark); color: white; padding: 0 20px; height: 52px; display: flex; align-items: center; }
-    header a { color: white; text-decoration: none; font-weight: bold; font-size: 1.05rem; }
-    .breadcrumb { background: white; border-bottom: 1px solid var(--border); padding: 8px 20px; font-size: 0.78rem; color: #888; }
-    .breadcrumb a { color: #0066cc; text-decoration: none; }
-    .article-header { background: white; padding: 24px 20px 20px; border-bottom: 1px solid var(--border); }
-    .article-header .tag { background: #eef2ff; color: #3b5bdb; font-size: 0.75rem; padding: 2px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px; }
-    .article-header h1 { font-size: 1.4rem; line-height: 1.5; margin-bottom: 12px; }
-    .article-meta { font-size: 0.8rem; color: #888; display: flex; gap: 16px; flex-wrap: wrap; }
-    .container { max-width: 780px; margin: 0 auto; padding: 0 16px 48px; }
-    .notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 8px 12px; font-size: 0.78rem; color: #666; margin: 16px 0; }
-
-    /* 総合評価ボックス */
-    .score-box { background: white; border: 2px solid #FFD700; border-radius: 10px; padding: 20px 24px; margin: 16px 0; }
-    .score-box h2 { font-size: 1rem; margin-bottom: 14px; color: #333; }
-    .score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
-    .score-item { text-align: center; }
-    .score-item .score-label { font-size: 0.72rem; color: #888; display: block; margin-bottom: 4px; }
-    .score-item .score-bar-wrap { background: #f0f0f0; border-radius: 4px; height: 8px; margin-bottom: 4px; }
-    .score-item .score-bar { background: var(--primary); border-radius: 4px; height: 8px; }
-    .score-item .score-num { font-size: 0.88rem; font-weight: bold; color: #333; }
-    .total-score { text-align: center; padding-top: 14px; border-top: 1px solid var(--border); }
-    .total-score .big-score { font-size: 2.8rem; font-weight: bold; color: var(--primary); line-height: 1; }
-    .total-score .score-max { font-size: 1rem; color: #888; }
-    .total-score .verdict { font-size: 0.88rem; color: #555; margin-top: 4px; }
-
-    .prose { background: white; border-radius: 6px; padding: 20px 24px; margin: 14px 0; border: 1px solid var(--border); }
-    .prose h2 { font-size: 1.15rem; border-left: 4px solid var(--primary); padding-left: 12px; margin: 4px 0 14px; }
-    .prose h3 { font-size: 1rem; margin: 18px 0 8px; color: #333; }
-    .prose p { margin-bottom: 12px; }
-    .prose ul { margin: 8px 0 12px 20px; }
-    .prose li { margin-bottom: 6px; font-size: 0.9rem; }
-
-    /* スペック表 */
-    .spec-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 8px 0 16px; }
-    .spec-table th { background: #2a2a2a; color: white; padding: 9px 12px; text-align: left; font-size: 0.82rem; }
-    .spec-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .spec-table tr:nth-child(even) td { background: #f9f9f9; }
-    .spec-table td:first-child { font-weight: bold; color: #555; width: 140px; white-space: nowrap; }
-    .spec-table .highlight { color: var(--primary); font-weight: bold; }
-
-    /* 良い点・悪い点 */
-    .good-bad-lg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
-    .good-lg, .bad-lg { padding: 14px 16px; border-radius: 6px; font-size: 0.88rem; }
-    .good-lg { background: #f0fff4; border: 1px solid #b2f0c8; }
-    .bad-lg { background: #fff5f5; border: 1px solid #ffc9c9; }
-    .good-lg h3, .bad-lg h3 { font-size: 0.9rem; margin: 0 0 10px; }
-    .good-lg h3 { color: #2f9e44; }
-    .bad-lg h3 { color: #c92a2a; }
-    .good-lg li, .bad-lg li { list-style: none; padding: 3px 0; }
-    .good-lg li::before { content: "✅ "; }
-    .bad-lg li::before { content: "⚠ "; }
-
-    /* 口コミ */
-    .review-card { background: #f9f9f9; border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin: 10px 0; font-size: 0.88rem; }
-    .review-card .reviewer { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
-    .review-card .stars { color: #FFD700; margin-right: 6px; }
-    .review-card p { color: #444; line-height: 1.7; }
-
-    /* CTA */
-    .cta-box { background: white; border: 2px solid var(--amazon); border-radius: 10px; padding: 20px 24px; margin: 20px 0; text-align: center; }
-    .cta-box .product-title { font-size: 1rem; font-weight: bold; margin-bottom: 4px; }
-    .cta-box .price { font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 6px; }
-    .cta-box .price-note { font-size: 0.75rem; color: #888; margin-bottom: 14px; }
-    .btn-amazon { display: inline-block; background: var(--amazon); color: white; padding: 13px 32px; border-radius: 5px; font-weight: bold; font-size: 1rem; text-decoration: none; }
-    .btn-amazon:hover { background: #e68a00; }
-    .btn-amazon-sm { display: block; background: var(--amazon); color: white; text-align: center; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 0.95rem; text-decoration: none; margin-top: 10px; }
-
-    /* 比較チップ */
-    .chip { display: inline-block; background: #eef2ff; color: #3b5bdb; font-size: 0.78rem; padding: 3px 10px; border-radius: 20px; margin: 2px; }
-
-    /* まとめ */
-    .summary-box { background: #1a1a2e; color: white; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
-    .summary-box h2 { font-size: 1.1rem; color: #FFD700; margin-bottom: 14px; }
-    .summary-box ul { margin-left: 20px; }
-    .summary-box li { margin-bottom: 8px; font-size: 0.9rem; }
-    .summary-box .who { background: rgba(255,255,255,0.1); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-size: 0.88rem; }
-
-    @media (max-width: 540px) {
-      .score-grid { grid-template-columns: repeat(2, 1fr); }
-      .good-bad-lg { grid-template-columns: 1fr; }
-      .spec-table td:first-child { width: 110px; }
-    }
-
-    footer { background: #1a1a1a; color: #888; text-align: center; padding: 20px; font-size: 0.8rem; margin-top: 40px; }
-    footer a { color: #aaa; }
-  </style>
+  <link rel="stylesheet" href="/css/article.css">
 </head>
 <body>
 
-<header><a href="/">⚡ ガジェットレビューラボ</a></header>
+<header id="header">
+  <div class="header-inner">
+    <div class="site-logo"><a href="/"><span class="accent-bar"></span>ガジェットレビューラボ</a></div>
+    <div class="site-tagline">買って後悔しない家電・ガジェット情報サイト</div>
+  </div>
+</header>
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-menu">
+      <li><a href="/">トップ</a></li>
+      <li><a href="/articles/wireless-earphone-top5.html">イヤホン</a></li>
+      <li><a href="/articles/cordless-vacuum-compare.html">掃除機</a></li>
+      <li><a href="/articles/web-camera-top5.html">PC周辺機器</a></li>
+      <li><a href="/articles/smart-speaker-compare.html">スマート家電</a></li>
+      <li><a href="/about.html">運営者情報</a></li>
+      <li><a href="/contact.html">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="breadcrumb"><a href="/">ホーム</a> › <a href="/">イヤホン・ヘッドホン</a> › Anker Soundcore P40i レビュー</div>
 
 <div class="article-header">
@@ -309,8 +238,39 @@
 
 </div>
 
-<footer>
-  <p>© 2026 ガジェットレビューラボ | <a href="/">ホーム</a> | <a href="/privacy.html">プライバシーポリシー</a> | <a href="/contact.html">お問い合わせ</a></p>
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footerbox">
+      <div>
+        <h3>サイト情報</h3>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/about.html">運営者情報</a></li>
+          <li><a href="/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>主要カテゴリ</h3>
+        <ul>
+          <li><a href="/articles/wireless-earphone-top5.html">イヤホン・ヘッドホン</a></li>
+          <li><a href="/articles/cordless-vacuum-compare.html">掃除機</a></li>
+          <li><a href="/articles/web-camera-top5.html">PC周辺機器</a></li>
+          <li><a href="/articles/smart-speaker-compare.html">スマート家電</a></li>
+          <li><a href="/articles/electric-toothbrush-top5.html">健康家電</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>新着記事</h3>
+        <ul>
+          <li><a href="/articles/soundcore-p40i-review.html">Soundcore P40i レビュー</a></li>
+          <li><a href="/articles/wireless-earphone-top5.html">ワイヤレスイヤホン5選</a></li>
+          <li><a href="/articles/cordless-vacuum-compare.html">コードレス掃除機 比較</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 ガジェットレビューラボ　|　当サイトはAmazonアソシエイト・プログラムの参加者です。</p>
+  </div>
 </footer>
 </body>
 </html>

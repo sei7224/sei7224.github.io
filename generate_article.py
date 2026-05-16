@@ -39,61 +39,88 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} | ガジェットレビューラボ</title>
   <meta name="description" content="{description}">
-  <style>
-    * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-    body {{ font-family: 'Hiragino Sans', 'Meiryo', sans-serif; color: #333; background: #f8f9fa; }}
-    header {{ background: #1a1a2e; color: white; padding: 16px 24px; }}
-    header a {{ color: white; text-decoration: none; font-size: 1.1rem; font-weight: bold; }}
-    .breadcrumb {{ background: #eee; padding: 8px 24px; font-size: 0.82rem; color: #666; }}
-    .breadcrumb a {{ color: #0f3460; text-decoration: none; }}
-    .container {{ max-width: 800px; margin: 0 auto; padding: 32px 16px; }}
-    .article-header {{ margin-bottom: 32px; }}
-    .tag {{ font-size: 0.75rem; color: white; background: #0f3460; border-radius: 4px; padding: 3px 10px; display: inline-block; margin-bottom: 12px; }}
-    h1 {{ font-size: 1.6rem; line-height: 1.5; margin-bottom: 12px; }}
-    .meta {{ font-size: 0.82rem; color: #888; margin-bottom: 24px; }}
-    .article-body {{ background: white; border-radius: 8px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); line-height: 1.9; }}
-    .article-body h2 {{ font-size: 1.25rem; border-left: 4px solid #0f3460; padding-left: 12px; margin: 32px 0 16px; }}
-    .article-body h3 {{ font-size: 1.05rem; margin: 24px 0 10px; color: #1a1a2e; }}
-    .article-body p {{ margin-bottom: 16px; }}
-    .article-body ul {{ margin: 12px 0 20px 24px; }}
-    .article-body li {{ margin-bottom: 8px; }}
-    .amazon-btn {{ display: block; background: #FF9900; color: white; text-align: center; padding: 14px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1rem; margin: 20px 0; transition: background 0.2s; }}
-    .amazon-btn:hover {{ background: #e68a00; }}
-    .product-card {{ border: 2px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 24px 0; background: #fafafa; }}
-    .product-card .rank {{ font-size: 1.4rem; font-weight: bold; color: #FF9900; margin-bottom: 4px; }}
-    .product-card h3 {{ font-size: 1.1rem; margin-bottom: 8px; color: #1a1a2e; }}
-    .affiliate-notice {{ background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 12px 16px; margin: 32px 0; font-size: 0.82rem; color: #555; line-height: 1.7; }}
-    footer {{ background: #1a1a2e; color: #aaa; text-align: center; padding: 24px; font-size: 0.85rem; margin-top: 48px; }}
-  </style>
+  <link rel="stylesheet" href="/css/article.css">
 </head>
 <body>
 
-<header>
-  <a href="/">⚡ ガジェットレビューラボ</a>
+<header id="header">
+  <div class="header-inner">
+    <div class="site-logo"><a href="/"><span class="accent-bar"></span>ガジェットレビューラボ</a></div>
+    <div class="site-tagline">買って後悔しない家電・ガジェット情報サイト</div>
+  </div>
 </header>
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-menu">
+      <li><a href="/">トップ</a></li>
+      <li><a href="/articles/wireless-earphone-top5.html">イヤホン</a></li>
+      <li><a href="/articles/cordless-vacuum-compare.html">掃除機</a></li>
+      <li><a href="/articles/web-camera-top5.html">PC周辺機器</a></li>
+      <li><a href="/articles/smart-speaker-compare.html">スマート家電</a></li>
+      <li><a href="/about.html">運営者情報</a></li>
+      <li><a href="/contact.html">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="breadcrumb">
-  <a href="/">ホーム</a> &gt; <a href="/">{tag}</a> &gt; {title}
+  <div class="breadcrumb-inner">
+    <a href="/">ホーム</a> › <a href="/">{tag}</a> › {title}
+  </div>
+</div>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <span class="tag">{tag}</span>
+    <h1>{emoji} {title}</h1>
+    <div class="article-meta">
+      <span>📅 更新：{date}</span>
+      <span>⏱ 読了：約5分</span>
+    </div>
+  </div>
 </div>
 
 <div class="container">
-  <div class="article-header">
-    <span class="tag">{tag}</span>
-    <h1>{emoji} {title}</h1>
-    <p class="meta">更新日：{date}</p>
+  <div class="notice">
+    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。リンク経由でご購入いただくと紹介料が発生します（購入者の負担増なし）。
   </div>
 
-  <div class="affiliate-notice">
-    ※ 当サイトはAmazonアソシエイト・プログラムの参加者です。リンク経由でご購入いただくと紹介料が発生します。
-  </div>
-
-  <div class="article-body">
+  <div class="prose">
     {body}
   </div>
 </div>
 
-<footer>
-  <p>© 2026 ガジェットレビューラボ | <a href="/" style="color:#ccc">ホームへ戻る</a></p>
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footerbox">
+      <div>
+        <h3>サイト情報</h3>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/about.html">運営者情報</a></li>
+          <li><a href="/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>主要カテゴリ</h3>
+        <ul>
+          <li><a href="/articles/wireless-earphone-top5.html">イヤホン・ヘッドホン</a></li>
+          <li><a href="/articles/cordless-vacuum-compare.html">掃除機</a></li>
+          <li><a href="/articles/web-camera-top5.html">PC周辺機器</a></li>
+          <li><a href="/articles/smart-speaker-compare.html">スマート家電</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>新着記事</h3>
+        <ul>
+          <li><a href="/articles/soundcore-p40i-review.html">Soundcore P40i レビュー</a></li>
+          <li><a href="/articles/wireless-earphone-top5.html">ワイヤレスイヤホン5選</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 ガジェットレビューラボ　|　当サイトはAmazonアソシエイト・プログラムの参加者です。</p>
+  </div>
 </footer>
 
 </body>
@@ -136,7 +163,7 @@ def generate_article_body(client: anthropic.Anthropic, topic: dict) -> str:
     import re
     def replace_amazon_link(match):
         num = match.group(1)
-        return f'<a class="amazon-btn" href="https://www.amazon.co.jp/s?k={topic["keyword"].replace(" ", "+")}&tag={TRACKING_ID}" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>'
+        return f'<a class="btn-amazon" href="https://www.amazon.co.jp/s?k={topic["keyword"].replace(" ", "+")}&tag={TRACKING_ID}" target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>'
 
     body = re.sub(r'\{AMAZON_LINK_(\w+)\}', replace_amazon_link, body)
     return body
