@@ -24,7 +24,36 @@
     .toc-box h3 { font-size: 15px; margin-bottom: 10px; color: #0f172a; }
     .toc-box ol { padding-left: 22px; font-size: 13.5px; color: #334155; line-height: 1.9; }
     .toc-box a { color: #2563eb; text-decoration: none; }
+
+    /* ヒーローイラスト枠（後でAI画像に置き換え可） */
+    .article-hero-visual { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #005F6B 100%); color: #fff; padding: 36px 28px; border-radius: 12px; margin: 18px 0 32px; display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; align-items: center; box-shadow: 0 16px 40px rgba(15,23,42,0.18); position: relative; overflow: hidden; }
+    .article-hero-visual::before { content: ""; position: absolute; top: -60%; right: -20%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(96,165,250,0.25), transparent 65%); border-radius: 50%; pointer-events: none; }
+    .article-hero-visual .hero-text { position: relative; z-index: 1; }
+    .article-hero-visual .hero-badge { display: inline-block; font-size: 11px; letter-spacing: 2px; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; font-weight: bold; color: #bfdbfe; }
+    .article-hero-visual h2 { font-size: 24px; line-height: 1.45; color: #fff; margin: 0 0 8px; font-weight: 900; }
+    .article-hero-visual p { font-size: 14px; color: #dbeafe; line-height: 1.85; margin: 0; }
+    .article-hero-visual .hero-icon { font-size: 72px; line-height: 1; text-align: center; position: relative; z-index: 1; }
+
+    /* Mermaid図解 */
+    .mermaid-wrapper { background: #fafbfc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px 18px; margin: 18px 0 28px; overflow-x: auto; }
+    .mermaid-wrapper .diagram-caption { font-size: 12px; color: #64748b; margin-top: 12px; text-align: center; letter-spacing: 0.5px; }
+    .mermaid { display: flex; justify-content: center; }
+
+    /* Chart.js グラフコンテナ */
+    .chart-container { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 18px 0 28px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }
+    .chart-container .chart-title { font-size: 14px; font-weight: bold; color: #0f172a; margin-bottom: 14px; text-align: center; letter-spacing: 0.3px; }
+    .chart-container canvas { max-height: 340px; }
+
+    @media (max-width: 640px) {
+      .article-hero-visual { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .article-hero-visual .hero-icon { font-size: 60px; }
+    }
   </style>
+  <!-- Mermaid (図解描画) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'default', themeVariables: { primaryColor: '#dbeafe', primaryTextColor: '#0f172a', primaryBorderColor: '#3B82F6', lineColor: '#64748b', fontFamily: '"Hiragino Kaku Gothic ProN", sans-serif', fontSize: '13px' }});</script>
+  <!-- Chart.js (グラフ描画) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
   <script>
@@ -79,7 +108,42 @@
   </div>
 
   <div class="prose">
+    <!-- ヒーローイラスト枠（将来gpt-image-1で自動生成画像に置換可） -->
+    <section class="article-hero-visual" aria-label="記事ビジュアル">
+      <div class="hero-text">
+        <span class="hero-badge">NOTION AI / 2026 EDITION</span>
+        <h2>議事録・Wiki・タスク管理が<br>"1ツール"で完結する未来</h2>
+        <p>Ask Notion と Notion Agent で「探す時間」をゼロに。事務職目線で月32時間を取り戻す実践ガイド。</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">📝</div>
+    </section>
+
     <p>「議事録はTeams、社内Wikiは別ツール、タスク管理はExcel、FAQはWord、Q&A検索はSlack……」──事務職にありがちな"バラバラ状態"を、私はNotion AIに乗り換えてから1ヶ月で解消できました。以前は「あの会議の議事録、どこにあったっけ？」と探すだけで1日30分。仕様書のリンクをSlackで再共有する作業も1日5〜10回。ところがNotion AIの<strong>Ask Notion</strong>（社内ドキュメントを横断検索して質問に答える機能）と<strong>Notion Agent</strong>（最大20分間の自律タスク実行）を使うようになってから、検索→回答が3秒で済むようになりました。本記事では、2026年5月時点の最新プラン（Free / Plus / Business $20 / Enterprise）、Notion AIだけにある10の活用シーン、コピペで使える実プロンプト、ChatGPTやClaudeとの使い分けまで、事務職目線で全部出します。</p>
+
+    <!-- Mermaid図解：従来とNotion AI後のワークフロー比較 -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart TB
+    subgraph BEFORE["❌ Notion AI導入前（ツール散在）"]
+        direction LR
+        A1[Teams<br/>議事録] --> A2[Word<br/>FAQ]
+        A2 --> A3[Excel<br/>タスク管理]
+        A3 --> A4[Slack<br/>Q&A検索]
+        A4 --> A5[毎日30分<br/>探す時間]
+    end
+    subgraph AFTER["✅ Notion AI導入後（一元化）"]
+        direction LR
+        B1[録音] --> B2[AI Meeting Notes]
+        B2 --> B3[Ask Notion<br/>横断検索]
+        B3 --> B4[Notion Agent<br/>自動整理]
+        B4 --> B5[3秒で<br/>回答完成]
+    end
+    BEFORE -.乗り換え.-> AFTER
+    style BEFORE fill:#fef2f2,stroke:#dc2626
+    style AFTER fill:#f0fdf4,stroke:#16a34a
+      </div>
+      <div class="diagram-caption">📊 図1：従来ワークフロー vs Notion AI後ワークフローの比較</div>
+    </div>
 
     <div class="toc-box">
       <h3>📑 目次</h3>
@@ -371,6 +435,39 @@ Notion Agentに依頼：
         <tr><td class="product-col"><strong>合計</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>約32時間/月</strong></td></tr>
       </tbody>
     </table>
+    <!-- Chart.js グラフ：業務別 削減時間（分）の可視化 -->
+    <div class="chart-container">
+      <div class="chart-title">📊 図2：業務別の月間削減時間（分） — 従来 vs Notion AI併用後</div>
+      <canvas id="roiChart" role="img" aria-label="業務別月間削減時間の比較グラフ"></canvas>
+    </div>
+    <script>
+      (function() {
+        if (typeof Chart === 'undefined') return;
+        var ctx = document.getElementById('roiChart');
+        if (!ctx) return;
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['議事録作成','資料・規程の検索','FAQ・Wiki更新','日報作成','未決事項の確認','マニュアル整備','Q&A応答'],
+            datasets: [
+              { label: '従来の月間時間（分）', data: [360, 600, 240, 300, 240, 180, 450], backgroundColor: 'rgba(220, 38, 38, 0.65)', borderColor: '#dc2626', borderWidth: 1 },
+              { label: 'Notion AI併用後（分）', data: [40, 60, 60, 100, 40, 60, 90], backgroundColor: 'rgba(22, 163, 74, 0.65)', borderColor: '#16a34a', borderWidth: 1 }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { font: { size: 12 } } },
+              tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': ' + c.parsed.y + '分'; } } }
+            },
+            scales: {
+              x: { ticks: { font: { size: 11 } } },
+              y: { beginAtZero: true, title: { display: true, text: '月間時間（分）' }, ticks: { font: { size: 11 } } }
+            }
+          }
+        });
+      })();
+    </script>
     <p>月32時間削減＝時給1,600円換算で月51,200円相当。Business月額3,000円に対して<strong>投資対効果は約17倍</strong>。ChatGPT/Claudeより削減効果が大きい理由は、「検索」と「ドキュメント整理」の時間が圧倒的に減るためです。</p>
 
     <h2 id="compare">他AIツールとの比較表</h2>
@@ -427,6 +524,28 @@ Notion Agentに依頼：
     <p>詳細な使い分けは <a href="/articles/claude-vs-chatgpt-office.html">Claude vs ChatGPT 徹底比較</a>、リサーチ業務中心なら <a href="/articles/perplexity-ai-usage.html">Perplexity AI 完全ガイド</a>、文章作成全般なら <a href="/articles/chatgpt-jimu-complete-guide.html">ChatGPT 事務職完全ガイド</a> も参考にしてください。</p>
 
     <h2 id="steps">導入7ステップ【スクショ前提】</h2>
+
+    <!-- Mermaid図解：導入の流れ -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart LR
+    S1([📝 アカウント<br/>作成]) --> S2([🗂️ ワークスペース<br/>設計])
+    S2 --> S3([💳 Businessへ<br/>アップグレード])
+    S3 --> S4([🎤 AI Meeting<br/>Notes ON])
+    S4 --> S5([📂 既存資料<br/>10ページ移行])
+    S5 --> S6([🔍 Ask Notion<br/>を5回試す])
+    S6 --> S7([🤖 Notion Agent<br/>で自動化])
+    style S1 fill:#dbeafe,stroke:#3B82F6
+    style S2 fill:#dbeafe,stroke:#3B82F6
+    style S3 fill:#fef3c7,stroke:#f59e0b
+    style S4 fill:#dbeafe,stroke:#3B82F6
+    style S5 fill:#dbeafe,stroke:#3B82F6
+    style S6 fill:#dbeafe,stroke:#3B82F6
+    style S7 fill:#d1fae5,stroke:#16a34a
+      </div>
+      <div class="diagram-caption">📊 図3：Notion AI 導入7ステップの流れ（推奨順）</div>
+    </div>
+
     <h3>STEP1. Notion公式サイトでアカウント作成</h3>
     <p>www.notion.com にアクセスし、メール / Google / Appleアカウントで登録します。<strong>ここがつまずきポイント</strong>：類似サービス（Coda、Confluenceなど）と混同しないこと。会社メールで登録してよいか、社内ルールを先に確認してください。</p>
 
