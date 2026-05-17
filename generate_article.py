@@ -68,6 +68,43 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="twitter:description" content="{description}">
   <link rel="canonical" href="https://manegori-lab.com/articles/{slug}.html">
   <link rel="stylesheet" href="/css/article.css">
+  <style>
+    /* プロンプトボックス（コピペ用プロンプト表示） */
+    .prompt-box {{ background: #f5f7fa; border-left: 4px solid #2563eb; padding: 14px 18px; margin: 14px 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px; line-height: 1.8; white-space: pre-wrap; border-radius: 4px; color: #0f172a; }}
+    .prompt-label {{ display: inline-block; background: #2563eb; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; font-family: -apple-system, sans-serif; letter-spacing: 1px; }}
+    .compare-table th {{ background: #eef2ff; }}
+    .compare-table td.product-col {{ font-weight: 600; }}
+    .toc-box {{ background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px 24px; margin: 24px 0; border-radius: 6px; }}
+    .toc-box h3 {{ font-size: 15px; margin-bottom: 10px; color: #0f172a; }}
+    .toc-box ol {{ padding-left: 22px; font-size: 13.5px; color: #334155; line-height: 1.9; }}
+    .toc-box a {{ color: #2563eb; text-decoration: none; }}
+    .warning-box {{ background: #fffbeb; border-left: 4px solid #d97706; padding: 14px 18px; margin: 14px 0; font-size: 14px; line-height: 1.9; border-radius: 4px; }}
+    /* ヒーローイラスト枠 */
+    .article-hero-visual {{ background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #005F6B 100%); color: #fff; padding: 36px 28px; border-radius: 12px; margin: 18px 0 32px; display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; align-items: center; box-shadow: 0 16px 40px rgba(15,23,42,0.18); position: relative; overflow: hidden; }}
+    .article-hero-visual::before {{ content: ""; position: absolute; top: -60%; right: -20%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(96,165,250,0.25), transparent 65%); border-radius: 50%; pointer-events: none; }}
+    .article-hero-visual .hero-text {{ position: relative; z-index: 1; }}
+    .article-hero-visual .hero-badge {{ display: inline-block; font-size: 11px; letter-spacing: 2px; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; font-weight: bold; color: #bfdbfe; }}
+    .article-hero-visual h2 {{ font-size: 24px; line-height: 1.45; color: #fff; margin: 0 0 8px; font-weight: 900; }}
+    .article-hero-visual p {{ font-size: 14px; color: #dbeafe; line-height: 1.85; margin: 0; }}
+    .article-hero-visual .hero-icon {{ font-size: 72px; line-height: 1; text-align: center; position: relative; z-index: 1; }}
+    /* Mermaid図解 */
+    .mermaid-wrapper {{ background: #fafbfc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px 18px; margin: 18px 0 28px; overflow-x: auto; }}
+    .mermaid-wrapper .diagram-caption {{ font-size: 12px; color: #64748b; margin-top: 12px; text-align: center; letter-spacing: 0.5px; }}
+    .mermaid {{ display: flex; justify-content: center; }}
+    /* Chart.js グラフコンテナ */
+    .chart-container {{ background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 18px 0 28px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }}
+    .chart-container .chart-title {{ font-size: 14px; font-weight: bold; color: #0f172a; margin-bottom: 14px; text-align: center; letter-spacing: 0.3px; }}
+    .chart-container canvas {{ max-height: 360px; }}
+    @media (max-width: 640px) {{
+      .article-hero-visual {{ grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }}
+      .article-hero-visual .hero-icon {{ font-size: 60px; }}
+    }}
+  </style>
+  <!-- Mermaid (図解描画) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({{ startOnLoad: true, theme: 'default', themeVariables: {{ primaryColor: '#dbeafe', primaryTextColor: '#0f172a', primaryBorderColor: '#3B82F6', lineColor: '#64748b', fontFamily: '"Hiragino Kaku Gothic ProN", sans-serif', fontSize: '13px' }}}});</script>
+  <!-- Chart.js (グラフ描画) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
   <script>
@@ -163,27 +200,103 @@ AI_PROMPT = """
 メインキーワード：{keyword}
 
 【絶対要件 — 守らないと差し戻し】
-1. 文字数：本文 12,000〜18,000 文字（5,000字程度の薄い記事は2026年Google Helpful Content Updateで殺されます。深さで勝負）
-2. 必須構成（H2見出しを順番通り全て含めること。各セクション末に空の <p></p> で改行確保）：
-   a) リード文（400字）：具体的な業務シーン1つを描写、AIで何分→何分に短縮できるかを数値で示す
-   b) H2「目次」：<ol> で各H2へのアンカーリンク
-   c) H2「○○とは？事務職目線で3行要約」（id="about"）：3段落、合計600字
-   d) H2「2026年5月時点のプラン徹底解説」（id="plans"）：800字＋価格比較表（Free/個人有料/法人プラン全て解説、円換算目安付き）
-   e) H2「事務職の業務で○○が活躍する10シーン＋実プロンプト」（id="scenes"）：H3で10シーン、各シーン本文400字＋実プロンプト1つ（<pre><code>で）。合計約5,000字
-   f) H2「効果測定：3ヶ月で何時間短縮できるか」（id="roi"）：比較表（業務×従来時間×短縮後×月間削減）＋800字解説
-   g) H2「他AIツールとの比較表」（id="compare"）：最低5ツール×7項目のHTML <table>＋500字解説
-   h) H2「導入7ステップ【スクショ前提】」（id="steps"）：各ステップ200字＋「ここがつまずきポイント」を1行（合計1,500字）
-   i) H2「本音メリット・デメリット」（id="pros-cons"）：メリット4つ＋デメリット4つ、各H3で200字
-   j) H2「事務職がやりがちな失敗例5つ」（id="fails"）：各H3で200字、合計1,000字
-   k) H2「セキュリティ・情報管理の徹底ルール」（id="security"）：7ルール箇条書き＋万一の対応フロー（合計700字）
-   l) H2「事務職タイプ別おすすめ活用パターン」（id="types"）：受付/経理/人事/営業事務/企画の5タイプ、各200字
-   m) H2「まとめ」（id="summary"）：400字、判断軸を明示し、内部リンクを以下から3つ以上挿入：
-      /articles/chatgpt-jimu-complete-guide.html / /articles/claude-vs-chatgpt-office.html / /articles/perplexity-ai-usage.html / /compare/jimu-ai-tools.html / /tools/ai-tool-finder.html
+1. 文字数：本文 12,000〜18,000 文字（5,000字程度の薄い記事は2026年Google Helpful Content Updateで殺されます。深さで勝負）。HTMLタグや図解の数値部分は文字数にカウントしない
+2. 必須構成（順番通り全て含めること）：
+   a) **ヒーローイラスト枠**（記事冒頭・本文より前）：以下の <section> ブロックを必ず最初に配置
+      <section class="article-hero-visual">
+        <div class="hero-text">
+          <span class="hero-badge">[ツール名や記事タイプを大文字英語で。例: CHATGPT / 2026 EDITION]</span>
+          <h2>[インパクトある2行のキャッチコピー。<br/>で改行]</h2>
+          <p>[サブテキスト。記事で得られる成果を80字程度]</p>
+        </div>
+        <div class="hero-icon" aria-hidden="true">[テーマに合う絵文字1〜2個。例: 🤖 / 📝 / 🔍]</div>
+      </section>
+   b) リード文（400字）：具体的な業務シーン1つを描写、AIで何分→何分に短縮できるかを数値で示す
+   c) **Mermaid図解①**（リード文直後・必須）：以下のテンプレで「従来 vs AI導入後」のフロー比較
+      <div class="mermaid-wrapper">
+        <div class="mermaid">
+flowchart TB
+    subgraph BEFORE["❌ 導入前（時間がかかる）"]
+        direction LR
+        A1[ステップ1] --> A2[ステップ2] --> A3[ステップ3] --> A4[時間消費]
+    end
+    subgraph AFTER["✅ 導入後（時短）"]
+        direction LR
+        B1[ステップ1] --> B2[ステップ2] --> B3[ステップ3] --> B4[時短完了]
+    end
+    BEFORE -.乗り換え.-> AFTER
+    style BEFORE fill:#fef2f2,stroke:#dc2626
+    style AFTER fill:#f0fdf4,stroke:#16a34a
+        </div>
+        <div class="diagram-caption">📊 図1：従来 vs ツール導入後のワークフロー比較</div>
+      </div>
+   d) H2「目次」：<ol> で各H2へのアンカーリンク
+   e) H2「○○とは？事務職目線で3行要約」（id="about"）：3段落、合計600字
+   f) H2「2026年5月時点のプラン徹底解説」（id="plans"）：800字＋価格比較表（Free/個人有料/法人プラン全て解説、円換算目安付き）
+   g) H2「事務職の業務で○○が活躍する10シーン＋実プロンプト」（id="scenes"）：H3で10シーン、各シーン本文400字＋実プロンプト1つ（<pre><code>で）。合計約5,000字
+   h) H2「効果測定：3ヶ月で何時間短縮できるか」（id="roi"）：比較表（業務×従来時間×短縮後×月間削減）＋800字解説
+   i) **Chart.js棒グラフ**（効果測定表の直後・必須）：以下のテンプレで業務別の月間時間を可視化
+      <div class="chart-container">
+        <div class="chart-title">📊 図2：業務別の月間時間（分） — 従来 vs ツール導入後</div>
+        <canvas id="roiChart" role="img" aria-label="業務別時間削減グラフ"></canvas>
+      </div>
+      <script>
+        (function() {{
+          if (typeof Chart === 'undefined') return;
+          var ctx = document.getElementById('roiChart');
+          if (!ctx) return;
+          new Chart(ctx, {{
+            type: 'bar',
+            data: {{
+              labels: ['業務1','業務2','業務3','業務4','業務5','業務6','業務7'],
+              datasets: [
+                {{ label: '従来の月間時間（分）', data: [/*7つの数値*/], backgroundColor: 'rgba(220, 38, 38, 0.65)', borderColor: '#dc2626', borderWidth: 1 }},
+                {{ label: '導入後（分）', data: [/*7つの数値*/], backgroundColor: 'rgba(22, 163, 74, 0.65)', borderColor: '#16a34a', borderWidth: 1 }}
+              ]
+            }},
+            options: {{
+              responsive: true, maintainAspectRatio: false,
+              plugins: {{ legend: {{ position: 'top', labels: {{ font: {{ size: 12 }} }} }} }},
+              scales: {{ x: {{ ticks: {{ font: {{ size: 11 }} }} }}, y: {{ beginAtZero: true, title: {{ display: true, text: '月間時間（分）' }}, ticks: {{ font: {{ size: 11 }} }} }} }}
+            }}
+          }});
+        }})();
+      </script>
+      ※ labels と data の中身は「効果測定」表のデータと完全に一致させる
+   j) H2「他AIツールとの比較表」（id="compare"）：最低5ツール×7項目のHTML <table>＋500字解説
+   k) **Mermaid図解②**（導入7ステップ見出しの直後・必須）：以下のテンプレで7ステップを横並びフロー化
+      <div class="mermaid-wrapper">
+        <div class="mermaid">
+flowchart LR
+    S1([🌐 STEP1<br/>内容]) --> S2([📧 STEP2<br/>内容])
+    S2 --> S3([STEP3])
+    S3 --> S4([STEP4])
+    S4 --> S5([STEP5])
+    S5 --> S6([STEP6])
+    S6 --> S7([STEP7])
+    style S1 fill:#dbeafe,stroke:#3B82F6
+    style S2 fill:#dbeafe,stroke:#3B82F6
+    style S3 fill:#dbeafe,stroke:#3B82F6
+    style S4 fill:#fef3c7,stroke:#f59e0b
+    style S5 fill:#fef3c7,stroke:#f59e0b
+    style S6 fill:#fef3c7,stroke:#f59e0b
+    style S7 fill:#d1fae5,stroke:#16a34a
+        </div>
+        <div class="diagram-caption">📊 図3：導入7ステップの流れ</div>
+      </div>
+   l) H2「導入7ステップ【スクショ前提】」（id="steps"）：各ステップ200字＋「ここがつまずきポイント」を1行（合計1,500字）
+   m) H2「本音メリット・デメリット」（id="pros-cons"）：メリット4つ＋デメリット4つ、各H3で200字
+   n) H2「事務職がやりがちな失敗例5つ」（id="fails"）：各H3で200字、合計1,000字
+   o) H2「セキュリティ・情報管理の徹底ルール」（id="security"）：7ルール箇条書き＋万一の対応フロー（合計700字）
+   p) H2「事務職タイプ別おすすめ活用パターン」（id="types"）：受付/経理/人事/営業事務/企画の5タイプ、各200字
+   q) H2「まとめ」（id="summary"）：400字、判断軸を明示し、内部リンクを以下から3つ以上挿入：
+      /articles/chatgpt-jimu-complete-guide.html / /articles/claude-vs-chatgpt-office.html / /articles/perplexity-ai-usage.html / /articles/notion-ai-jimu-complete-guide.html / /compare/jimu-ai-tools.html / /tools/ai-tool-finder.html
 
 3. ASPリンク {{ASP_LINK_1}}〜{{ASP_LINK_3}} を3箇所配置（料金プラン直後・実プロンプト中盤・導入7ステップ直後）
 
-4. HTML構造：h2/h3/p/ul/ol/li/table/thead/tbody/tr/th/td/strong/em/a/code/pre のみ使用。div/spanは禁止
+4. HTML構造：h2/h3/p/ul/ol/li/table/thead/tbody/tr/th/td/strong/em/a/code/pre/div/span/section/canvas/script のみ使用
    表は <table class="compare-table"> を使用
+   ※ div/span/section/canvas/scriptは「ヒーロー枠」「Mermaid図」「Chart.jsグラフ」のためにのみ使用、本文の段落分割では使わない
 
 5. E-E-A-T配慮（必須）：
    - 「2026年5月時点で著者が業務利用」「3ヶ月運用した結果」など時期と状況を入れる
