@@ -1,11 +1,11 @@
 name: 記事下書き生成
 
 on:
-  schedule:
-    # 週2回（月・木の日本時間 朝7時 = UTC 日22時・水22時）に下書き生成
-    # 公開ではなく drafts/ に出力するため、Helpful Content Update リスクを回避
-    - cron: '0 22 * * 0,3'
-  workflow_dispatch:       # 手動実行も可能
+  # 2026-05-18: 戦略見直しのため自動実行を停止（API費用ゼロ化）
+  # 再開する場合は下記 schedule のコメントを外す
+  # schedule:
+  #   - cron: '0 22 * * 0,3'   # 月・木 7時JST
+  workflow_dispatch:       # 手動実行のみ
 
 permissions:
   contents: write
