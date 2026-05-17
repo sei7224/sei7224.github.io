@@ -101,7 +101,12 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:title" content="{title} | マネー最適化ラボ">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="マネー最適化ラボ">
+  <meta property="og:url" content="https://manegori-lab.com/articles/{slug}.html">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{title} | マネー最適化ラボ">
+  <meta name="twitter:description" content="{description}">
+  <link rel="canonical" href="https://manegori-lab.com/articles/{slug}.html">
   <link rel="stylesheet" href="/css/article.css">
 </head>
 <body>
@@ -176,7 +181,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
         <h3>人気記事</h3>
         <ul>
           <li><a href="/articles/nisa-securities-compare.html">NISA証券会社比較</a></li>
-          <li><a href="/articles/claude-vs-chatgpt-office.html">Claude vs ChatGPT</a></li>
+          <li><a href="/articles/perplexity-ai-usage.html">Perplexity AI 活用術</a></li>
         </ul>
       </div>
     </div>
@@ -257,6 +262,7 @@ PROMPTS = {
 
 def generate_article_body(client: anthropic.Anthropic, topic: dict) -> str:
     """Claude APIを使って記事本文を生成する（カテゴリ別プロンプト）"""
+    import re
     category = topic.get("category", "gadget")
     prompt_template = PROMPTS.get(category, PROMPTS["gadget"])
     prompt = prompt_template.format(title=topic["title"], keyword=topic["keyword"])
@@ -269,13 +275,17 @@ def generate_article_body(client: anthropic.Anthropic, topic: dict) -> str:
 
     body = message.content[0].text
 
-    import re
+    # Markdownコードフェンスを除去（```html ... ``` や ``` ... ```）
+    body = re.sub(r'```(?:html)?\n?', '', body)
+    body = re.sub(r'\n?```', '', body)
+
+    tracking = TRACKING_ID if TRACKING_ID else "sei722406-22"
 
     if category == "gadget":
         def replace_amazon_link(match):
             return (
                 f'<a class="btn-amazon" href="https://www.amazon.co.jp/s?k='
-                f'{topic["keyword"].replace(" ", "+")}&tag={TRACKING_ID}" '
+                f'{topic["keyword"].replace(" ", "+")}&tag={tracking}" '
                 f'target="_blank" rel="nofollow noopener">🛒 Amazonで価格を確認する</a>'
             )
         body = re.sub(r'\{AMAZON_LINK_(\w+)\}', replace_amazon_link, body)
@@ -306,8 +316,8 @@ def get_asp_link(slug: str, num: str) -> str:
     return "https://manegori-lab.com/"
 
 
-def get_next_topic(specified_category: str = None) -> dict:
-    """カテゴリをラウンドロビンで選択し、未生成テーマを返す"""
+def get_next_topic(specified_category: str = None) -> tuple:
+    """カテゴリをラウンドロビンで選択し、未生成テーマと新しい状態を返す"""
     state = {}
     if STATE_FILE.exists():
         try:
@@ -333,11 +343,15 @@ def get_next_topic(specified_category: str = None) -> dict:
         remaining = topics  # 全テーマ消化後はリセット
 
     topic = random.choice(remaining)
+    new_state = {**state, "last_category_index": CATEGORIES.index(category)}
 
-    state["last_category_index"] = CATEGORIES.index(category)
+    # 状態保存は記事生成成功後に main() から行う
+    return topic, new_state
+
+
+def save_generation_state(state: dict):
+    """記事生成成功後に状態ファイルを更新する"""
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    return topic
 
 
 def save_article(topic: dict, body: str) -> Path:
@@ -353,6 +367,7 @@ def save_article(topic: dict, body: str) -> Path:
         tag=topic["tag"],
         category=topic.get("category", "gadget"),
         emoji=topic["emoji"],
+        slug=topic["slug"],
         date=datetime.now().strftime("%Y年%m月%d日"),
         body=body,
     )
@@ -407,7 +422,7 @@ def main():
     client = anthropic.Anthropic(api_key=api_key)
 
     print("📝 記事テーマを選定中...")
-    topic = get_next_topic(args.category)
+    topic, new_state = get_next_topic(args.category)
     print(f"📌 テーマ: [{topic['category']}] {topic['title']}")
 
     print("✍️  Claude APIで記事を生成中...")
@@ -415,6 +430,7 @@ def main():
 
     save_article(topic, body)
     update_index(topic)
+    save_generation_state(new_state)  # 成功後にのみ状態を保存
 
     print("🎉 完了しました！")
 
