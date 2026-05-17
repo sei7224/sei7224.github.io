@@ -4,20 +4,22 @@
    ============================================================ */
 
 :root {
-  --accent: #008C9E;
-  --accent-dark: #005F6B;
-  --accent-light: #b3e5e8;
+  --accent: #3B82F6;
+  --accent-dark: #1D4ED8;
+  --accent-light: #dbeafe;
   --amazon: #FF9900;
   --amazon-dark: #e68a00;
   --urgent: #e8380d;
-  --text: #444;
-  --heading: #1a1a1a;
-  --muted: #888;
-  --border: #e0e0e0;
-  --border-line: #ccc;
-  --dark: #343838;
+  --text: #334155;
+  --heading: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --border-line: #cbd5e1;
+  --dark: #0f172a;
+  --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #005F6B 100%);
   --footer-bg: #f5f5f5;
-  --body-bg: #fff;
+  --body-bg: #f8fafc;
+  --card-bg: #ffffff;
   --section-bg: #f7f7f7;
 }
 
@@ -26,7 +28,7 @@
 body {
   font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   background: var(--body-bg);
   color: var(--text);
   line-height: 1.9;
@@ -56,6 +58,92 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-menu li { position: relative; }
 .nav-menu li a { display: block; color: #fff; font-size: 14px; padding: 14px 22px; text-decoration: none; letter-spacing: 1px; font-weight: 500; }
 .nav-menu li a:hover, .nav-menu li.current a { background: var(--accent); color: #fff; }
+
+/* ============================================================
+   Hero / Featured / CTA additions
+   ============================================================ */
+.hero { background: var(--hero-bg); color: #fff; padding: 64px 20px; }
+
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  margin: 24px 0;
+  transition: box-shadow .2s, transform .2s;
+}
+.feature-card:hover {
+  box-shadow: 0 18px 48px rgba(15,23,42,0.16);
+  transform: translateY(-2px);
+}
+
+.tool-compare-banner {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--dark) 100%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 26px 30px;
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 18px 44px rgba(29,78,216,0.22);
+}
+.tool-compare-banner h2,
+.tool-compare-banner h3,
+.tool-compare-banner p { color: #fff; margin: 0; }
+.tool-compare-banner a {
+  background: #fff;
+  color: var(--accent-dark);
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.tool-compare-banner a:hover {
+  color: var(--accent-dark);
+  box-shadow: 0 10px 24px rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+.rank-list {
+  list-style: none;
+  counter-reset: rank;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+.rank-list li {
+  counter-increment: rank;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  overflow: hidden;
+  padding: 0;
+}
+.rank-list a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 11px 12px;
+  color: var(--heading);
+}
+.rank-list a::before {
+  content: counter(rank);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 13px;
+}
+.rank-list b { display: block; font-size: 13px; line-height: 1.4; }
+.rank-list span { display: block; color: var(--muted); font-size: 12px; line-height: 1.4; margin-top: 2px; }
 
 /* ============================================================
    Breadcrumb
@@ -92,16 +180,16 @@ img { max-width: 100%; height: auto; display: block; }
 .prose { background: #fff; border: 1px solid var(--border); padding: 24px 28px; margin: 16px 0; }
 .prose h2 { font-size: 22px; font-weight: bold; color: var(--heading); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); padding: 14px 0 12px; margin: 4px 0 18px; letter-spacing: 0.5px; }
 .prose h3 { font-size: 17px; font-weight: bold; color: var(--heading); border-left: 4px solid var(--accent); padding-left: 12px; margin: 22px 0 12px; }
-.prose p { margin-bottom: 14px; font-size: 15px; line-height: 1.9; color: var(--text); }
+.prose p { margin-bottom: 14px; font-size: 17px; line-height: 1.9; color: var(--text); }
 .prose ul, .prose ol { margin: 10px 0 14px 24px; }
-.prose li { margin-bottom: 6px; font-size: 15px; line-height: 1.8; }
+.prose li { margin-bottom: 6px; font-size: 17px; line-height: 1.8; }
 .prose strong { color: var(--heading); font-weight: bold; }
 
 /* ============================================================
    Product Card (ランキング型)
    ============================================================ */
 .product-card { background: #fff; border: 1px solid var(--border); margin: 20px 0; overflow: hidden; transition: box-shadow .2s; }
-.product-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.product-card:hover { box-shadow: 0 16px 42px rgba(15,23,42,0.14); }
 .product-card.top { border-color: var(--accent); border-width: 2px; }
 
 .card-rank-bar { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: #fafafa; border-bottom: 1px solid var(--border); }
@@ -344,6 +432,8 @@ img { max-width: 100%; height: auto; display: block; }
   .spec-table td:first-child { width: 110px; font-size: 0.82rem; }
   .footerbox { grid-template-columns: 1fr; }
   .summary-box, .cta-box, .score-box { padding: 18px 18px; }
+  .tool-compare-banner { grid-template-columns: 1fr; padding: 22px 20px; }
+  .tool-compare-banner a { text-align: center; }
   .plan-cards { grid-template-columns: 1fr; }
   .block-row { flex-direction: column; align-items: flex-start; gap: 6px; }
   .block-row .block-value { text-align: left; font-size: 22px; }

@@ -114,7 +114,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
 <header id="header">
   <div class="header-inner">
     <div class="site-logo"><a href="/"><span class="accent-bar"></span>マネー最適化ラボ</a></div>
-    <div class="site-tagline">お金・AI・賢い消費で生活をアップデートする</div>
+    <div class="site-tagline">事務・営業・企画職のためのAI活用メディア</div>
   </div>
 </header>
 <nav id="nav">
@@ -122,8 +122,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
     <ul class="nav-menu">
       <li><a href="/">トップ</a></li>
       <li><a href="/category/ai.html">AI業務効率化</a></li>
-      <li><a href="/category/money.html">マネー最適化</a></li>
-      <li><a href="/category/gadget.html">賢い消費・ガジェット</a></li>
+      <li><a href="/articles/claude-vs-chatgpt-office.html">ツール比較</a></li>
       <li><a href="/about.html">運営者情報</a></li>
       <li><a href="/contact.html">お問い合わせ</a></li>
     </ul>
@@ -173,8 +172,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
         <h3>カテゴリ</h3>
         <ul>
           <li><a href="/category/ai.html">AI業務効率化</a></li>
-          <li><a href="/category/money.html">マネー最適化</a></li>
-          <li><a href="/category/gadget.html">賢い消費・ガジェット</a></li>
+          <li><a href="/articles/claude-vs-chatgpt-office.html">ツール比較</a></li>
         </ul>
       </div>
       <div>
