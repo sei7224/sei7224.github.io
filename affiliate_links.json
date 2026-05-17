@@ -1,0 +1,28 @@
+{
+  "_comment": "ASP案件IDとリンクURLを管理するファイル。スラッグ → プレースホルダー番号 → URL の構造。",
+  "_how_to_use": "ASP登録後、各案件の計測URLをここに追記してください。未設定のスラッグはサイトTOPにフォールバックします。",
+
+  "claude-vs-chatgpt-office": {
+    "1": "https://px.a8.net/svt/ejp?a8mat=XXXX",
+    "2": "https://px.a8.net/svt/ejp?a8mat=YYYY"
+  },
+  "notion-ai-guide-office": {
+    "1": "https://px.a8.net/svt/ejp?a8mat=XXXX"
+  },
+  "credit-card-point-ranking-2026": {
+    "1": "https://ck.jp.ap.valuecommerce.com/servlet/referral?XXXX",
+    "2": "https://ck.jp.ap.valuecommerce.com/servlet/referral?YYYY"
+  },
+  "rakuten-vs-smcc-compare": {
+    "1": "https://ck.jp.ap.valuecommerce.com/servlet/referral?XXXX",
+    "2": "https://ck.jp.ap.valuecommerce.com/servlet/referral?YYYY"
+  },
+
+  "_note": "以下のASP登録が推奨されます",
+  "_asps": {
+    "A8.net": "https://www.a8.net/ — AI系SaaS、金融系に強い",
+    "もしもアフィリエイト": "https://mohimo.net/ — Amazonの上乗せ報酬あり（W報酬）",
+    "バリューコマース": "https://www.valuecommerce.com/ — 楽天・証券・クレカ案件充実",
+    "afb": "https://afb.co.jp/ — 金融・保険系単価高め"
+  }
+}
