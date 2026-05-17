@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AIシゴトラボ 下書き自動生成スクリプト
+AI×シゴト | マネゴリラボ 下書き自動生成スクリプト
 
 - 公開はせず `drafts/` フォルダに HTML を出力する（人間が編集してから articles/ へ移動して公開）
 - 量より質：Helpful Content Update を踏まえた人力編集前提の運用
@@ -56,15 +56,15 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- DRAFT: 公開前に人間レビュー・追記が必要です -->
   <meta name="robots" content="noindex,nofollow">
-  <title>{title} | AIシゴトラボ</title>
+  <title>{title} | AI×シゴト | マネゴリラボ</title>
   <meta name="description" content="{description}">
-  <meta property="og:title" content="{title} | AIシゴトラボ">
+  <meta property="og:title" content="{title} | AI×シゴト | マネゴリラボ">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="AIシゴトラボ">
+  <meta property="og:site_name" content="AI×シゴト | マネゴリラボ">
   <meta property="og:url" content="https://manegori-lab.com/articles/{slug}.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{title} | AIシゴトラボ">
+  <meta name="twitter:title" content="{title} | AI×シゴト | マネゴリラボ">
   <meta name="twitter:description" content="{description}">
   <link rel="canonical" href="https://manegori-lab.com/articles/{slug}.html">
   <link rel="stylesheet" href="/css/article.css">
@@ -81,7 +81,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
 
 <header id="header">
   <div class="header-inner">
-    <div class="site-logo"><a href="/"><span class="accent-bar"></span>AIシゴトラボ</a></div>
+    <div class="site-logo"><a href="/"><span class="accent-bar"></span><span class="logo-main">AI×シゴト</span><span class="logo-sep">|</span><span class="logo-sub">マネゴリラボ</span></a></div>
     <div class="site-tagline">事務・営業・企画職のためのAI仕事術メディア</div>
   </div>
 </header>
@@ -146,7 +146,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
         </ul>
       </div>
     </div>
-    <p class="copy">© 2026 AIシゴトラボ　|　当サイトはAmazonアソシエイト・プログラム参加者です。</p>
+    <p class="copy">© 2026 AI×シゴト | マネゴリラボ　|　当サイトはAmazonアソシエイト・プログラム参加者です。</p>
   </div>
 </footer>
 
@@ -155,7 +155,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
 """
 
 AI_PROMPT = """
-あなたは「事務・営業・企画職向けAI業務効率化メディア『AIシゴトラボ』」の編集長レベルライターです。
+あなたは「事務・営業・企画職向けAI業務効率化メディア『AI×シゴト | マネゴリラボ』」の編集長レベルライターです。
 読者はAIに明るくない一般職のビジネスパーソンで、Excelやメール作成・議事録など日々の作業に追われています。
 1000万PVを達成した編集プロデューサーの基準で、深く・具体的に・実用的に書いてください。
 
@@ -195,7 +195,7 @@ AI_PROMPT = """
 6. NGワード：「革命的」「神ツール」「完全攻略」「100%」「全員に」「誰でも稼げる」など誇大表現は全面禁止
 
 7. 比較表は2026年5月時点で実在する以下ツール名・実価格を使用：
-   - ChatGPT Plus（GPT-5.4）$20 / ChatGPT Pro（GPT-5.5）$100
+   - ChatGPT Plus（GPT-5.5）$20 / ChatGPT Pro（GPT-5.5 Pro）$100 ※GPT-5.5は2026年4月23日に全有料プランへ展開済み
    - Claude Pro（Sonnet 4.6）$20 / Claude Max（Opus 4.7）$100
    - Gemini Advanced（Gemini 3.1 Pro）約2,900円
    - Microsoft Copilot Pro 約3,200円 / M365 Copilot Business $18/seat（年払）
@@ -335,7 +335,7 @@ def find_topic_by_slug(slug: str) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="AIシゴトラボ 下書き自動生成")
+    parser = argparse.ArgumentParser(description="AI×シゴト | マネゴリラボ 下書き自動生成")
     parser.add_argument("--slug", help="生成するテーマのslugを指定（省略時は未生成テーマからランダム）")
     args = parser.parse_args()
 
