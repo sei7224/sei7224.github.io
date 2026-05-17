@@ -1,28 +1,12 @@
 {
-  "_comment": "ASP案件IDとリンクURLを管理するファイル。スラッグ → プレースホルダー番号 → URL の構造。",
-  "_how_to_use": "ASP登録後、各案件の計測URLをここに追記してください。未設定のスラッグはサイトTOPにフォールバックします。",
+  "_comment": "ASP実URLを管理するファイル。スラッグ → プレースホルダー番号 → 実URL の構造。",
+  "_rule": "ASP契約後の実URLのみを記載すること。プレースホルダー（XXXX/YYYY）や未設定スラッグは、記事中で「TODO: ASP_LINK_n を手動で挿入」コメントになりリンクは表示されません（404・無効リンク流出を防止）。",
+  "_how_to_use": "ASP承認後、各案件の計測URLをここに追記してください。",
 
-  "claude-vs-chatgpt-office": {
-    "1": "https://px.a8.net/svt/ejp?a8mat=XXXX",
-    "2": "https://px.a8.net/svt/ejp?a8mat=YYYY"
-  },
-  "notion-ai-guide-office": {
-    "1": "https://px.a8.net/svt/ejp?a8mat=XXXX"
-  },
-  "credit-card-point-ranking-2026": {
-    "1": "https://ck.jp.ap.valuecommerce.com/servlet/referral?XXXX",
-    "2": "https://ck.jp.ap.valuecommerce.com/servlet/referral?YYYY"
-  },
-  "rakuten-vs-smcc-compare": {
-    "1": "https://ck.jp.ap.valuecommerce.com/servlet/referral?XXXX",
-    "2": "https://ck.jp.ap.valuecommerce.com/servlet/referral?YYYY"
-  },
-
-  "_note": "以下のASP登録が推奨されます",
-  "_asps": {
-    "A8.net": "https://www.a8.net/ — AI系SaaS、金融系に強い",
-    "もしもアフィリエイト": "https://mohimo.net/ — Amazonの上乗せ報酬あり（W報酬）",
-    "バリューコマース": "https://www.valuecommerce.com/ — 楽天・証券・クレカ案件充実",
-    "afb": "https://afb.co.jp/ — 金融・保険系単価高め"
+  "_asps_to_register": {
+    "A8.net": "https://www.a8.net/ — ChatGPT Plus 法人、Notion AI、Slack 等",
+    "もしもアフィリエイト": "https://moshimo.com/ — Amazon・楽天の上乗せW報酬対応",
+    "afb": "https://afb.co.jp/ — Notion・Zoom 等 SaaS 系",
+    "アクセストレード": "https://www.accesstrade.ne.jp/ — Sansan・freee・kintone 等 法人SaaS高単価"
   }
 }

@@ -14,8 +14,6 @@ STATIC_URLS = [
     ("/contact.html", "0.3", "monthly"),
     ("/privacy.html", "0.3", "monthly"),
     ("/category/ai.html", "0.8", "weekly"),
-    ("/category/money.html", "0.8", "weekly"),
-    ("/category/gadget.html", "0.8", "weekly"),
 ]
 
 urls = list(STATIC_URLS)

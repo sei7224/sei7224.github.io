@@ -1,8 +1,10 @@
-name: 記事自動生成
+name: 記事下書き生成
 
 on:
   schedule:
-    - cron: '0 22 * * *'  # 毎日 日本時間 朝7時（UTC 22時）
+    # 週2回（月・木の日本時間 朝7時 = UTC 日22時・水22時）に下書き生成
+    # 公開ではなく drafts/ に出力するため、Helpful Content Update リスクを回避
+    - cron: '0 22 * * 0,3'
   workflow_dispatch:       # 手動実行も可能
 
 permissions:
@@ -31,19 +33,16 @@ jobs:
       - name: 依存ライブラリをインストール
         run: pip install -r requirements.txt
 
-      - name: 記事を生成
+      - name: 下書き記事を生成（drafts/ に出力）
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AMAZON_TRACKING_ID: ${{ secrets.AMAZON_TRACKING_ID }}
         run: python generate_article.py
 
-      - name: サイトマップを更新
-        run: python update_sitemap.py
-
-      - name: 生成した記事をコミット & プッシュ
+      - name: 生成した下書きをコミット & プッシュ
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --staged --quiet || git commit -m "feat: 記事を自動生成 $(date '+%Y-%m-%d')"
+          git add drafts/
+          git diff --staged --quiet || git commit -m "draft: 下書きを生成 $(date '+%Y-%m-%d')"
           git push
