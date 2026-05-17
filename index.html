@@ -52,13 +52,17 @@
     .hero-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 34px; max-width: 660px; }
     .proof-item { border-top: 1px solid rgba(255,255,255,0.22); padding-top: 12px; color: #cbd5e1; font-size: 12px; line-height: 1.6; }
     .proof-item b { display: block; color: #fff; font-size: 22px; line-height: 1.2; margin-bottom: 2px; }
-    .hero-panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); padding: 24px; border-radius: 8px; box-shadow: 0 24px 60px rgba(15,23,42,0.26); }
-    .hero-panel img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; background: #fff; border: 4px solid rgba(255,255,255,0.7); margin-bottom: 18px; }
-    .hero-panel h2 { font-size: 18px; margin-bottom: 8px; color: #fff; }
-    .hero-panel p { font-size: 13px; color: #dbeafe; line-height: 1.8; }
-    .hero-panel ul { list-style: none; margin-top: 18px; display: grid; gap: 9px; }
-    .hero-panel li { font-size: 13px; color: #f8fafc; padding-left: 18px; position: relative; }
-    .hero-panel li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); position: absolute; left: 0; top: 12px; }
+    .hero-panel { background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.22); padding: 32px 28px; border-radius: 12px; box-shadow: 0 24px 60px rgba(15,23,42,0.32); backdrop-filter: blur(8px); position: relative; overflow: hidden; }
+    .hero-panel::before { content: ""; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(96,165,250,0.35), transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-panel .panel-eyebrow { display: inline-block; font-size: 11px; letter-spacing: 2px; color: #93c5fd; font-weight: bold; padding: 4px 10px; border: 1px solid rgba(147,197,253,0.4); border-radius: 3px; margin-bottom: 16px; }
+    .hero-panel h2 { font-size: 22px; margin-bottom: 12px; color: #fff; line-height: 1.45; letter-spacing: -0.3px; }
+    .hero-panel p { font-size: 13.5px; color: #dbeafe; line-height: 1.85; }
+    .hero-panel ul { list-style: none; margin-top: 22px; display: grid; gap: 11px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.14); }
+    .hero-panel li { font-size: 13.5px; color: #f8fafc; padding-left: 26px; position: relative; line-height: 1.6; }
+    .hero-panel li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 10px; font-weight: bold; display: grid; place-items: center; }
+    .hero-panel .panel-cta { display: inline-block; margin-top: 22px; font-size: 12px; color: #bfdbfe; font-weight: bold; letter-spacing: 0.8px; }
+    .hero-panel .panel-cta::after { content: " →"; transition: transform .2s; }
+    .hero-panel .panel-cta:hover { color: #fff; }
 
     .wrap { max-width: 1120px; margin: 0 auto; padding: 42px 20px 0; }
     .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 38px; align-items: start; }
@@ -153,9 +157,9 @@
   <meta property="og:site_name" content="AIシゴトラボ">
   <meta property="og:title" content="AIシゴトラボ｜AIで仕事を10倍速くする実践ガイド">
   <meta property="og:description" content="事務・営業・企画職のためのAI活用メディア。主要AIツールの比較と実践ノウハウを発信。">
-  <meta property="og:image" content="https://manegori-lab.com/img/manegori.png">
+  <meta property="og:image" content="https://manegori-lab.com/img/manegori_p.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://manegori-lab.com/img/manegori.png">
+  <meta name="twitter:image" content="https://manegori-lab.com/img/manegori_p.png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
   <script>
@@ -201,14 +205,16 @@
       </div>
     </div>
     <aside class="hero-panel" aria-label="サイトの専門領域">
-      <img src="/img/manegori.png" alt="マネゴリ所長">
-      <h2>AI業務効率化に一本化</h2>
-      <p>「便利そう」で終わらせず、日々の作業時間をどれだけ減らせるかに絞ってAIツールを評価します。</p>
+      <span class="panel-eyebrow">EDITORIAL FOCUS</span>
+      <h2>AI業務効率化、<br>一本に絞る理由</h2>
+      <p>「便利そう」で終わらせず、日々の作業時間をどれだけ減らせるかに絞ってAIツールを評価します。事務職目線の実機検証だけを掲載。</p>
       <ul>
         <li>メール・文書作成の時短</li>
         <li>会議メモと要約の自動化</li>
         <li>資料作成とリサーチの高速化</li>
+        <li>10ツール横並びの比較データ</li>
       </ul>
+      <a class="panel-cta" href="/about.html">運営方針を読む</a>
     </aside>
   </div>
 </section>
@@ -226,8 +232,8 @@
             </div>
           </div>
           <div class="feature-content">
-            <span class="tag">ピラー記事</span>
-            <h2><a href="/articles/chatgpt-jimu-complete-guide.html">ピラー記事：ChatGPT事務職完全ガイド</a></h2>
+            <span class="tag">完全ガイド</span>
+            <h2><a href="/articles/chatgpt-jimu-complete-guide.html">ChatGPT事務職完全ガイド</a></h2>
             <p>議事録、メール返信、Excel関数、稟議書、FAQ、日報まで。事務職がChatGPTを毎日の業務に落とし込む方法を、実務シーン別にまとめました。</p>
             <a class="read-more" href="/articles/chatgpt-jimu-complete-guide.html">完全ガイドを読む →</a>
           </div>
@@ -268,17 +274,24 @@
         <h2 class="section-title" id="latest-title">新着記事 <span class="small">LATEST POSTS</span></h2>
         <div class="article-grid">
           <article class="article-card">
+            <div class="thumb">📝</div>
+            <span class="tag">完全ガイド</span>
+            <h3><a href="/articles/notion-ai-jimu-complete-guide.html">Notion AI 事務職完全ガイド【2026年5月版】</a></h3>
+            <p>議事録・社内Wiki・タスク管理を一元化。Notion Agent と Ask Notion で「探す時間」をゼロにする実践ガイド。</p>
+            <a class="read-more" href="/articles/notion-ai-jimu-complete-guide.html">続きを読む →</a>
+          </article>
+          <article class="article-card">
             <div class="thumb">🔍</div>
-            <span class="tag">AI業務効率化</span>
-            <h3><a href="/articles/perplexity-ai-usage.html">Perplexity AI の使い方【Google検索よりも速い情報収集術】</a></h3>
-            <p>企画書や営業提案の下調べを短時間で進めるための、AI検索エンジンの基本操作と使い分けを解説します。</p>
+            <span class="tag">完全ガイド</span>
+            <h3><a href="/articles/perplexity-ai-usage.html">Perplexity AI 完全ガイド【2026年5月版】</a></h3>
+            <p>Deep Research と Comet Browser で、リサーチ業務を2時間→5分に。出典付き検索で社内資料がすぐ作れる。</p>
             <a class="read-more" href="/articles/perplexity-ai-usage.html">続きを読む →</a>
           </article>
           <article class="article-card">
             <div class="thumb">⚖️</div>
             <span class="tag">ツール比較</span>
-            <h3><a href="/articles/claude-vs-chatgpt-office.html">Claude vs ChatGPT 徹底比較【事務職が使うならどっち？】</a></h3>
-            <p>文書品質、表作成、要約、コストを横断比較。月額課金する前に確認したい判断基準をまとめます。</p>
+            <h3><a href="/articles/claude-vs-chatgpt-office.html">Claude vs ChatGPT 事務職徹底比較【2026年5月版】</a></h3>
+            <p>Sonnet 4.6 vs GPT-5.4 を10業務で実測比較。料金・性能・使い分けまで、現役事務職目線で整理。</p>
             <a class="read-more" href="/articles/claude-vs-chatgpt-office.html">続きを読む →</a>
           </article>
         </div>
@@ -295,7 +308,7 @@
 
     <aside class="sidebar">
       <div class="widget widget-profile">
-        <img class="ava-img" src="/img/manegori.png" alt="マネゴリ所長">
+        <img class="ava-img" src="/img/manegori_p.png" alt="マネゴリ所長">
         <div class="name">マネゴリ所長</div>
         <div class="role">AI業務効率化メディア編集長</div>
         <p class="desc">事務・営業・企画職がAIで実務をどれだけ短縮できるかを検証。料金、出力品質、毎日の使いやすさを重視して紹介します。</p>
