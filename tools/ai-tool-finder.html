@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIツール最適診断｜事務・営業・企画職向け | AIシゴトラボ</title>
+  <meta name="description" content="5問に答えるだけで、ChatGPT Plus、Claude Pro、Gemini Advanced、Notion AI、Microsoft Copilotなどから自分に合うAIツールTOP3を診断します。">
+  <meta property="og:title" content="AIツール最適診断 | AIシゴトラボ">
+  <meta property="og:description" content="職種、効率化したい業務、予算、日本語精度、法人契約の必要性から、あなたに合うAIツールTOP3を提示します。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIシゴトラボ">
+  <meta property="og:url" content="https://manegori-lab.com/tools/ai-tool-finder.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://manegori-lab.com/tools/ai-tool-finder.html">
+  <style>
+    :root {
+      --accent: #3B82F6;
+      --accent-dark: #1D4ED8;
+      --accent-light: #dbeafe;
+      --text: #334155;
+      --heading: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --border-line: #cbd5e1;
+      --dark: #0f172a;
+      --body-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --footer-bg: #f5f5f5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+      font-weight: 500;
+      font-size: 17px;
+      background: var(--body-bg);
+      color: var(--text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .15s; }
+    a:hover { color: var(--accent-dark); }
+    #header { width: 100%; background: #fff; border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 960px; margin: 0 auto; padding: 22px 20px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .site-logo { font-size: 22px; font-weight: bold; color: var(--heading); letter-spacing: 1px; }
+    .site-logo a { color: inherit; }
+    .site-logo .accent-bar { display: inline-block; width: 6px; height: 22px; background: var(--accent); vertical-align: middle; margin-right: 10px; transform: translateY(-2px); }
+    .site-tagline { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+    #nav { width: 100%; background: var(--dark); border-top: double 3px var(--accent); }
+    .nav-inner { max-width: 960px; margin: 0 auto; }
+    .nav-menu { list-style: none; display: flex; flex-wrap: wrap; }
+    .nav-menu li a { display: block; color: #fff; font-size: 14px; padding: 14px 22px; text-decoration: none; letter-spacing: 1px; font-weight: 500; }
+    .nav-menu li a:hover, .nav-menu li.current a { background: var(--accent); color: #fff; }
+    .breadcrumb { background: #fafafa; border-bottom: 1px solid var(--border); padding: 10px 20px; font-size: 12px; color: var(--muted); }
+    .breadcrumb-inner { max-width: 960px; margin: 0 auto; }
+    .article-header { background: #fff; padding: 36px 20px 28px; border-bottom: 1px solid var(--border); }
+    .article-header-inner { max-width: 780px; margin: 0 auto; }
+    .article-header .tag { display: inline-block; background: var(--dark); color: #fff; font-size: 11px; padding: 4px 14px; letter-spacing: 1px; margin-bottom: 14px; font-weight: bold; }
+    .article-header h1 { font-size: 26px; line-height: 1.55; color: var(--heading); margin-bottom: 14px; letter-spacing: 0.5px; }
+    .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; }
+    .notice { background: #fffbf0; border-left: 3px solid #FFD700; padding: 10px 14px; font-size: 12px; color: #666; margin: 16px 0; line-height: 1.7; }
+    #footer { background: var(--footer-bg); color: #555; width: 100%; margin-top: 50px; border-top: 1px solid var(--border); font-size: 80%; }
+    .footer-inner { max-width: 960px; margin: 0 auto; padding: 32px 20px 20px; }
+    .footerbox { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 24px; }
+    .footerbox h3 { font-size: 14px; font-weight: bold; color: #333; border-bottom: 1px solid var(--border-line); padding: 0 0 8px; margin: 0 0 10px; letter-spacing: 1px; }
+    .footerbox ul { list-style: none; }
+    .footerbox li { padding: 4px 0; font-size: 12px; line-height: 1.8; }
+    .footerbox li a { color: #555; font-size: 12px; }
+    .copy { text-align: center; font-size: 11px; color: #777; border-top: 1px solid var(--border-line); padding-top: 14px; letter-spacing: 0.5px; }
+    .finder-shell { max-width: 920px; margin: 0 auto; padding: 0 16px 48px; }
+    .finder-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin: 16px 0; }
+    .progress { height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 22px; }
+    .progress-bar { height: 100%; width: 20%; background: var(--accent); transition: width .2s; }
+    .question { display: none; }
+    .question.active { display: block; }
+    .question h2 { border: 0; padding: 0; margin: 0 0 16px; font-size: 22px; }
+    .choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .choice { width: 100%; border: 1px solid var(--border); background: #fff; color: var(--heading); border-radius: 8px; padding: 14px 16px; text-align: left; font-weight: bold; font-size: 15px; cursor: pointer; transition: border .15s, background .15s, transform .15s; }
+    .choice:hover, .choice.selected { border-color: var(--accent); background: var(--accent-light); transform: translateY(-1px); }
+    .finder-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+    .finder-actions button, .share-actions button { border: 0; border-radius: 4px; padding: 12px 16px; font-weight: bold; cursor: pointer; }
+    .btn-next { background: var(--accent); color: #fff; }
+    .btn-prev, .btn-reset, .btn-share { background: #e2e8f0; color: var(--heading); }
+    .btn-next:disabled { background: #cbd5e1; cursor: not-allowed; }
+    .result { display: none; }
+    .result.active { display: block; }
+    .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+    .result-card { border: 1px solid var(--border); border-radius: 8px; background: #fff; padding: 18px; position: relative; }
+    .result-card .rank { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 900; margin-bottom: 10px; }
+    .result-card h3 { border: 0; padding: 0; margin: 0 0 8px; font-size: 18px; }
+    .score-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+    .share-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .share-message { font-size: 13px; color: var(--accent-dark); margin-top: 10px; min-height: 20px; }
+    @media (max-width: 760px) {
+      .choice-grid, .result-grid { grid-template-columns: 1fr; }
+      .footerbox { grid-template-columns: 1fr; }
+      .nav-menu { overflow-x: auto; flex-wrap: nowrap; }
+      .nav-menu li a { white-space: nowrap; padding: 12px 14px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JV6VQD3TZE');
+  </script>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-inner">
+    <div class="site-logo"><a href="/"><span class="accent-bar"></span>AIシゴトラボ</a></div>
+    <div class="site-tagline">事務・営業・企画職のためのAI活用メディア</div>
+  </div>
+</header>
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-menu">
+      <li><a href="/">トップ</a></li>
+      <li><a href="/category/ai.html">AI業務効率化</a></li>
+      <li><a href="/compare/jimu-ai-tools.html">ツール比較</a></li>
+      <li class="current"><a href="/tools/ai-tool-finder.html">AI診断</a></li>
+      <li><a href="/about.html">運営者情報</a></li>
+      <li><a href="/contact.html">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">ホーム</a> › <a href="/category/ai.html">AI業務効率化</a> › AIツール最適診断
+  </div>
+</div>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <span class="tag">診断ツール</span>
+    <h1>AIツール最適診断</h1>
+    <div class="article-meta">
+      <span>✍️ 著者：現役事務職ライター</span>
+      <span>📅 更新：2026年5月17日</span>
+    </div>
+  </div>
+</div>
+
+<main class="finder-shell">
+  <div class="notice">
+    この診断は2026年5月時点のツール情報に基づきます。料金・機能は変更される場合があります。
+  </div>
+
+  <section class="finder-card" id="finder">
+    <div class="progress" aria-label="診断の進捗">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="question active" data-question="role">
+      <h2>1. あなたの主な職種は？</h2>
+      <div class="choice-grid">
+        <button class="choice" data-value="事務職">事務職</button>
+        <button class="choice" data-value="営業職">営業職</button>
+        <button class="choice" data-value="企画職">企画職</button>
+        <button class="choice" data-value="その他">その他</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="task">
+      <h2>2. 一番効率化したい業務は？</h2>
+      <div class="choice-grid">
+        <button class="choice" data-value="議事録">議事録</button>
+        <button class="choice" data-value="メール">メール</button>
+        <button class="choice" data-value="資料作成">資料作成</button>
+        <button class="choice" data-value="データ整理">データ整理</button>
+        <button class="choice" data-value="翻訳">翻訳</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="budget">
+      <h2>3. 月額予算は？</h2>
+      <div class="choice-grid">
+        <button class="choice" data-value="無料">無料</button>
+        <button class="choice" data-value="〜2,000円">〜2,000円</button>
+        <button class="choice" data-value="〜5,000円">〜5,000円</button>
+        <button class="choice" data-value="〜10,000円">〜10,000円</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="japanese">
+      <h2>4. 日本語精度は重要？</h2>
+      <div class="choice-grid">
+        <button class="choice" data-value="最重要">最重要</button>
+        <button class="choice" data-value="重要">重要</button>
+        <button class="choice" data-value="そこそこ">そこそこ</button>
+        <button class="choice" data-value="英語メイン">英語メイン</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="business">
+      <h2>5. 法人契約が必要？</h2>
+      <div class="choice-grid">
+        <button class="choice" data-value="必要">必要</button>
+        <button class="choice" data-value="不要">不要</button>
+        <button class="choice" data-value="わからない">わからない</button>
+      </div>
+    </div>
+
+    <div class="finder-actions">
+      <button class="btn-prev" id="prevBtn" type="button">戻る</button>
+      <button class="btn-next" id="nextBtn" type="button" disabled>次へ</button>
+    </div>
+  </section>
+
+  <section class="finder-card result" id="result">
+    <h2>あなたへの推奨 TOP3</h2>
+    <p>回答内容に合わせて、日常業務で使いやすい順に並べました。</p>
+    <div class="result-grid" id="resultGrid"></div>
+    <div class="share-actions">
+      <button class="btn-share" id="shareX" type="button">Xでシェア</button>
+      <button class="btn-share" id="copyBtn" type="button">クリップボードにコピー</button>
+      <button class="btn-reset" id="resetBtn" type="button">もう一度診断する</button>
+    </div>
+    <div class="share-message" id="shareMessage" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footerbox">
+      <div>
+        <h3>サイト情報</h3>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/about.html">運営者情報</a></li>
+          <li><a href="/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>カテゴリ</h3>
+        <ul>
+          <li><a href="/category/ai.html">AI業務効率化</a></li>
+          <li><a href="/compare/jimu-ai-tools.html">AIツール比較表</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>注目記事</h3>
+        <ul>
+          <li><a href="/articles/chatgpt-jimu-complete-guide.html">ChatGPT事務職完全ガイド</a></li>
+          <li><a href="/articles/claude-vs-chatgpt-office.html">ChatGPT vs Claude 比較</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 AIシゴトラボ | この診断は2026年5月時点のツール情報に基づきます。</p>
+  </div>
+</footer>
+
+<script>
+  const questions = Array.from(document.querySelectorAll('.question'));
+  const progressBar = document.getElementById('progressBar');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const finder = document.getElementById('finder');
+  const result = document.getElementById('result');
+  const resultGrid = document.getElementById('resultGrid');
+  const resetBtn = document.getElementById('resetBtn');
+  const shareX = document.getElementById('shareX');
+  const copyBtn = document.getElementById('copyBtn');
+  const shareMessage = document.getElementById('shareMessage');
+  let current = 0;
+  const answers = {};
+
+  const tools = {
+    'ChatGPT Plus': { score: 0, reason: 'メール、議事録、Excel相談、資料骨子まで広く使える万能型です。', asp: 'ASP_LINK_01' },
+    'Claude Pro': { score: 0, reason: '長文の社内文書や議事録を自然な日本語で整える作業に強いです。', asp: 'ASP_LINK_02' },
+    'Gemini Advanced': { score: 0, reason: 'Google Workspace中心の職場で、メールや資料作成と相性が良いです。', asp: 'ASP_LINK_03' },
+    'Notion AI': { score: 0, reason: '社内メモ、議事録、ナレッジ管理をNotion上でまとめたい人に向きます。', asp: 'ASP_LINK_04' },
+    'Microsoft Copilot': { score: 0, reason: 'Excel、Word、PowerPoint、Teamsを日常的に使う会社で導入しやすいです。', asp: 'ASP_LINK_05' },
+    'NotebookLM': { score: 0, reason: '社内資料やPDFを読み込ませて、根拠つきで整理したい人に合います。', asp: 'ASP_LINK_06' },
+    'Perplexity Pro': { score: 0, reason: '営業・企画の調査や出典つきリサーチを速く進めたい人に便利です。', asp: 'ASP_LINK_07' },
+    'DeepL Pro': { score: 0, reason: '英文メールや海外資料の翻訳品質を重視する人に向いています。', asp: 'ASP_LINK_08' }
+  };
+
+  const weights = {
+    role: {
+      '事務職': { 'ChatGPT Plus': 4, 'Claude Pro': 3, 'Microsoft Copilot': 3, 'Notion AI': 2 },
+      '営業職': { 'ChatGPT Plus': 3, 'Perplexity Pro': 4, 'Microsoft Copilot': 3, 'Gemini Advanced': 2 },
+      '企画職': { 'Claude Pro': 3, 'Perplexity Pro': 4, 'ChatGPT Plus': 3, 'NotebookLM': 3 },
+      'その他': { 'ChatGPT Plus': 3, 'Gemini Advanced': 2, 'Claude Pro': 2 }
+    },
+    task: {
+      '議事録': { 'Claude Pro': 4, 'ChatGPT Plus': 4, 'Notion AI': 3, 'NotebookLM': 3 },
+      'メール': { 'ChatGPT Plus': 4, 'Gemini Advanced': 3, 'DeepL Pro': 3, 'Claude Pro': 2 },
+      '資料作成': { 'ChatGPT Plus': 4, 'Microsoft Copilot': 4, 'Gemini Advanced': 3, 'Perplexity Pro': 2 },
+      'データ整理': { 'Microsoft Copilot': 4, 'ChatGPT Plus': 3, 'Gemini Advanced': 3, 'Notion AI': 2 },
+      '翻訳': { 'DeepL Pro': 5, 'ChatGPT Plus': 3, 'Claude Pro': 3, 'Gemini Advanced': 2 }
+    },
+    budget: {
+      '無料': { 'NotebookLM': 5, 'ChatGPT Plus': 1, 'Gemini Advanced': 1, 'Perplexity Pro': 1 },
+      '〜2,000円': { 'Notion AI': 4, 'DeepL Pro': 4, 'Canva AI': 1 },
+      '〜5,000円': { 'ChatGPT Plus': 4, 'Claude Pro': 4, 'Gemini Advanced': 4, 'Perplexity Pro': 3 },
+      '〜10,000円': { 'Microsoft Copilot': 4, 'ChatGPT Plus': 4, 'Claude Pro': 4, 'Perplexity Pro': 4 }
+    },
+    japanese: {
+      '最重要': { 'Claude Pro': 5, 'ChatGPT Plus': 4, 'DeepL Pro': 4 },
+      '重要': { 'ChatGPT Plus': 4, 'Claude Pro': 4, 'Gemini Advanced': 3 },
+      'そこそこ': { 'Microsoft Copilot': 3, 'Gemini Advanced': 3, 'Notion AI': 2 },
+      '英語メイン': { 'DeepL Pro': 4, 'Perplexity Pro': 3, 'ChatGPT Plus': 3 }
+    },
+    business: {
+      '必要': { 'Microsoft Copilot': 5, 'ChatGPT Plus': 3, 'Claude Pro': 3, 'Notion AI': 3, 'Gemini Advanced': 3 },
+      '不要': { 'ChatGPT Plus': 3, 'Claude Pro': 3, 'Perplexity Pro': 2, 'DeepL Pro': 2 },
+      'わからない': { 'ChatGPT Plus': 4, 'NotebookLM': 3, 'Gemini Advanced': 2 }
+    }
+  };
+
+  function updateView() {
+    questions.forEach((question, index) => question.classList.toggle('active', index === current));
+    progressBar.style.width = ((current + 1) / questions.length * 100) + '%';
+    prevBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+    const key = questions[current].dataset.question;
+    nextBtn.disabled = !answers[key];
+    nextBtn.textContent = current === questions.length - 1 ? '診断結果を見る' : '次へ';
+  }
+
+  document.querySelectorAll('.choice').forEach(button => {
+    button.addEventListener('click', () => {
+      const question = button.closest('.question');
+      const key = question.dataset.question;
+      answers[key] = button.dataset.value;
+      question.querySelectorAll('.choice').forEach(choice => choice.classList.remove('selected'));
+      button.classList.add('selected');
+      nextBtn.disabled = false;
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (current < questions.length - 1) {
+      current += 1;
+      updateView();
+      return;
+    }
+    showResult();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) {
+      current -= 1;
+      updateView();
+    }
+  });
+
+  function showResult() {
+    const scored = JSON.parse(JSON.stringify(tools));
+    Object.keys(answers).forEach(key => {
+      const selected = answers[key];
+      const additions = weights[key][selected] || {};
+      Object.keys(additions).forEach(tool => {
+        if (scored[tool]) scored[tool].score += additions[tool];
+      });
+    });
+    const top3 = Object.entries(scored)
+      .sort((a, b) => b[1].score - a[1].score)
+      .slice(0, 3);
+    resultGrid.innerHTML = top3.map(([name, data], index) => `
+      <article class="result-card">
+        <div class="rank">${index + 1}</div>
+        <h3>${name}</h3>
+        <p>${data.reason}</p>
+        <p class="score-note">診断スコア：${data.score}点</p>
+        <!-- TODO: ${data.asp} を手動挿入 -->
+      </article>
+    `).join('');
+    finder.style.display = 'none';
+    result.classList.add('active');
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  resetBtn.addEventListener('click', () => {
+    Object.keys(answers).forEach(key => delete answers[key]);
+    document.querySelectorAll('.choice').forEach(choice => choice.classList.remove('selected'));
+    current = 0;
+    finder.style.display = 'block';
+    result.classList.remove('active');
+    shareMessage.textContent = '';
+    updateView();
+  });
+
+  function shareText() {
+    const first = resultGrid.querySelector('h3');
+    const top = first ? first.textContent : 'AIツール';
+    return `AIシゴトラボの診断で、私に合うAIツール1位は「${top}」でした。`;
+  }
+
+  shareX.addEventListener('click', () => {
+    const url = encodeURIComponent(location.href);
+    const text = encodeURIComponent(shareText());
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'noopener');
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(`${shareText()} ${location.href}`);
+      shareMessage.textContent = '診断結果をクリップボードにコピーしました。';
+    } catch (error) {
+      shareMessage.textContent = 'コピーできませんでした。URLを手動でコピーしてください。';
+    }
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>
