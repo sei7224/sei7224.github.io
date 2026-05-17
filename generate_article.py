@@ -96,15 +96,15 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | マネー最適化ラボ</title>
+  <title>{title} | マネゴリラボ</title>
   <meta name="description" content="{description}">
-  <meta property="og:title" content="{title} | マネー最適化ラボ">
+  <meta property="og:title" content="{title} | マネゴリラボ">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="マネー最適化ラボ">
+  <meta property="og:site_name" content="マネゴリラボ">
   <meta property="og:url" content="https://manegori-lab.com/articles/{slug}.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{title} | マネー最適化ラボ">
+  <meta name="twitter:title" content="{title} | マネゴリラボ">
   <meta name="twitter:description" content="{description}">
   <link rel="canonical" href="https://manegori-lab.com/articles/{slug}.html">
   <link rel="stylesheet" href="/css/article.css">
@@ -121,7 +121,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
 
 <header id="header">
   <div class="header-inner">
-    <div class="site-logo"><a href="/"><span class="accent-bar"></span>マネー最適化ラボ</a></div>
+    <div class="site-logo"><a href="/"><span class="accent-bar"></span>マネゴリラボ</a></div>
     <div class="site-tagline">事務・営業・企画職のためのAI活用メディア</div>
   </div>
 </header>
@@ -191,7 +191,7 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
         </ul>
       </div>
     </div>
-    <p class="copy">© 2026 マネー最適化ラボ　|　当サイトはAmazonアソシエイト・プログラム参加者です。</p>
+    <p class="copy">© 2026 マネゴリラボ　|　当サイトはAmazonアソシエイト・プログラム参加者です。</p>
   </div>
 </footer>
 
@@ -417,7 +417,7 @@ def update_index(topic: dict):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="マネー最適化ラボ 記事自動生成")
+    parser = argparse.ArgumentParser(description="マネゴリラボ 記事自動生成")
     parser.add_argument("--category", choices=CATEGORIES, help="生成するカテゴリを指定 (ai/money/gadget)")
     args = parser.parse_args()
 
