@@ -108,6 +108,14 @@ ARTICLE_HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="twitter:description" content="{description}">
   <link rel="canonical" href="https://manegori-lab.com/articles/{slug}.html">
   <link rel="stylesheet" href="/css/article.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 

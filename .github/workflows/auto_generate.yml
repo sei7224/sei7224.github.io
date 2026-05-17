@@ -37,6 +37,9 @@ jobs:
           AMAZON_TRACKING_ID: ${{ secrets.AMAZON_TRACKING_ID }}
         run: python generate_article.py
 
+      - name: サイトマップを更新
+        run: python update_sitemap.py
+
       - name: 生成した記事をコミット & プッシュ
         run: |
           git config user.name "github-actions[bot]"
