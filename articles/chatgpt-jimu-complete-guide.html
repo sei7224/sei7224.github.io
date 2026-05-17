@@ -26,7 +26,28 @@
     .toc-box ol { padding-left: 22px; font-size: 13.5px; color: #334155; line-height: 1.9; }
     .toc-box a { color: #2563eb; text-decoration: none; }
     .toc-box a:hover { text-decoration: underline; }
+    /* ヒーローイラスト枠（後でAI画像に置き換え可） */
+    .article-hero-visual { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #005F6B 100%); color: #fff; padding: 36px 28px; border-radius: 12px; margin: 18px 0 32px; display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; align-items: center; box-shadow: 0 16px 40px rgba(15,23,42,0.18); position: relative; overflow: hidden; }
+    .article-hero-visual::before { content: ""; position: absolute; top: -60%; right: -20%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(96,165,250,0.25), transparent 65%); border-radius: 50%; pointer-events: none; }
+    .article-hero-visual .hero-text { position: relative; z-index: 1; }
+    .article-hero-visual .hero-badge { display: inline-block; font-size: 11px; letter-spacing: 2px; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; font-weight: bold; color: #bfdbfe; }
+    .article-hero-visual h2 { font-size: 24px; line-height: 1.45; color: #fff; margin: 0 0 8px; font-weight: 900; }
+    .article-hero-visual p { font-size: 14px; color: #dbeafe; line-height: 1.85; margin: 0; }
+    .article-hero-visual .hero-icon { font-size: 72px; line-height: 1; text-align: center; position: relative; z-index: 1; }
+    .mermaid-wrapper { background: #fafbfc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px 18px; margin: 18px 0 28px; overflow-x: auto; }
+    .mermaid-wrapper .diagram-caption { font-size: 12px; color: #64748b; margin-top: 12px; text-align: center; letter-spacing: 0.5px; }
+    .mermaid { display: flex; justify-content: center; }
+    .chart-container { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 18px 0 28px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }
+    .chart-container .chart-title { font-size: 14px; font-weight: bold; color: #0f172a; margin-bottom: 14px; text-align: center; letter-spacing: 0.3px; }
+    .chart-container canvas { max-height: 340px; }
+    @media (max-width: 640px) {
+      .article-hero-visual { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .article-hero-visual .hero-icon { font-size: 60px; }
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'default', themeVariables: { primaryColor: '#dbeafe', primaryTextColor: '#0f172a', primaryBorderColor: '#3B82F6', lineColor: '#64748b', fontFamily: '"Hiragino Kaku Gothic ProN", sans-serif', fontSize: '13px' }});</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
   <script>
@@ -81,7 +102,38 @@
   </div>
 
   <div class="prose">
+    <!-- ヒーローイラスト枠 -->
+    <section class="article-hero-visual" aria-label="記事ビジュアル">
+      <div class="hero-text">
+        <span class="hero-badge">CHATGPT / 2026 EDITION</span>
+        <h2>議事録2時間→20分。<br>事務職を救うAIの全貌</h2>
+        <p>GPT-5.5搭載の最新ChatGPTで、メール・Excel・稟議書・日報まで月26時間を取り戻す完全ガイド。</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">🤖</div>
+    </section>
+
     <p>月曜の朝、金曜の会議の録音を聞き返しながら議事録を整えるだけで2時間。午後には営業部から「先週の問い合わせをFAQ化して」と依頼が入り、夕方には上司から稟議書のたたき台を急ぎで頼まれる──こういう日は、手を動かしているのに本来の確認業務がほとんど進みません。私自身、以前は会議メモを清書し、メール文面を直し、Excel関数を検索するだけで半日が消えていました。ところがChatGPTを業務に組み込んでから、議事録作成は2時間から20〜30分に、定型メール返信は1通あたり10分から2〜3分にまで短縮できました。もちろん「丸投げ」ではなく、人間の確認は必須です。それでも「ゼロから書く時間」を消せるだけで、事務職の一日はまったく変わります。本記事では2026年5月時点の最新プラン（Free / Go / Plus / Pro / Business / Enterprise）と最新モデル（GPT-5系）を踏まえ、事務職が今日から使える具体的なプロンプト30本以上と、私が実際に使ってわかった注意点・失敗例まで全部書きます。</p>
+
+    <!-- Mermaid図解：従来 vs ChatGPT併用後のワークフロー -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart TB
+    subgraph BEFORE["❌ ChatGPT導入前（半日が消える）"]
+        direction LR
+        A1[白紙から<br/>文章を考える] --> A2[言い回しに<br/>悩む] --> A3[Excel関数を<br/>検索]
+        A3 --> A4[何度も<br/>書き直し] --> A5[2時間〜<br/>半日経過]
+    end
+    subgraph AFTER["✅ ChatGPT導入後（時短サイクル）"]
+        direction LR
+        B1[要点メモを<br/>箇条書き] --> B2[ChatGPTに<br/>下書き依頼]
+        B2 --> B3[文体・固有名詞<br/>を人間が修正] --> B4[20〜30分で<br/>提出完了]
+    end
+    BEFORE -.乗り換え.-> AFTER
+    style BEFORE fill:#fef2f2,stroke:#dc2626
+    style AFTER fill:#f0fdf4,stroke:#16a34a
+      </div>
+      <div class="diagram-caption">📊 図1：従来の文書作成フロー vs ChatGPT併用フロー</div>
+    </div>
 
     <div class="toc-box">
       <h3>📑 目次</h3>
@@ -430,6 +482,39 @@ A列：株式会社サンプル／（株）サンプル／サンプル㈱ ／sam
         <tr><td class="product-col"><strong>合計</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>約26時間/月</strong></td></tr>
       </tbody>
     </table>
+    <!-- Chart.js グラフ：業務別 月間時間（従来 vs ChatGPT後） -->
+    <div class="chart-container">
+      <div class="chart-title">📊 図2：業務別の月間時間（分） — 従来 vs ChatGPT併用後</div>
+      <canvas id="roiChart" role="img" aria-label="業務別の月間時間比較グラフ"></canvas>
+    </div>
+    <script>
+      (function() {
+        if (typeof Chart === 'undefined') return;
+        var ctx = document.getElementById('roiChart');
+        if (!ctx) return;
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['議事録','メール作成','日報','Excel関数','稟議書','FAQ整理','英文メール'],
+            datasets: [
+              { label: '従来の月間時間（分）', data: [480, 600, 300, 200, 180, 180, 240], backgroundColor: 'rgba(220, 38, 38, 0.65)', borderColor: '#dc2626', borderWidth: 1 },
+              { label: 'ChatGPT併用後（分）', data: [120, 180, 100, 50, 80, 60, 64], backgroundColor: 'rgba(22, 163, 74, 0.65)', borderColor: '#16a34a', borderWidth: 1 }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { font: { size: 12 } } },
+              tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': ' + c.parsed.y + '分'; } } }
+            },
+            scales: {
+              x: { ticks: { font: { size: 11 } } },
+              y: { beginAtZero: true, title: { display: true, text: '月間時間（分）' }, ticks: { font: { size: 11 } } }
+            }
+          }
+        });
+      })();
+    </script>
     <p>あくまで私のサンプルですが、月20時間以上の短縮はそう難しくありません。時給1,600円換算で月32,000円相当。Plus月額3,000円に対して<strong>投資対効果は約10倍</strong>です。残業削減やストレス軽減を加味すれば、もっと大きな差になります。</p>
 
     <h2 id="compare">他AIツール（Claude／Gemini／Copilot）との比較表</h2>
@@ -497,6 +582,28 @@ A列：株式会社サンプル／（株）サンプル／サンプル㈱ ／sam
     <p>事務職目線では、<strong>「日々の文書作業中心ならChatGPT Plus」「Office365が会社の標準ならCopilot」「Google Workspace中心ならGemini」</strong>という分け方が一番シンプルです。詳しくは<a href="/articles/claude-vs-chatgpt-office.html">ChatGPT vs Claude 徹底比較</a>でも整理しています。</p>
 
     <h2 id="steps">導入7ステップ【スクショ前提】</h2>
+
+    <!-- Mermaid図解：導入ステップ -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart LR
+    S1([🌐 公式サイト<br/>アクセス]) --> S2([📧 アカウント<br/>作成])
+    S2 --> S3([✍️ 日本語入力<br/>テスト])
+    S3 --> S4([📝 プロンプト<br/>保存])
+    S4 --> S5([🔐 社内情報<br/>ルール化])
+    S5 --> S6([💳 Plus版判断<br/>(月3,000円)])
+    S6 --> S7([👥 チーム<br/>テンプレ化])
+    style S1 fill:#dbeafe,stroke:#3B82F6
+    style S2 fill:#dbeafe,stroke:#3B82F6
+    style S3 fill:#dbeafe,stroke:#3B82F6
+    style S4 fill:#dbeafe,stroke:#3B82F6
+    style S5 fill:#fef3c7,stroke:#f59e0b
+    style S6 fill:#fef3c7,stroke:#f59e0b
+    style S7 fill:#d1fae5,stroke:#16a34a
+      </div>
+      <div class="diagram-caption">📊 図3：ChatGPT導入7ステップ（推奨順）</div>
+    </div>
+
     <h3>STEP1. 公式サイトにアクセスする</h3>
     <p>検索広告や類似サービスを避けるため、ブックマークした公式ページ（chatgpt.com）からアクセスします。<strong>ここがつまずきポイント</strong>：似た名前の解説サイトや広告を公式と勘違いしやすいです。検索結果1位が広告枠の偽サイトだった事例もあります。</p>
 

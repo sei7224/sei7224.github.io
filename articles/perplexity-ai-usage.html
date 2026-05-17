@@ -23,7 +23,27 @@
     .toc-box h3 { font-size: 15px; margin-bottom: 10px; color: #0f172a; }
     .toc-box ol { padding-left: 22px; font-size: 13.5px; color: #334155; line-height: 1.9; }
     .toc-box a { color: #2563eb; text-decoration: none; }
+    .article-hero-visual { background: linear-gradient(135deg, #0f172a 0%, #134e4a 50%, #0d9488 100%); color: #fff; padding: 36px 28px; border-radius: 12px; margin: 18px 0 32px; display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; align-items: center; box-shadow: 0 16px 40px rgba(15,23,42,0.18); position: relative; overflow: hidden; }
+    .article-hero-visual::before { content: ""; position: absolute; top: -60%; right: -20%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(94,234,212,0.25), transparent 65%); border-radius: 50%; pointer-events: none; }
+    .article-hero-visual .hero-text { position: relative; z-index: 1; }
+    .article-hero-visual .hero-badge { display: inline-block; font-size: 11px; letter-spacing: 2px; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; font-weight: bold; color: #99f6e4; }
+    .article-hero-visual h2 { font-size: 24px; line-height: 1.45; color: #fff; margin: 0 0 8px; font-weight: 900; }
+    .article-hero-visual p { font-size: 14px; color: #ccfbf1; line-height: 1.85; margin: 0; }
+    .article-hero-visual .hero-icon { font-size: 72px; line-height: 1; text-align: center; position: relative; z-index: 1; }
+    .mermaid-wrapper { background: #fafbfc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px 18px; margin: 18px 0 28px; overflow-x: auto; }
+    .mermaid-wrapper .diagram-caption { font-size: 12px; color: #64748b; margin-top: 12px; text-align: center; letter-spacing: 0.5px; }
+    .mermaid { display: flex; justify-content: center; }
+    .chart-container { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 18px 0 28px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }
+    .chart-container .chart-title { font-size: 14px; font-weight: bold; color: #0f172a; margin-bottom: 14px; text-align: center; letter-spacing: 0.3px; }
+    .chart-container canvas { max-height: 340px; }
+    @media (max-width: 640px) {
+      .article-hero-visual { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .article-hero-visual .hero-icon { font-size: 60px; }
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'default', themeVariables: { primaryColor: '#dbeafe', primaryTextColor: '#0f172a', primaryBorderColor: '#3B82F6', lineColor: '#64748b', fontFamily: '"Hiragino Kaku Gothic ProN", sans-serif', fontSize: '13px' }});</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6VQD3TZE"></script>
   <script>
@@ -78,7 +98,38 @@
   </div>
 
   <div class="prose">
+    <!-- ヒーローイラスト枠 -->
+    <section class="article-hero-visual" aria-label="記事ビジュアル">
+      <div class="hero-text">
+        <span class="hero-badge">PERPLEXITY / 2026 EDITION</span>
+        <h2>リサーチ2時間が5分に。<br>出典付きAIが事務職を変える</h2>
+        <p>Deep Research・Comet Browser・複数AI使い分け。社内資料の根拠付けに直行できる完全ガイド。</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">🔍</div>
+    </section>
+
     <p>「事務職にPerplexityって必要？ChatGPTで十分じゃない？」──これも私がよく聞かれる質問です。結論を先に書くと、<strong>事務職でも「リサーチ業務がある人」「会議資料を作る人」「上司に根拠を聞かれる人」には Perplexity Pro（月20ドル≒3,000円）は強くおすすめ</strong>です。理由は1つだけ：<strong>出典が必ず付くから、社内提出資料にそのまま使える</strong>から。ChatGPTやClaudeで作った情報は、結局自分で出典を探し直す必要があります。Perplexityなら最初から信頼性の高い記事・公式サイト・論文を引用しながら答えてくれます。本記事では、2026年5月の最新機能（Deep Research、Comet Browser、Model Council）を含め、事務職のリサーチを2時間→5分にする使い方を全部出します。</p>
+
+    <!-- Mermaid図解：従来Google検索 vs Perplexity -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart TB
+    subgraph BEFORE["❌ Google検索＋手作業（2時間コース）"]
+        direction LR
+        A1[Google検索] --> A2[10サイト<br/>読み比べ] --> A3[情報整理] --> A4[出典URL<br/>を控える]
+        A4 --> A5[社内資料に<br/>反映]
+    end
+    subgraph AFTER["✅ Perplexity Pro（5分で完了）"]
+        direction LR
+        B1[質問入力] --> B2[Deep Research<br/>自動起動] --> B3[100サイト<br/>横断分析]
+        B3 --> B4[出典付き<br/>構造化レポート] --> B5[そのまま<br/>社内提出可]
+    end
+    BEFORE -.乗り換え.-> AFTER
+    style BEFORE fill:#fef2f2,stroke:#dc2626
+    style AFTER fill:#ecfdf5,stroke:#0d9488
+      </div>
+      <div class="diagram-caption">📊 図1：従来のGoogle検索 vs Perplexity Pro のリサーチワークフロー</div>
+    </div>
 
     <div class="toc-box">
       <h3>📑 目次</h3>
@@ -163,6 +214,57 @@
 
     <h2 id="deep-research">Deep Researchの威力：2時間→5分の実例</h2>
     <p>Deep Researchは、Perplexity Proの最強機能です。普通のAIチャットが「1回検索して答える」のに対し、Deep Researchは<strong>100以上のWebページを自動で読み込み、矛盾を検出し、構造化レポートを生成</strong>します。私が実際に使った3つのケースを紹介します。</p>
+
+    <!-- Mermaid図解：Deep Research の動作 -->
+    <div class="mermaid-wrapper">
+      <div class="mermaid">
+flowchart LR
+    Q[👤 質問<br/>入力] --> P[🔍 検索プラン<br/>立案]
+    P --> S1[📰 100+サイト<br/>並列クロール]
+    S1 --> S2[🔄 矛盾検出・<br/>クロスチェック]
+    S2 --> S3[🧠 GPT-5.5 /<br/>Claude / Gemini<br/>で統合分析]
+    S3 --> R[📑 構造化レポート<br/>+出典付き出力]
+    R --> E[📤 PowerPoint /<br/>スプレッドシート<br/>でエクスポート]
+    style Q fill:#fef3c7,stroke:#f59e0b
+    style R fill:#ecfdf5,stroke:#0d9488
+    style E fill:#ecfdf5,stroke:#0d9488
+      </div>
+      <div class="diagram-caption">📊 図2：Deep Researchが2〜5分で実行する6ステップ</div>
+    </div>
+
+    <!-- Chart.js グラフ：3事例のリサーチ時間削減 -->
+    <div class="chart-container">
+      <div class="chart-title">📊 図3：事務職リサーチ業務の時間削減効果（実測3事例）</div>
+      <canvas id="researchChart" role="img" aria-label="リサーチ時間削減のグラフ"></canvas>
+    </div>
+    <script>
+      (function() {
+        if (typeof Chart === 'undefined') return;
+        var ctx = document.getElementById('researchChart');
+        if (!ctx) return;
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['競合5社調査','法改正・自社影響','カンファレンス報告書'],
+            datasets: [
+              { label: '従来の作業時間（分）', data: [120, 60, 180], backgroundColor: 'rgba(220, 38, 38, 0.65)', borderColor: '#dc2626', borderWidth: 1 },
+              { label: 'Deep Research後（分）', data: [4, 3, 8], backgroundColor: 'rgba(13, 148, 136, 0.7)', borderColor: '#0d9488', borderWidth: 1 }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { font: { size: 12 } } },
+              tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': ' + c.parsed.y + '分'; } } }
+            },
+            scales: {
+              x: { ticks: { font: { size: 11 } } },
+              y: { beginAtZero: true, title: { display: true, text: '作業時間（分）' }, ticks: { font: { size: 11 } } }
+            }
+          }
+        });
+      })();
+    </script>
 
     <h3>事例1：競合5社の最新動向リサーチ（従来2時間→Deep Research 5分）</h3>
     <div class="prompt-box"><span class="prompt-label">PROMPT</span>
