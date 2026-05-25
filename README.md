@@ -1,1 +1,0 @@
-# sei7224.github.io
