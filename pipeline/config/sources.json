@@ -6,8 +6,9 @@
       "feed_url": "https://www.apple.com/jp/newsroom/rss-feed.rss",
       "reference_page": "https://www.apple.com/jp/rss/",
       "enabled": true,
-      "checked_at": "2026-05-25",
+      "checked_at": "2026-05-26",
       "capture": "headline_link_date_only",
+      "automatic_article_policy": "official_release_no_image_no_affiliate_v1",
       "keywords": [
         "iPhone",
         "iPad",

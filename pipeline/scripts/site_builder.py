@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+AUTOMATION_POLICY_FILE = ROOT / "config" / "automation_policy.json"
 
 
 class BuildError(ValueError):
@@ -137,6 +138,44 @@ def publication_blockers(product: dict) -> list[str]:
         if not str(image.get("rights_basis", "")).strip():
             blockers.append("external image requires image.rights_basis")
 
+    automation_policy_id = str(compliance.get("automation_policy", "")).strip()
+    if automation_policy_id:
+        blockers.extend(automated_publication_blockers(product, automation_policy_id))
+
+    return blockers
+
+
+def automated_publication_blockers(product: dict, automation_policy_id: str) -> list[str]:
+    """Enforce the narrow conditions allowed for unattended Codex publication."""
+    blockers: list[str] = []
+    policy = load_json(AUTOMATION_POLICY_FILE)
+    if policy.get("enabled") is not True or policy.get("auto_publish") is not True:
+        blockers.append("automated publication is disabled by policy")
+        return blockers
+    if automation_policy_id != policy.get("policy_id"):
+        blockers.append("unsupported automation_policy")
+        return blockers
+
+    source = product.get("source", {})
+    source_id = str(source.get("id", "")).strip()
+    if source_id not in policy.get("permitted_source_ids", []):
+        blockers.append("automated publication source is not permitted")
+    source_host = urlparse(str(source.get("url", ""))).hostname
+    if source_host not in policy.get("permitted_hosts", []):
+        blockers.append("automated publication source host is not permitted")
+    if source.get("allowed_for_automation") is not True:
+        blockers.append("source.allowed_for_automation is not true")
+
+    compliance = product.get("compliance", {})
+    if not str(compliance.get("automation_verified_at", "")).strip():
+        blockers.append("automation_verified_at is required for automated publication")
+    if not str(compliance.get("review_actor", "")).strip():
+        blockers.append("review_actor is required for automated publication")
+
+    if policy.get("allow_affiliate_links") is not True and product.get("affiliate_links"):
+        blockers.append("automated publication may not include affiliate links")
+    if policy.get("allow_external_images") is not True and product.get("image", {}).get("src"):
+        blockers.append("automated publication may not include external images")
     return blockers
 
 
