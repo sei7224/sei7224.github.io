@@ -4,6 +4,13 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "20 */6 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "pipeline/config/sources.json"
+      - "pipeline/scripts/collect_candidates.py"
+      - ".github/workflows/collect-candidates.yml"
 
 permissions:
   contents: write
