@@ -1,0 +1,50 @@
+{
+  "slug": "apple-airpods-max-2-announced",
+  "status": "published",
+  "title": "Apple、H2搭載の「AirPods Max 2」を発表 - 価格は89,800円",
+  "manufacturer": "Apple",
+  "product_name": "AirPods Max 2",
+  "category": "Apple / オーディオ",
+  "published_at": "2026-05-25",
+  "facts": {
+    "announcement_date": "2026-03-16",
+    "release_date": "2026年4月上旬より販売開始予定（発表時点）",
+    "price": "89,800円（税込）",
+    "checked_at": "2026-05-25",
+    "features": [
+      "H2チップを搭載し、Appleによると前世代より最大1.5倍効果的なANCを提供",
+      "適応型オーディオ、会話感知、声を分離、ライブ翻訳などに対応",
+      "付属のUSB-Cケーブル接続時に24ビット48kHzのロスレスオーディオに対応",
+      "ミッドナイト、スターライト、オレンジ、パープル、ブルーの5色展開"
+    ]
+  },
+  "source": {
+    "name": "Apple Newsroom：Apple、AirPods Max 2を発表",
+    "url": "https://www.apple.com/jp/newsroom/2026/03/apple-introduces-airpods-max-2-powered-by-h2/",
+    "retrieved_at": "2026-05-25",
+    "allowed_for_automation": false,
+    "automation_scope": "RSSの見出し・URL・配信日の候補収集のみ"
+  },
+  "image": {
+    "src": "",
+    "alt": "",
+    "rights_basis": "",
+    "rights_verified": false
+  },
+  "article": {
+    "lead": "Appleは、H2チップを搭載したオーバーイヤーヘッドフォン「AirPods Max 2」を発表しました。価格は89,800円（税込）で、発表時点では2026年3月25日から注文を開始し、4月上旬より販売を開始する予定と案内されています。",
+    "paragraphs": [
+      "AirPods Max 2では、H2チップと新しいコンピュテーショナルオーディオアルゴリズムにより、Appleによるとアクティブノイズキャンセリング（ANC）が前世代より最大1.5倍効果的になるとしています。適応型オーディオ、会話感知、声を分離、ライブ翻訳などの機能もAirPods Maxで初めて利用可能になります。",
+      "音声面では、付属のUSB-Cケーブルで接続した場合に24ビット48kHzのロスレスオーディオへ対応します。なお、Appleの注記では、電波の規制により日本ではワイヤレスオーディオのレイテンシー低減には対応しないとされています。",
+      "カラーはミッドナイト、スターライト、オレンジ、パープル、ブルーの5色です。ライブ翻訳など一部機能は、対応デバイスやOS、言語、地域などの条件により利用できない場合があります。"
+    ],
+    "editorial_note": "本記事はAppleの発表内容を整理したニュースです。実機レビューではなく、画像は権利確認済みの素材を取得するまで代替画像を表示しています。"
+  },
+  "affiliate_links": [],
+  "compliance": {
+    "ad_disclosure": "",
+    "facts_verified": true,
+    "editorial_reviewed": true,
+    "review_basis": "2026-05-25にApple Newsroom本文と注記を確認。外部画像およびアフィリエイトリンクなし。"
+  }
+}

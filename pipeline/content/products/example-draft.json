@@ -1,0 +1,47 @@
+{
+  "slug": "sample-usb-c-dock",
+  "status": "draft",
+  "title": "サンプル：7ポートUSB-Cドックが発表、HDMIと有線LANを搭載",
+  "manufacturer": "Sample Devices",
+  "product_name": "Sample Dock 7",
+  "category": "周辺機器",
+  "published_at": "2026-05-25",
+  "facts": {
+    "announcement_date": "2026-05-25",
+    "release_date": "未発表",
+    "price": "未発表",
+    "checked_at": "2026-05-25",
+    "features": [
+      "USB-C接続の7ポートドック",
+      "HDMI出力と有線LANポートを搭載",
+      "本データは記事生成確認用のサンプルであり、実在する販売情報ではありません"
+    ]
+  },
+  "source": {
+    "name": "サンプル入力（公開不可）",
+    "url": "https://example.com/press-release",
+    "retrieved_at": "2026-05-25",
+    "allowed_for_automation": false
+  },
+  "image": {
+    "src": "",
+    "alt": "",
+    "rights_basis": "",
+    "rights_verified": false
+  },
+  "article": {
+    "lead": "これは製品リリースから短いニュース記事を生成する流れを確認するためのサンプル下書きです。実在する商品の紹介記事ではありません。",
+    "paragraphs": [
+      "Sample Devicesは、USB-C接続の多機能ドック「Sample Dock 7」を発表した、という想定で構成しています。HDMI出力や有線LANなど、ノートパソコンで不足しやすい端子をまとめる製品として要点を記載します。",
+      "実際の記事を作成する際は、メーカーの発表ページで価格、発売日、対応機種、販売ページを確認し、確認できない情報は推測せずに未発表として扱います。",
+      "掲載する商品画像は、ASPやメーカーが利用を認めた素材のみを使用します。利用条件を確認できない画像については、記事公開時にも代替画像を表示します。"
+    ],
+    "editorial_note": "このページはMVP動作確認用のサンプル下書きです。購入リンクは設置していません。"
+  },
+  "affiliate_links": [],
+  "compliance": {
+    "ad_disclosure": "",
+    "facts_verified": false,
+    "editorial_reviewed": false
+  }
+}

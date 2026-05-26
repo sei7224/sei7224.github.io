@@ -1,0 +1,35 @@
+{
+  "sources": [
+    {
+      "id": "apple-newsroom-jp",
+      "name": "Apple Newsroom（日本）",
+      "feed_url": "https://www.apple.com/jp/newsroom/rss-feed.rss",
+      "reference_page": "https://www.apple.com/jp/rss/",
+      "enabled": true,
+      "checked_at": "2026-05-25",
+      "capture": "headline_link_date_only",
+      "keywords": [
+        "iPhone",
+        "iPad",
+        "Mac",
+        "Apple Watch",
+        "AirPods",
+        "AirTag",
+        "Vision"
+      ],
+      "required_phrases": [
+        "を発表",
+        "を発売",
+        "販売を開始",
+        "予約注文"
+      ],
+      "excluded_phrases": [
+        "業績",
+        "アクセシビリティ",
+        "生中継",
+        "Filmed on",
+        "認可"
+      ]
+    }
+  ]
+}

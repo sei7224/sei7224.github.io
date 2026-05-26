@@ -1,0 +1,21 @@
+{
+  "id": "apple-newsroom-jp-761b6c046f8567db",
+  "state": "draft_created",
+  "headline": "Apple、AirPods Max 2を発表",
+  "url": "https://www.apple.com/jp/newsroom/2026/03/apple-introduces-airpods-max-2-powered-by-h2/",
+  "feed_published_at": "2026-03-16T13:00:36.835Z",
+  "collected_at": "2026-05-25T14:46:26.889476+00:00",
+  "source": {
+    "id": "apple-newsroom-jp",
+    "name": "Apple Newsroom（日本）",
+    "feed_url": "https://www.apple.com/jp/newsroom/rss-feed.rss",
+    "capture": "headline_link_date_only"
+  },
+  "policy": {
+    "article_body_collected": false,
+    "image_collected": false,
+    "requires_fact_review": true,
+    "requires_image_rights_review": true
+  },
+  "article_input": "content/products/apple-airpods-max-2-announced.json"
+}
