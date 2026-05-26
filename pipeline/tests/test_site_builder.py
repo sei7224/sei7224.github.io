@@ -26,7 +26,7 @@ class SiteBuilderTests(unittest.TestCase):
         document = SITE_BUILDER.render_article(self.product, self.site, draft=True)
         self.assertIn('content="noindex,nofollow"', document)
         self.assertIn("../../assets/default-product.svg", document)
-        self.assertIn("styles.css?v=20260526-news-layout", document)
+        self.assertIn("styles.css?v=20260526-clean-list", document)
         self.assertNotIn('rel="sponsored', document)
         self.assertIn("広告リンクは掲載していません", document)
 
@@ -70,7 +70,7 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn("この記事にはアフィリエイト広告が含まれます", document)
         self.assertNotIn("noindex,nofollow", document)
 
-    def test_home_page_uses_news_layout_and_manufacturer_module(self):
+    def test_home_page_uses_minimal_article_list(self):
         products = [
             json.loads(
                 (ROOT / "content" / "products" / filename).read_text(encoding="utf-8")
@@ -82,12 +82,14 @@ class SiteBuilderTests(unittest.TestCase):
         ]
         document = SITE_BUILDER.render_index(products, self.site, draft=False)
         self.assertIn('id="latest"', document)
-        self.assertIn('class="feature-story"', document)
-        self.assertIn("注目メーカー", document)
-        self.assertIn("UPDATE", document)
-        self.assertIn("assets/styles.css?v=20260526-news-layout", document)
+        self.assertIn('class="post-row"', document)
+        self.assertIn("新着記事", document)
+        self.assertNotIn("取り扱うジャンル", document)
+        self.assertNotIn("注目メーカー", document)
+        self.assertNotIn(self.site["description"], document.split("<body>", 1)[1])
+        self.assertIn("assets/styles.css?v=20260526-clean-list", document)
 
-    def test_article_includes_related_story_and_sidebar(self):
+    def test_article_includes_related_story_without_sidebar(self):
         product = json.loads(
             (ROOT / "content" / "products" / "google-pixel-10a-isai-blue-released.json").read_text(
                 encoding="utf-8"
@@ -103,7 +105,7 @@ class SiteBuilderTests(unittest.TestCase):
         )
         self.assertIn("あわせて読みたい", document)
         self.assertIn("1000X THE COLLEXION", document)
-        self.assertIn('class="sidebar"', document)
+        self.assertNotIn('class="sidebar"', document)
 
     def automated_product(self, source_id="apple-newsroom-jp", url=None):
         product = copy.deepcopy(self.product)
