@@ -26,6 +26,7 @@ class SiteBuilderTests(unittest.TestCase):
         document = SITE_BUILDER.render_article(self.product, self.site, draft=True)
         self.assertIn('content="noindex,nofollow"', document)
         self.assertIn("../../assets/default-product.svg", document)
+        self.assertIn("styles.css?v=20260526-news-layout", document)
         self.assertNotIn('rel="sponsored', document)
         self.assertIn("広告リンクは掲載していません", document)
 
@@ -84,6 +85,7 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn('class="feature-story"', document)
         self.assertIn("注目メーカー", document)
         self.assertIn("UPDATE", document)
+        self.assertIn("assets/styles.css?v=20260526-news-layout", document)
 
     def test_article_includes_related_story_and_sidebar(self):
         product = json.loads(

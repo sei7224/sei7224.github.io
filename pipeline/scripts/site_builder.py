@@ -16,6 +16,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 AUTOMATION_POLICY_FILE = ROOT / "config" / "automation_policy.json"
+ASSET_VERSION = "20260526-news-layout"
 
 
 class BuildError(ValueError):
@@ -276,7 +277,10 @@ def article_image(product: dict, prefix: str) -> tuple[str, str]:
     image = product.get("image", {})
     if image.get("src") and image.get("rights_verified") is True and image.get("rights_basis"):
         return str(image["src"]), str(image.get("alt") or product["product_name"])
-    return f"{prefix}assets/default-product.svg", f"{product['product_name']} の製品ニュース"
+    return (
+        f"{prefix}assets/default-product.svg?v={ASSET_VERSION}",
+        f"{product['product_name']} の製品ニュース",
+    )
 
 
 def disclosure_text(product: dict, site: dict) -> str:
@@ -336,7 +340,7 @@ def render_article(
         site,
         product["title"],
         description,
-        f"{prefix}assets/styles.css",
+        f"{prefix}assets/styles.css?v={ASSET_VERSION}",
         noindex=draft,
         canonical_path=canonical,
         og_type="article",
@@ -433,7 +437,7 @@ def render_index(products: list[dict], site: dict, *, draft: bool) -> str:
         site,
         site["tagline"],
         description,
-        "assets/styles.css",
+        f"assets/styles.css?v={ASSET_VERSION}",
         noindex=draft,
         canonical_path="/",
     )
@@ -525,7 +529,7 @@ def render_basic_page(site: dict, slug: str, title: str, body: str, *, draft: bo
         site,
         title,
         site["description"],
-        "assets/styles.css",
+        f"assets/styles.css?v={ASSET_VERSION}",
         noindex=draft,
         canonical_path=f"{slug}.html",
     )
