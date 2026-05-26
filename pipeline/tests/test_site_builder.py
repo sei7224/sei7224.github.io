@@ -69,6 +69,40 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn("この記事にはアフィリエイト広告が含まれます", document)
         self.assertNotIn("noindex,nofollow", document)
 
+    def test_home_page_uses_news_layout_and_manufacturer_module(self):
+        products = [
+            json.loads(
+                (ROOT / "content" / "products" / filename).read_text(encoding="utf-8")
+            )
+            for filename in (
+                "google-pixel-10a-isai-blue-released.json",
+                "sony-1000x-the-collexion-announced.json",
+            )
+        ]
+        document = SITE_BUILDER.render_index(products, self.site, draft=False)
+        self.assertIn('id="latest"', document)
+        self.assertIn('class="feature-story"', document)
+        self.assertIn("注目メーカー", document)
+        self.assertIn("UPDATE", document)
+
+    def test_article_includes_related_story_and_sidebar(self):
+        product = json.loads(
+            (ROOT / "content" / "products" / "google-pixel-10a-isai-blue-released.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        related = json.loads(
+            (ROOT / "content" / "products" / "sony-1000x-the-collexion-announced.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        document = SITE_BUILDER.render_article(
+            product, self.site, draft=False, recent_products=[product, related]
+        )
+        self.assertIn("あわせて読みたい", document)
+        self.assertIn("1000X THE COLLEXION", document)
+        self.assertIn('class="sidebar"', document)
+
     def automated_product(self, source_id="apple-newsroom-jp", url=None):
         product = copy.deepcopy(self.product)
         product["status"] = "published"

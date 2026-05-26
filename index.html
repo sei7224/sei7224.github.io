@@ -13,57 +13,116 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="shell header-row">
-    <a class="brand" href="index.html">GADGET <span>WIRE</span> JAPAN</a>
-    <nav class="navigation" aria-label="メインナビゲーション">
+  <div class="utility-bar">
+    <div class="shell utility-row">
+      <p>メーカー公式情報を確認して掲載するガジェットニュースメディア</p>
+      <nav aria-label="サイト情報">
+        <a href="about.html">媒体情報</a>
+        <a href="privacy.html">広告方針</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <div class="shell masthead">
+    <a class="brand" href="index.html"><span>GADGET</span> WIRE <b>JAPAN</b></a>
+    <p>新製品とセール情報を、要点だけ速く</p>
+  </div>
+  <nav class="navigation" aria-label="メインナビゲーション">
+    <div class="shell">
       <ul>
-        <li><a href="index.html">新着</a></li>
-        <li><a href="about.html">このサイトについて</a></li>
-        <li><a href="privacy.html">広告・プライバシー</a></li>
-        <li><a href="contact.html">お問い合わせ</a></li>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="index.html#latest">新着ニュース</a></li>
+        <li><a href="index.html#brands">注目メーカー</a></li>
+        <li><a href="about.html">掲載方針</a></li>
+        <li><a href="privacy.html">広告について</a></li>
       </ul>
-    </nav>
+    </div>
+  </nav>
+  <div class="topic-bar">
+    <div class="shell topic-row" aria-label="対象ジャンル">
+      <span>SMARTPHONE</span><span>AUDIO</span><span>WEARABLE</span><span>CHARGER</span><span>SMART HOME</span>
+    </div>
   </div>
 </header>
-<main>
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div>
-        <span class="eyebrow">PRODUCT NEWS</span>
-        <h1>新製品とセール情報を、要点だけ速く</h1>
-        <p>主要メーカーのスマートフォンやオーディオ、周辺機器を中心に、発表内容・価格・発売情報を短く整理するガジェットニュースサイト。</p>
-      </div>
-      <img src="assets/default-product.svg" alt="" width="1200" height="675" fetchpriority="high" decoding="async">
+<main class="home-page">
+  <section class="news-intro">
+    <div class="shell intro-row">
+      <h1>新製品とセール情報を、要点だけ速く</h1>
+      <p>主要メーカーのスマートフォンやオーディオ、周辺機器を中心に、発表内容・価格・発売情報を短く整理するガジェットニュースサイト。</p>
     </div>
   </section>
-  <section class="news-section">
-    <div class="shell">
-      <h2 class="section-heading">新着記事</h2>
-      <div class="article-grid"><article class="card">
-          <img src="assets/default-product.svg" alt="Google Pixel 10a Isai Blue の製品ニュース" width="1200" height="675" loading="lazy" decoding="async">
-          <div class="card-content">
+  <div class="shell update-strip"><span>UPDATE</span><a href="articles/google-pixel-10a-isai-blue-released/index.html">Google、「Pixel 10a Isai Blue」を発売 - 日本限定モデルは94,900円</a></div>
+  <div class="shell home-layout">
+    <section class="latest-column" id="latest">
+      <div class="section-title"><h2>新着ニュース</h2><span>LATEST NEWS</span></div>
+      <article class="feature-story">
+          <a class="feature-image" href="articles/google-pixel-10a-isai-blue-released/index.html">
+            <img src="assets/default-product.svg" alt="Google Pixel 10a Isai Blue の製品ニュース" width="1200" height="675" fetchpriority="high" decoding="async">
+          </a>
+          <div class="feature-content">
             <p class="category">Google / スマートフォン</p>
-            <h3><a href="articles/google-pixel-10a-isai-blue-released/index.html">Google、「Pixel 10a Isai Blue」を発売 - 日本限定モデルは94,900円</a></h3>
+            <h2><a href="articles/google-pixel-10a-isai-blue-released/index.html">Google、「Pixel 10a Isai Blue」を発売 - 日本限定モデルは94,900円</a></h2>
             <p class="summary">Googleは、スマートフォン「Google Pixel 10a」の日本限定モデル「Isai Blue」を2026年5月20日より販売開始しました。Google ストア価格は94,900円（税込）です。</p>
             <time class="date" datetime="2026-05-26">2026-05-26</time>
           </div>
         </article>
-<article class="card">
-          <img src="assets/default-product.svg" alt="1000X THE COLLEXION の製品ニュース" width="1200" height="675" loading="lazy" decoding="async">
-          <div class="card-content">
+      <div class="news-feed"><article class="news-row">
+          <a class="news-image" href="articles/sony-1000x-the-collexion-announced/index.html">
+            <img src="assets/default-product.svg" alt="1000X THE COLLEXION の製品ニュース" width="1200" height="675" loading="lazy" decoding="async">
+          </a>
+          <div>
             <p class="category">Sony / オーディオ</p>
             <h3><a href="articles/sony-1000x-the-collexion-announced/index.html">ソニー、「1000X THE COLLEXION」を発表 - 6月5日発売のプレミアムヘッドホン</a></h3>
             <p class="summary">ソニーは、1000Xシリーズ誕生10周年を記念するヘッドバンド型ワイヤレスヘッドホン「1000X THE COLLEXION」を発表しました。2026年6月5日発売予定で、価格はオープン価格です。</p>
             <time class="date" datetime="2026-05-26">2026-05-26</time>
           </div>
         </article></div>
+    </section>
+<aside class="sidebar" aria-label="関連情報">
+      <section class="side-module">
+        <h2>注目記事</h2>
+        <ol class="headline-list"><li><a href="articles/google-pixel-10a-isai-blue-released/index.html">Google、「Pixel 10a Isai Blue」を発売 - 日本限定モデルは94,900円</a><time datetime="2026-05-26">2026-05-26</time></li>
+<li><a href="articles/sony-1000x-the-collexion-announced/index.html">ソニー、「1000X THE COLLEXION」を発表 - 6月5日発売のプレミアムヘッドホン</a><time datetime="2026-05-26">2026-05-26</time></li></ol>
+      </section>
+      <section class="side-module" id="brands">
+        <h2>注目メーカー</h2>
+        <div class="brand-tags">
+          <span>Apple</span><span>Google Pixel</span><span>Galaxy</span>
+          <span>Sony</span><span>Anker</span><span>Belkin</span>
+        </div>
+      </section>
+      <section class="side-module trust-module">
+        <h2>記事の確認方針</h2>
+        <p>公式発表を出典として確認し、価格や発売日を簡潔に整理します。</p>
+        <a href="about.html">掲載方針を見る</a>
+      </section>
+    </aside>
+  </div>
+  <section class="coverage">
+    <div class="shell">
+      <div class="section-title"><h2>取り扱うジャンル</h2><span>COVERAGE</span></div>
+      <div class="coverage-grid">
+        <article><h3>スマートフォン</h3><p>Apple、Google、Samsungなどの新製品と発売情報。</p></article>
+        <article><h3>オーディオ</h3><p>イヤホン、ヘッドホン、スピーカーの公式発表。</p></article>
+        <article><h3>周辺機器</h3><p>充電器、ウェアラブル、スマートホーム関連製品。</p></article>
+      </div>
     </div>
   </section>
 </main>
 <footer class="site-footer">
-  <div class="shell footer-row">
+  <div class="shell footer-grid">
+    <div>
+      <a class="brand footer-brand" href="index.html"><span>GADGET</span> WIRE <b>JAPAN</b></a>
+      <p>主要メーカーのスマートフォンやオーディオ、周辺機器を中心に、発表内容・価格・発売情報を短く整理するガジェットニュースサイト。</p>
+    </div>
+    <nav aria-label="フッターナビゲーション">
+      <a href="about.html">このサイトについて</a>
+      <a href="privacy.html">広告掲載方針・プライバシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="shell copyright">
     <span>&copy; 2026 Gadget Wire Japan</span>
-    <span><a href="privacy.html">広告掲載方針・プライバシーポリシー</a></span>
   </div>
 </footer>
 </body>

@@ -219,16 +219,35 @@ def document_head(
 
 def header(site: dict, prefix: str) -> str:
     return f"""<header class="site-header">
-  <div class="shell header-row">
-    <a class="brand" href="{prefix}index.html">GADGET <span>WIRE</span> JAPAN</a>
-    <nav class="navigation" aria-label="メインナビゲーション">
+  <div class="utility-bar">
+    <div class="shell utility-row">
+      <p>メーカー公式情報を確認して掲載するガジェットニュースメディア</p>
+      <nav aria-label="サイト情報">
+        <a href="{prefix}about.html">媒体情報</a>
+        <a href="{prefix}privacy.html">広告方針</a>
+        <a href="{prefix}contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <div class="shell masthead">
+    <a class="brand" href="{prefix}index.html"><span>GADGET</span> WIRE <b>JAPAN</b></a>
+    <p>{escape(site["tagline"])}</p>
+  </div>
+  <nav class="navigation" aria-label="メインナビゲーション">
+    <div class="shell">
       <ul>
-        <li><a href="{prefix}index.html">新着</a></li>
-        <li><a href="{prefix}about.html">このサイトについて</a></li>
-        <li><a href="{prefix}privacy.html">広告・プライバシー</a></li>
-        <li><a href="{prefix}contact.html">お問い合わせ</a></li>
+        <li><a href="{prefix}index.html">トップ</a></li>
+        <li><a href="{prefix}index.html#latest">新着ニュース</a></li>
+        <li><a href="{prefix}index.html#brands">注目メーカー</a></li>
+        <li><a href="{prefix}about.html">掲載方針</a></li>
+        <li><a href="{prefix}privacy.html">広告について</a></li>
       </ul>
-    </nav>
+    </div>
+  </nav>
+  <div class="topic-bar">
+    <div class="shell topic-row" aria-label="対象ジャンル">
+      <span>SMARTPHONE</span><span>AUDIO</span><span>WEARABLE</span><span>CHARGER</span><span>SMART HOME</span>
+    </div>
   </div>
 </header>"""
 
@@ -236,9 +255,19 @@ def header(site: dict, prefix: str) -> str:
 def footer(site: dict, prefix: str) -> str:
     year = datetime.now().year
     return f"""<footer class="site-footer">
-  <div class="shell footer-row">
+  <div class="shell footer-grid">
+    <div>
+      <a class="brand footer-brand" href="{prefix}index.html"><span>GADGET</span> WIRE <b>JAPAN</b></a>
+      <p>{escape(site["description"])}</p>
+    </div>
+    <nav aria-label="フッターナビゲーション">
+      <a href="{prefix}about.html">このサイトについて</a>
+      <a href="{prefix}privacy.html">広告掲載方針・プライバシー</a>
+      <a href="{prefix}contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="shell copyright">
     <span>&copy; {year} {escape(site["name"])}</span>
-    <span><a href="{prefix}privacy.html">広告掲載方針・プライバシーポリシー</a></span>
   </div>
 </footer>"""
 
@@ -257,7 +286,44 @@ def disclosure_text(product: dict, site: dict) -> str:
     return specified or str(site["default_disclosure"])
 
 
-def render_article(product: dict, site: dict, *, draft: bool) -> str:
+def recent_links(products: list[dict], prefix: str, *, exclude_slug: str = "") -> str:
+    links: list[str] = []
+    for product in products:
+        if product["slug"] == exclude_slug:
+            continue
+        links.append(
+            f'<li><a href="{prefix}articles/{escape(product["slug"])}/index.html">'
+            f'{escape(product["title"])}</a><time datetime="{escape(product["published_at"])}">'
+            f'{escape(product["published_at"])}</time></li>'
+        )
+    return "\n".join(links) or "<li>新しい記事を準備中です。</li>"
+
+
+def sidebar(site: dict, prefix: str, products: list[dict], *, exclude_slug: str = "") -> str:
+    headlines = recent_links(products[:6], prefix, exclude_slug=exclude_slug)
+    return f"""<aside class="sidebar" aria-label="関連情報">
+      <section class="side-module">
+        <h2>注目記事</h2>
+        <ol class="headline-list">{headlines}</ol>
+      </section>
+      <section class="side-module" id="brands">
+        <h2>注目メーカー</h2>
+        <div class="brand-tags">
+          <span>Apple</span><span>Google Pixel</span><span>Galaxy</span>
+          <span>Sony</span><span>Anker</span><span>Belkin</span>
+        </div>
+      </section>
+      <section class="side-module trust-module">
+        <h2>記事の確認方針</h2>
+        <p>公式発表を出典として確認し、価格や発売日を簡潔に整理します。</p>
+        <a href="{prefix}about.html">掲載方針を見る</a>
+      </section>
+    </aside>"""
+
+
+def render_article(
+    product: dict, site: dict, *, draft: bool, recent_products: list[dict] | None = None
+) -> str:
     prefix = "../../"
     slug = product["slug"]
     image_src, image_alt = article_image(product, prefix)
@@ -309,13 +375,15 @@ def render_article(product: dict, site: dict, *, draft: bool) -> str:
         rights_note = (
             f"      <p>画像利用根拠：{escape(image.get('rights_basis', '確認済み素材'))}</p>\n"
         )
+    related = recent_links(recent_products or [], prefix, exclude_slug=slug)
 
     return f"""{head}
 <body>
 {header(site, prefix)}
 <main class="article-page">
-  <article class="shell article-width">
-    <p class="breadcrumb"><a href="{prefix}index.html">ホーム</a> / {escape(product["category"])}</p>
+  <div class="shell article-layout">
+  <article class="article-width">
+    <p class="breadcrumb"><a href="{prefix}index.html">ホーム</a> / <span>{escape(product["category"])}</span></p>
 {warning}    <header class="article-header">
       <p class="category">{escape(product["category"])}</p>
       <h1>{escape(product["title"])}</h1>
@@ -343,7 +411,13 @@ def render_article(product: dict, site: dict, *, draft: bool) -> str:
       <h2 id="source-heading">出典</h2>
       <p><a href="{escape(source["url"])}" target="_blank" rel="noopener">{escape(source["name"])}</a>（取得日：{escape(source["retrieved_at"])}）</p>
 {rights_note}    </section>
+    <section class="related" aria-labelledby="related-heading">
+      <h2 id="related-heading">あわせて読みたい</h2>
+      <ul>{related}</ul>
+    </section>
   </article>
+{sidebar(site, prefix, recent_products or [], exclude_slug=slug)}
+  </div>
 </main>
 {footer(site, prefix)}
 </body>
@@ -364,17 +438,38 @@ def render_index(products: list[dict], site: dict, *, draft: bool) -> str:
         canonical_path="/",
     )
     preview = (
-        '      <p class="draft-warning">下書きプレビュー環境です。ここに表示される記事は未公開です。</p>\n'
+        '        <p class="draft-warning">下書きプレビュー環境です。ここに表示される記事は未公開です。</p>\n'
         if draft
         else ""
     )
-    cards: list[str] = []
-    for product in visible:
+    feature = ""
+    if visible:
+        product = visible[0]
         src, alt = article_image(product, "")
-        cards.append(
-            f"""<article class="card">
-          <img src="{escape(src)}" alt="{escape(alt)}" width="1200" height="675" loading="lazy" decoding="async">
-          <div class="card-content">
+        feature = f"""<article class="feature-story">
+          <a class="feature-image" href="articles/{escape(product["slug"])}/index.html">
+            <img src="{escape(src)}" alt="{escape(alt)}" width="1200" height="675" fetchpriority="high" decoding="async">
+          </a>
+          <div class="feature-content">
+            <p class="category">{escape(product["category"])}</p>
+            <h2><a href="articles/{escape(product["slug"])}/index.html">{escape(product["title"])}</a></h2>
+            <p class="summary">{escape(product["article"]["lead"])}</p>
+            <time class="date" datetime="{escape(product["published_at"])}">{escape(product["published_at"])}</time>
+          </div>
+        </article>"""
+    else:
+        feature = (
+            '<p class="empty">公開準備中です。確認が完了した製品ニュースから順次掲載します。</p>'
+        )
+    rows: list[str] = []
+    for product in visible[1:]:
+        src, alt = article_image(product, "")
+        rows.append(
+            f"""<article class="news-row">
+          <a class="news-image" href="articles/{escape(product["slug"])}/index.html">
+            <img src="{escape(src)}" alt="{escape(alt)}" width="1200" height="675" loading="lazy" decoding="async">
+          </a>
+          <div>
             <p class="category">{escape(product["category"])}</p>
             <h3><a href="articles/{escape(product["slug"])}/index.html">{escape(product["title"])}</a></h3>
             <p class="summary">{escape(product["article"]["lead"])}</p>
@@ -382,27 +477,40 @@ def render_index(products: list[dict], site: dict, *, draft: bool) -> str:
           </div>
         </article>"""
         )
-    card_output = "\n".join(cards) or (
-        '<p class="empty">公開準備中です。確認が完了した製品ニュースから順次掲載します。</p>'
+    feed_output = "\n".join(rows) or '<p class="empty compact">次の公式発表を確認中です。</p>'
+    spotlight = (
+        f'<a href="articles/{escape(visible[0]["slug"])}/index.html">'
+        f'{escape(visible[0]["title"])}</a>'
+        if visible
+        else "<span>掲載準備中</span>"
     )
     return f"""{head}
 <body>
 {header(site, "")}
-<main>
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div>
-        <span class="eyebrow">PRODUCT NEWS</span>
-        <h1>{escape(site["tagline"])}</h1>
-        <p>{escape(site["description"])}</p>
-      </div>
-      <img src="assets/default-product.svg" alt="" width="1200" height="675" fetchpriority="high" decoding="async">
+<main class="home-page">
+  <section class="news-intro">
+    <div class="shell intro-row">
+      <h1>{escape(site["tagline"])}</h1>
+      <p>{escape(site["description"])}</p>
     </div>
   </section>
-  <section class="news-section">
+  <div class="shell update-strip"><span>UPDATE</span>{spotlight}</div>
+  <div class="shell home-layout">
+    <section class="latest-column" id="latest">
+{preview}      <div class="section-title"><h2>新着ニュース</h2><span>LATEST NEWS</span></div>
+      {feature}
+      <div class="news-feed">{feed_output}</div>
+    </section>
+{sidebar(site, "", visible)}
+  </div>
+  <section class="coverage">
     <div class="shell">
-{preview}      <h2 class="section-heading">新着記事</h2>
-      <div class="article-grid">{card_output}</div>
+      <div class="section-title"><h2>取り扱うジャンル</h2><span>COVERAGE</span></div>
+      <div class="coverage-grid">
+        <article><h3>スマートフォン</h3><p>Apple、Google、Samsungなどの新製品と発売情報。</p></article>
+        <article><h3>オーディオ</h3><p>イヤホン、ヘッドホン、スピーカーの公式発表。</p></article>
+        <article><h3>周辺機器</h3><p>充電器、ウェアラブル、スマートホーム関連製品。</p></article>
+      </div>
     </div>
   </section>
 </main>
@@ -446,7 +554,7 @@ def basic_pages(site: dict, *, draft: bool) -> dict[str, str]:
             site,
             "about",
             "このサイトについて",
-            """<p>Gadget Wire Japanは、Apple製品や周辺機器を中心に、メーカー発表と正規販売情報を確認して要点を短く伝える独立メディアです。</p>
+            """<p>Gadget Wire Japanは、Apple、Google、Samsung、Sonyをはじめとする主要メーカーのガジェット情報を、公式発表と正規販売情報に基づいて短く伝える独立メディアです。</p>
   <p>発表内容を整理する記事では、価格・発売日・対応機種などの根拠となるページを出典として明記します。実機を確認していない製品について、使用レビューであるかのような表現は行いません。</p>""",
             draft=draft,
         ),
@@ -548,12 +656,12 @@ def build_site() -> tuple[int, int]:
     for product in published:
         write_document(
             public_dir / "articles" / product["slug"] / "index.html",
-            render_article(product, site, draft=False),
+            render_article(product, site, draft=False, recent_products=published),
         )
     for product in drafts:
         write_document(
             drafts_dir / "articles" / product["slug"] / "index.html",
-            render_article(product, site, draft=True),
+            render_article(product, site, draft=True, recent_products=drafts),
         )
 
     robots = "User-agent: *\nAllow: /\nDisallow: /pipeline/\n"
