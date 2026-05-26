@@ -1,6 +1,7 @@
 import copy
 import importlib.util
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -26,7 +27,8 @@ class SiteBuilderTests(unittest.TestCase):
         document = SITE_BUILDER.render_article(self.product, self.site, draft=True)
         self.assertIn('content="noindex,nofollow"', document)
         self.assertIn("../../assets/default-product.svg", document)
-        self.assertIn("styles.css?v=20260526-clean-list", document)
+        self.assertIn("styles.css?v=20260526-manegori-brand", document)
+        self.assertIn("Manegori Gadget Lab", document)
         self.assertNotIn('rel="sponsored', document)
         self.assertIn("広告リンクは掲載していません", document)
 
@@ -87,7 +89,8 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertNotIn("取り扱うジャンル", document)
         self.assertNotIn("注目メーカー", document)
         self.assertNotIn(self.site["description"], document.split("<body>", 1)[1])
-        self.assertIn("assets/styles.css?v=20260526-clean-list", document)
+        self.assertIn("assets/styles.css?v=20260526-manegori-brand", document)
+        self.assertIn("MANEGORI", document)
 
     def test_article_includes_related_story_without_sidebar(self):
         product = json.loads(
@@ -106,6 +109,18 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn("あわせて読みたい", document)
         self.assertIn("1000X THE COLLEXION", document)
         self.assertNotIn('class="sidebar"', document)
+
+    def test_reset_output_directory_removes_stale_articles(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir) / "dist"
+            stale_article = output / "articles" / "retired-product" / "index.html"
+            stale_article.parent.mkdir(parents=True)
+            stale_article.write_text("retired", encoding="utf-8")
+
+            SITE_BUILDER.reset_output_directory(output)
+
+            self.assertTrue(output.exists())
+            self.assertFalse(stale_article.exists())
 
     def automated_product(self, source_id="apple-newsroom-jp", url=None):
         product = copy.deepcopy(self.product)

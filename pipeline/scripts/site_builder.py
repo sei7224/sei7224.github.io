@@ -16,7 +16,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 AUTOMATION_POLICY_FILE = ROOT / "config" / "automation_policy.json"
-ASSET_VERSION = "20260526-clean-list"
+ASSET_VERSION = "20260526-manegori-brand"
 
 
 class BuildError(ValueError):
@@ -221,7 +221,7 @@ def document_head(
 def header(site: dict, prefix: str) -> str:
     return f"""<header class="site-header">
   <div class="shell masthead">
-    <a class="brand" href="{prefix}index.html"><span>GADGET</span> WIRE <b>JAPAN</b></a>
+    <a class="brand" href="{prefix}index.html"><span>MANEGORI</span> GADGET <b>LAB</b></a>
     <nav class="navigation" aria-label="メインナビゲーション">
       <a href="{prefix}index.html">新着</a>
       <a href="{prefix}about.html">このブログについて</a>
@@ -462,7 +462,7 @@ def basic_pages(site: dict, *, draft: bool) -> dict[str, str]:
             site,
             "about",
             "このサイトについて",
-            """<p>Gadget Wire Japanは、Apple、Google、Samsung、Sonyをはじめとする主要メーカーのガジェット情報を、公式発表と正規販売情報に基づいて短く伝える独立メディアです。</p>
+            """<p>Manegori Gadget Labは、Apple、Google、Samsung、Sonyをはじめとする主要メーカーのガジェット情報を、公式発表と正規販売情報に基づいて短く伝える独立メディアです。</p>
   <p>発表内容を整理する記事では、価格・発売日・対応機種などの根拠となるページを出典として明記します。実機を確認していない製品について、使用レビューであるかのような表現は行いません。</p>""",
             draft=draft,
         ),
@@ -521,6 +521,12 @@ def copy_assets(destination: Path) -> None:
     shutil.copytree(source, destination / "assets", dirs_exist_ok=True)
 
 
+def reset_output_directory(destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir(parents=True, exist_ok=True)
+
+
 def write_document(path: Path, contents: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(contents, encoding="utf-8")
@@ -548,6 +554,8 @@ def build_site() -> tuple[int, int]:
 
     public_dir = ROOT / "dist"
     drafts_dir = ROOT / "build" / "drafts"
+    reset_output_directory(public_dir)
+    reset_output_directory(drafts_dir)
     copy_assets(public_dir)
     copy_assets(drafts_dir)
 
@@ -593,7 +601,7 @@ def build_site() -> tuple[int, int]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build the Gadget Wire Japan static site.")
+    parser = argparse.ArgumentParser(description="Build the Manegori Gadget Lab static site.")
     parser.parse_args()
     try:
         published, drafts = build_site()

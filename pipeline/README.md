@@ -1,6 +1,6 @@
-# Gadget Wire Japan Pipeline
+# Manegori Gadget Lab Pipeline
 
-メーカー発表や販売ページを基に、短い製品ニュース記事を安全に生成して `manegori-lab.com` に公開するためのパイプラインです。旧サイトの公開コンテンツは Gadget Wire Japan に刷新済みです。
+メーカー発表や販売ページを基に、短い製品ニュース記事を安全に生成して `manegori-lab.com` に公開するためのパイプラインです。公開コンテンツは Manegori Gadget Lab として運営します。
 
 ## 現在できること
 
