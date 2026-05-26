@@ -27,6 +27,7 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn('content="noindex,nofollow"', document)
         self.assertIn("../../assets/default-product.svg", document)
         self.assertNotIn('rel="sponsored', document)
+        self.assertIn("広告リンクは掲載していません", document)
 
     def test_external_image_requires_rights_before_publish(self):
         product = copy.deepcopy(self.product)
@@ -65,6 +66,7 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertEqual([], SITE_BUILDER.publication_blockers(product))
         document = SITE_BUILDER.render_article(product, self.site, draft=False)
         self.assertIn('rel="sponsored nofollow noopener"', document)
+        self.assertIn("この記事にはアフィリエイト広告が含まれます", document)
         self.assertNotIn("noindex,nofollow", document)
 
     def automated_product(self, source_id="apple-newsroom-jp", url=None):

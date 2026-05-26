@@ -1,0 +1,54 @@
+{
+  "slug": "google-pixel-10a-isai-blue-released",
+  "status": "published",
+  "title": "Google、「Pixel 10a Isai Blue」を発売 - 日本限定モデルは94,900円",
+  "manufacturer": "Google",
+  "product_name": "Google Pixel 10a Isai Blue",
+  "category": "Google / スマートフォン",
+  "published_at": "2026-05-26",
+  "facts": {
+    "announcement_date": "2026-05-20",
+    "release_date": "2026年5月20日より販売開始",
+    "price": "94,900円（税込、Google ストア価格）",
+    "checked_at": "2026-05-26",
+    "features": [
+      "Google Pixel 10aの日本限定モデルとして「Isai Blue」を展開",
+      "ストレージ容量は256GB",
+      "ヘラルボニーとの共創により開発した特別なブルーカラーを採用",
+      "限定壁紙、オリジナルテーマ、限定ステッカー、専用バンパーケースを同梱"
+    ]
+  },
+  "source": {
+    "id": "google-devices-jp",
+    "name": "Google Japan Blog：Google Pixel 10a 日本限定モデル Isai Blue を本日より発売開始",
+    "url": "https://blog.google/intl/ja-jp/feed/pixel-10a-isai-blue-available-now/",
+    "retrieved_at": "2026-05-26",
+    "allowed_for_automation": true,
+    "automation_scope": "公式製品発表本文の確認に基づく記事公開"
+  },
+  "image": {
+    "src": "",
+    "alt": "",
+    "rights_basis": "",
+    "rights_verified": false
+  },
+  "article": {
+    "lead": "Googleは、スマートフォン「Google Pixel 10a」の日本限定モデル「Isai Blue」を2026年5月20日より販売開始しました。Google ストア価格は94,900円（税込）です。",
+    "paragraphs": [
+      "Isai Blueは、Google Pixel誕生10周年の節目に向けた日本限定モデルで、ヘラルボニーとの共創により開発されたブルーカラーを採用しています。ストレージ容量は256GBです。",
+      "同モデルには、契約作家によるアートを採用した限定壁紙やオリジナルテーマ、限定ステッカーが同梱されます。また、スマートフォンの側面を覆うフレーム型の専用バンパーケースもセットになっています。",
+      "販売先として、GoogleはGoogle ストアおよび各通信事業者を案内しています。販売条件やキャンペーン内容は変更される場合があるため、購入時は公式販売ページで最新情報を確認してください。"
+    ],
+    "editorial_note": "本記事はGoogle Japan Blogの発表内容を整理したニュースです。実機レビューではなく、製品画像は掲載していません。"
+  },
+  "affiliate_links": [],
+  "compliance": {
+    "ad_disclosure": "",
+    "facts_verified": true,
+    "editorial_reviewed": true,
+    "automation_policy": "official_release_no_image_no_affiliate_v1",
+    "automation_verified_at": "2026-05-26",
+    "review_actor": "Codex editorial workflow",
+    "review_basis": "2026-05-26にGoogle Japan Blog本文で価格、販売開始日、容量、同梱内容を確認。外部画像およびアフィリエイトリンクなし。"
+  }
+}

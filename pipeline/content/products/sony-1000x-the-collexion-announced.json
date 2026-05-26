@@ -1,0 +1,54 @@
+{
+  "slug": "sony-1000x-the-collexion-announced",
+  "status": "published",
+  "title": "ソニー、「1000X THE COLLEXION」を発表 - 6月5日発売のプレミアムヘッドホン",
+  "manufacturer": "ソニー",
+  "product_name": "1000X THE COLLEXION",
+  "category": "Sony / オーディオ",
+  "published_at": "2026-05-26",
+  "facts": {
+    "announcement_date": "2026-05-20",
+    "release_date": "2026年6月5日発売",
+    "price": "オープン価格",
+    "checked_at": "2026-05-26",
+    "features": [
+      "1000Xシリーズ誕生10周年を記念するヘッドバンド型ワイヤレスヘッドホン",
+      "プラチナとブラックの2色展開",
+      "本商品向けに専用開発したドライバーユニットと統合プロセッサーV3を搭載",
+      "12個のマイクによるノイズキャンセリング機能と最大24時間のバッテリー性能を搭載"
+    ]
+  },
+  "source": {
+    "id": "sony-press-jp",
+    "name": "ソニー：上質なデザインと装着性を追求したプレミアムヘッドホン『1000X THE COLLEXION』を発売",
+    "url": "https://www.sony.jp/CorporateCruise/Press/202605/26-0520/",
+    "retrieved_at": "2026-05-26",
+    "allowed_for_automation": true,
+    "automation_scope": "公式製品発表本文の確認に基づく記事公開"
+  },
+  "image": {
+    "src": "",
+    "alt": "",
+    "rights_basis": "",
+    "rights_verified": false
+  },
+  "article": {
+    "lead": "ソニーは、1000Xシリーズ誕生10周年を記念するヘッドバンド型ワイヤレスヘッドホン「1000X THE COLLEXION」を発表しました。2026年6月5日発売予定で、価格はオープン価格です。",
+    "paragraphs": [
+      "1000X THE COLLEXIONは、高品質な素材を用いたデザインと装着性を特徴とするプレミアムモデルです。カラーはプラチナとブラックの2色が用意されます。",
+      "音響面では、本商品向けに専用開発したドライバーユニットに加え、統合プロセッサーV3を新たに搭載します。DSEE Ultimateや、新開発の3モード対応「360 Upmix」にも対応すると案内されています。",
+      "ノイズキャンセリングでは12個のマイクを用いたマルチノイズセンサー技術とアダプティブNCオプティマイザーを採用します。バッテリー性能は、ソニーの条件においてノイズキャンセリング有効時に最大24時間とされています。"
+    ],
+    "editorial_note": "本記事はソニーのニュースリリースを整理したニュースです。実機レビューではなく、製品画像は掲載していません。"
+  },
+  "affiliate_links": [],
+  "compliance": {
+    "ad_disclosure": "",
+    "facts_verified": true,
+    "editorial_reviewed": true,
+    "automation_policy": "official_release_no_image_no_affiliate_v1",
+    "automation_verified_at": "2026-05-26",
+    "review_actor": "Codex editorial workflow",
+    "review_basis": "2026-05-26にソニー公式ニュースリリース本文で発表日、発売日、価格、主な仕様を確認。外部画像およびアフィリエイトリンクなし。"
+  }
+}

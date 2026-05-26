@@ -251,6 +251,8 @@ def article_image(product: dict, prefix: str) -> tuple[str, str]:
 
 
 def disclosure_text(product: dict, site: dict) -> str:
+    if not product.get("affiliate_links"):
+        return "この記事は公式発表をもとに作成した製品ニュースです。広告リンクは掲載していません。"
     specified = str(product.get("compliance", {}).get("ad_disclosure", "")).strip()
     return specified or str(site["default_disclosure"])
 
