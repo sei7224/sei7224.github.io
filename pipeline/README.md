@@ -5,7 +5,8 @@
 ## 現在できること
 
 - 製品情報を `content/products/*.json` として受け取る
-- Apple公式RSSなど、許可リスト化したフィードの見出しとURLを候補キューへ収集する
+- Apple、Google、Samsungの公式RSSから見出しとURLを候補キューへ収集する
+- Sony、Anker、Belkinの公式ニュースページをCodex監視対象として管理する
 - 製品名、価格、発売日、特徴、出典、広告リンクを記事HTMLへ変換する
 - 未確認記事を `build/drafts/` にのみ生成し、`noindex` を付ける
 - 事実確認、編集レビュー、画像利用根拠が揃った記事だけ `dist/` に公開出力する
@@ -59,18 +60,18 @@ python3 -m http.server 8000 --directory build/drafts
 
 ## Codex自動公開
 
-`config/automation_policy.json` で許可した公式ソースの記事は、Codexの定期ジョブが公式ニュースリリース本文を確認して記事化し、安全条件を満たす場合に限り自動公開できます。現在の許可範囲は Apple Newsroom（日本）の製品発表だけです。
+`config/automation_policy.json` で許可した公式ソースの記事は、Codexの定期ジョブが公式ニュースリリース本文を確認して記事化し、安全条件を満たす場合に限り自動公開できます。現在の許可範囲は Apple Newsroom（日本）、Google Japan Blog のデバイス記事、Samsung Newsroom 日本、ソニーの製品ニュースリリースです。
 
 自動公開の記事には次の追加制約があります。
 
-- `source.id` が許可された公式ソースであり、URLホストが `www.apple.com` であること
+- `source.id` とURLホストの組が、許可された公式ソースと一致すること
 - `source.allowed_for_automation: true` を設定すること
 - `compliance.automation_policy`、`automation_verified_at`、`review_actor` を記録すること
 - 外部画像を使用せず、サイト所有の代替画像のみ表示すること
 - アフィリエイトリンクを含めないこと
 - 使用感、評価、比較優位など、公式発表で確認できない主張を書かないこと
 
-条件を外れる候補は自動公開せず、手動確認対象として残します。画像掲載やアフィリエイト導入は、権利確認と広告表示を別途整えた後の運用です。
+条件を外れる候補は自動公開せず、手動確認対象として残します。AnkerおよびBelkinのニュースは、販売価格や国内流通の確認を整えるまで監視のみとします。画像掲載やアフィリエイト導入は、権利確認と広告表示を別途整えた後の運用です。
 
 ## GitHub Pages
 
@@ -80,6 +81,6 @@ GitHub Pages はリポジトリ直下の静的ファイルを配信します。`
 
 ## 候補収集
 
-収集Botは `config/sources.json` で有効化した公式RSS/Atomの見出し・URL・配信日だけを `content/candidates/` に保存します。現在はApple公式RSSを候補収集対象に設定していますが、本文や製品画像は複製しません。候補から `content/products/` の記事入力へ変換する段階では、Codex定期ジョブが公式リリース本文で価格、発売地域、主要仕様を確認します。
+収集Botは `config/sources.json` で有効化した公式RSS/Atomの見出し・URL・配信日だけを `content/candidates/` に保存します。現在はApple、Google、Samsungの公式RSSを候補収集対象に設定していますが、本文や製品画像は複製しません。新しく追加した情報源には `collect_on_or_after` を設定し、運用開始前の記事を遡って自動公開しません。候補から `content/products/` の記事入力へ変換する段階では、Codex定期ジョブが公式リリース本文で日本向け価格、国内発売情報、主要仕様を確認します。
 
 `.github/workflows/collect-candidates.yml` は6時間ごと、手動実行時、および収集元設定や収集コードの更新時に候補を取り込みます。収集で保存するのは見出し、URL、配信日と管理用メタデータだけで、記事本文や画像は自動取得しません。自動公開条件を満たさない候補は、Codexが公開せず手動確認対象として扱います。

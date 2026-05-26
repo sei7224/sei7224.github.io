@@ -31,6 +31,110 @@
         "Filmed on",
         "認可"
       ]
+    },
+    {
+      "id": "google-devices-jp",
+      "name": "Google Japan Blog - Devices & Services",
+      "feed_url": "https://blog.google/intl/ja-jp/products/devices-services/rss/",
+      "reference_page": "https://blog.google/intl/ja-jp/products/devices-services/",
+      "enabled": true,
+      "checked_at": "2026-05-26",
+      "collect_on_or_after": "2026-05-26",
+      "capture": "headline_link_date_only",
+      "automatic_article_policy": "official_release_no_image_no_affiliate_v1",
+      "keywords": [
+        "Pixel",
+        "Fitbit",
+        "Nest"
+      ],
+      "required_phrases": [
+        "発表",
+        "新登場",
+        "登場",
+        "発売開始",
+        "発売"
+      ],
+      "excluded_phrases": [
+        "アップデート",
+        "プレビュー",
+        "使い方",
+        "セール"
+      ]
+    },
+    {
+      "id": "samsung-newsroom-jp",
+      "name": "Samsung Newsroom 日本",
+      "feed_url": "https://news.samsung.com/jp/feed",
+      "reference_page": "https://news.samsung.com/jp/",
+      "enabled": true,
+      "checked_at": "2026-05-26",
+      "collect_on_or_after": "2026-05-26",
+      "capture": "headline_link_date_only",
+      "automatic_article_policy": "official_release_no_image_no_affiliate_v1",
+      "keywords": [
+        "Galaxy"
+      ],
+      "required_phrases": [
+        "発表",
+        "発売開始",
+        "販売開始",
+        "予約開始"
+      ],
+      "excluded_phrases": [
+        "CM",
+        "キャンペーン",
+        "イベントレポート",
+        "ベータ版",
+        "展示開始"
+      ]
+    }
+  ],
+  "monitored_pages": [
+    {
+      "id": "sony-press-jp",
+      "name": "ソニー ニュースリリース",
+      "url": "https://www.sony.jp/CorporateCruise/Press/",
+      "enabled": true,
+      "checked_at": "2026-05-26",
+      "monitor_on_or_after": "2026-05-26",
+      "automatic_article_policy": "official_release_no_image_no_affiliate_v1",
+      "keywords": [
+        "Xperia",
+        "ヘッドホン",
+        "イヤホン",
+        "INZONE"
+      ],
+      "publication_mode": "automatic_if_policy_passes"
+    },
+    {
+      "id": "anker-japan-news",
+      "name": "Anker Japan ニュース・プレスリリース",
+      "url": "https://corp.ankerjapan.com/news",
+      "enabled": true,
+      "checked_at": "2026-05-26",
+      "monitor_on_or_after": "2026-05-26",
+      "keywords": [
+        "Anker",
+        "Soundcore",
+        "Eufy",
+        "Nebula"
+      ],
+      "publication_mode": "manual_review"
+    },
+    {
+      "id": "belkin-jp-press",
+      "name": "Belkin Japan プレスルーム",
+      "url": "https://www.belkin.com/jp/company/press-room/",
+      "enabled": true,
+      "checked_at": "2026-05-26",
+      "monitor_on_or_after": "2026-05-26",
+      "keywords": [
+        "Belkin",
+        "BoostCharge",
+        "UltraCharge",
+        "SoundForm"
+      ],
+      "publication_mode": "manual_review"
     }
   ]
 }

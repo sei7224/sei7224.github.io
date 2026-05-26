@@ -67,13 +67,13 @@ class SiteBuilderTests(unittest.TestCase):
         self.assertIn('rel="sponsored nofollow noopener"', document)
         self.assertNotIn("noindex,nofollow", document)
 
-    def automated_product(self):
+    def automated_product(self, source_id="apple-newsroom-jp", url=None):
         product = copy.deepcopy(self.product)
         product["status"] = "published"
         product["source"].update(
             {
-                "id": "apple-newsroom-jp",
-                "url": "https://www.apple.com/jp/newsroom/2026/05/example-product/",
+                "id": source_id,
+                "url": url or "https://www.apple.com/jp/newsroom/2026/05/example-product/",
                 "allowed_for_automation": True,
             }
         )
@@ -90,6 +90,29 @@ class SiteBuilderTests(unittest.TestCase):
 
     def test_automation_policy_allows_official_release_without_commercial_assets(self):
         self.assertEqual([], SITE_BUILDER.publication_blockers(self.automated_product()))
+
+    def test_automation_policy_allows_added_official_product_sources(self):
+        source_urls = {
+            "google-devices-jp": "https://blog.google/intl/ja-jp/products/devices-services/new-pixel/",
+            "samsung-newsroom-jp": "https://news.samsung.com/jp/new-galaxy-launch",
+            "sony-press-jp": "https://www.sony.jp/CorporateCruise/Press/202606/26-0601/",
+        }
+        for source_id, url in source_urls.items():
+            with self.subTest(source_id=source_id):
+                self.assertEqual(
+                    [],
+                    SITE_BUILDER.publication_blockers(self.automated_product(source_id, url)),
+                )
+
+    def test_automation_policy_does_not_mix_source_id_with_another_allowed_host(self):
+        product = self.automated_product(
+            "google-devices-jp",
+            "https://www.apple.com/jp/newsroom/2026/05/not-google/",
+        )
+        self.assertIn(
+            "automated publication source host is not permitted",
+            SITE_BUILDER.publication_blockers(product),
+        )
 
     def test_automation_policy_blocks_external_image_and_affiliate_link(self):
         product = self.automated_product()

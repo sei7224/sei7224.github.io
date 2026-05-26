@@ -20,7 +20,7 @@
 
 | 項目 | 値または意味 |
 | --- | --- |
-| `source.id` | `apple-newsroom-jp` など許可済みソースID |
+| `source.id` | `apple-newsroom-jp`、`google-devices-jp`、`samsung-newsroom-jp`、`sony-press-jp` のいずれか |
 | `source.allowed_for_automation` | `true` |
 | `compliance.automation_policy` | `official_release_no_image_no_affiliate_v1` |
 | `compliance.automation_verified_at` | 公式ページを確認した日 |

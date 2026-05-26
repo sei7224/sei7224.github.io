@@ -6,7 +6,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree
@@ -62,6 +63,31 @@ def candidate_id(source_id: str, url: str) -> str:
     return f"{source_id}-{digest}"
 
 
+def parsed_publication_date(value: str) -> date | None:
+    if not value.strip():
+        return None
+    try:
+        return parsedate_to_datetime(value).date()
+    except (TypeError, ValueError, IndexError):
+        pass
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).date()
+    except ValueError:
+        return None
+
+
+def meets_collection_start(entry: dict[str, str], source: dict) -> bool:
+    cutoff = str(source.get("collect_on_or_after", "")).strip()
+    if not cutoff:
+        return True
+    published = parsed_publication_date(entry.get("published_at", ""))
+    try:
+        first_date = date.fromisoformat(cutoff)
+    except ValueError:
+        return False
+    return published is not None and published >= first_date
+
+
 def matches_source(entry: dict[str, str], source: dict) -> bool:
     title = entry.get("title", "")
     keywords = source.get("keywords", [])
@@ -75,7 +101,13 @@ def matches_source(entry: dict[str, str], source: dict) -> bool:
         phrase.casefold() in folded_title for phrase in required
     )
     is_excluded = any(phrase.casefold() in folded_title for phrase in excluded)
-    return bool(entry.get("url")) and matches_keyword and matches_release_phrase and not is_excluded
+    return (
+        bool(entry.get("url"))
+        and meets_collection_start(entry, source)
+        and matches_keyword
+        and matches_release_phrase
+        and not is_excluded
+    )
 
 
 def collect(source: dict, payload: bytes) -> list[dict]:
@@ -96,6 +128,7 @@ def collect(source: dict, payload: bytes) -> list[dict]:
                     "name": source["name"],
                     "feed_url": source["feed_url"],
                     "capture": source["capture"],
+                    "automatic_article_policy": source.get("automatic_article_policy", ""),
                 },
                 "policy": {
                     "article_body_collected": False,

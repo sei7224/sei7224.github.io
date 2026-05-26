@@ -158,10 +158,18 @@ def automated_publication_blockers(product: dict, automation_policy_id: str) -> 
 
     source = product.get("source", {})
     source_id = str(source.get("id", "")).strip()
-    if source_id not in policy.get("permitted_source_ids", []):
+    permitted_source = next(
+        (
+            item
+            for item in policy.get("permitted_sources", [])
+            if item.get("id") == source_id
+        ),
+        None,
+    )
+    if permitted_source is None:
         blockers.append("automated publication source is not permitted")
     source_host = urlparse(str(source.get("url", ""))).hostname
-    if source_host not in policy.get("permitted_hosts", []):
+    if permitted_source is None or source_host not in permitted_source.get("hosts", []):
         blockers.append("automated publication source host is not permitted")
     if source.get("allowed_for_automation") is not True:
         blockers.append("source.allowed_for_automation is not true")

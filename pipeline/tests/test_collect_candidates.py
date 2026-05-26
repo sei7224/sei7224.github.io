@@ -14,8 +14,8 @@ SPEC.loader.exec_module(COLLECTOR)
 
 RSS = b"""<?xml version="1.0"?>
 <rss version="2.0"><channel>
-  <item><title>Apple, new Mac product announced</title><link>https://example.test/mac</link><pubDate>Mon</pubDate></item>
-  <item><title>Company environmental report</title><link>https://example.test/report</link><pubDate>Tue</pubDate></item>
+  <item><title>Apple, new Mac product announced</title><link>https://example.test/mac</link><pubDate>Wed, 27 May 2026 00:00:00 +0000</pubDate></item>
+  <item><title>Company environmental report</title><link>https://example.test/report</link><pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate></item>
 </channel></rss>"""
 
 
@@ -47,6 +47,32 @@ class CandidateCollectorTests(unittest.TestCase):
             "excluded_phrases": ["environmental"],
         }
         self.assertEqual([], COLLECTOR.collect(source, RSS))
+
+    def test_excludes_entries_before_source_collection_start(self):
+        source = {
+            "id": "apple",
+            "name": "Apple",
+            "feed_url": "https://example.test/feed",
+            "capture": "headline_link_date_only",
+            "keywords": ["Mac"],
+            "required_phrases": ["announced"],
+            "excluded_phrases": [],
+            "collect_on_or_after": "2026-05-28",
+        }
+        self.assertEqual([], COLLECTOR.collect(source, RSS))
+
+    def test_collects_entries_on_source_collection_start_date(self):
+        source = {
+            "id": "apple",
+            "name": "Apple",
+            "feed_url": "https://example.test/feed",
+            "capture": "headline_link_date_only",
+            "keywords": ["Mac"],
+            "required_phrases": ["announced"],
+            "excluded_phrases": [],
+            "collect_on_or_after": "2026-05-27",
+        }
+        self.assertEqual(1, len(COLLECTOR.collect(source, RSS)))
 
     def test_rss_parser_extracts_entries(self):
         entries = COLLECTOR.parse_entries(RSS)
