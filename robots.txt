@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /pipeline/
-Sitemap: https://manegori-lab.com/sitemap.xml
